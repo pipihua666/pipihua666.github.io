@@ -5,44 +5,73 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  使用Gatsby.js+github pages搭建个人博客
 </h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## 🚀 Gatsby 环境配置
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+1. **安装 Gatsby 命令行工具.**
 
-## 🚀 Quick start
+   ```shell
+   npm install -g gatsby-cli
+   ```
 
-1.  **Create a Gatsby site.**
+1. **根据官方博客的 starter，创建一个新的 Gatsby 站点.**
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+   ```shell
+   gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+   ```
 
-    ```shell
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
-    ```
+1. **本地开发环境.**
 
-1.  **Start developing.**
+   ```shell
+   cd my-blog-starter/
+   gatsby develop
+   ```
 
-    Navigate into your new site’s directory and start it up.
+1. **打开源代码并开始编辑!**
 
-    ```shell
-    cd my-blog-starter/
-    gatsby develop
-    ```
+   你的站点运行在 `http://localhost:8000`!
 
-1.  **Open the source code and start editing!**
+   注意: 此链接的工具将会方便 graphql 数据查询: `http://localhost:8000/___graphql`
 
-    Your site is now running at `http://localhost:8000`!
+   在您选择的代码编辑器中打开 my-blog-starter 目录，然后编辑 src / pages / index.js。 保存您的更改，浏览器将实时更新！
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+## 🌞 部署到 github pages
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+需要在 github 上上创建一个名字叫 username.github.io 的工程，比如本人的 github  用户名是 pipihua666，那么创建的工程名字就是`pipihua666.github.io`
 
-## 🧐 What's inside?
+1. 安装依赖
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+   ```shell
+   npm install gh-pages --save-dev
+   ```
+
+2. 找到 gatsby-config.js,添加 pathPrefix 配置，如果不需要路径，直接配置成 pathPrefix: /就可以。
+
+   ```shell
+   module.exports = {
+     pathPrefix: `/project-name`,
+   }
+   ```
+
+3. 在 package.json，配置 github 仓库并添加一个 scripts 配置，将先将静态文件 build 到 public 目录，然后再 push 到 github 工程的 master 分支。
+   ```shell
+   "scripts": {
+       "deploy": "gatsby build --prefix-paths &&  cp -f README.md public && gh-pages -d public master",
+     }
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pipihua666/  pipihua666.github.io.git"
+   },
+   ```
+4. 发布并上线
+
+   ```shell
+   npm run deploy
+   ```
+
+## 🧐 文件夹约定规范
 
     .
     ├── node_modules
@@ -58,42 +87,12 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── package.json
     └── README.md
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+1.  **`/src`**: 源代码
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+2.  **`gatsby-browser.js`**: Gatsby 希望在此文件中找到[Gatsby 浏览器 API]（`https://www.gatsbyjs.com/docs/browser-apis/`） 这些允许自定义/扩展影响浏览器的默认 Gatsby 设置。
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+3.  **`gatsby-config.js`**: 这是 Gatsby 站点的主要配置文件。 您可以在此处指定有关您的网站（元数据）的信息，例如网站标题和说明，您要包括的 Gatsby 插件等。（请查看[config docs]（`https://www.gatsbyjs.com/docs/gatsby-config/`）了解更多信息）。
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+4.  **`gatsby-node.js`**: Gatsby 希望在此文件中找到[Gatsby Node API]（`https://www.gatsbyjs.com/docs/node-apis/`） 这些允许自定义/扩展默认的 Gatsby 设置，从而影响网站的构建过程。
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+5.  **`gatsby-ssr.js`**: Gatsby 希望在此文件中找到[Gatsby 服务器端渲染 API]（`https://www.gatsbyjs.com/docs/ssr-apis/`） 这些允许自定义影响服务器端渲染的默认 Gatsby 设置。
