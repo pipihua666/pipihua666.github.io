@@ -55,7 +55,7 @@
    }
    ```
 
-3. 在 package.json，配置 github 仓库并添加一个 scripts 配置，将先将静态文件 build 到 public 目录，然后再 push 到 github 工程的master分支。
+3. 在 package.json，配置 github 仓库并添加一个 scripts 配置，将先将静态文件 build 到 public 目录，然后再 push 到 github。
    ```shell
    "scripts": {
        "deploy": "gatsby build --prefix-paths &&  cp -f README.md public && gh-pages -d public master",
