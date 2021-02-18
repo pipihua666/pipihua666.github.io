@@ -16,7 +16,7 @@
    npm install -g gatsby-cli
    ```
 
-1. **根据官方博客的 starter，创建一个新的 Gatsby 站点.**
+1. **根据官方博客的 starter，创建一个新的 Gatsby 站点.**
 
    ```shell
    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
@@ -89,10 +89,10 @@
 
 1.  **`/src`**: 源代码
 
-2.  **`gatsby-browser.js`**: Gatsby 希望在此文件中找到[Gatsby 浏览器 API]（`https://www.gatsbyjs.com/docs/browser-apis/`） 这些允许自定义/扩展影响浏览器的默认 Gatsby 设置。
+2.  **`gatsby-browser.js`**:自定义/扩展影响浏览器的默认 Gatsby 设置。
 
-3.  **`gatsby-config.js`**: 这是 Gatsby 站点的主要配置文件。 您可以在此处指定有关您的网站（元数据）的信息，例如网站标题和说明，您要包括的 Gatsby 插件等。（`https://www.gatsbyjs.com/docs/gatsby-config/`）
+3.  **`gatsby-config.js`**: 这是 Gatsby 站点的主要配置文件。 您可以在此处指定有关您的网站（元数据）的信息，例如网站标题和说明，您要包括的 Gatsby 插件等。
 
-4.  **`gatsby-node.js`**: Gatsby 希望在此文件中找到[Gatsby Node API]（`https://www.gatsbyjs.com/docs/node-apis/`） 这些允许自定义/扩展默认的 Gatsby 设置，从而影响网站的构建过程。
+4.  **`gatsby-node.js`**:自定义/扩展默认的 Gatsby 设置，从而影响网站的构建过程。
 
-5.  **`gatsby-ssr.js`**: Gatsby 希望在此文件中找到[Gatsby 服务器端渲染 API]（`https://www.gatsbyjs.com/docs/ssr-apis/`） 这些允许自定义影响服务器端渲染的默认 Gatsby 设置。
+5.  **`gatsby-ssr.js`**:自定义影响服务器端渲染的默认 Gatsby 设置。
