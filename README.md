@@ -62,7 +62,7 @@
      }
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/pipihua666/  pipihua666.github.io.git"
+      "url": "git+https://github.com/pipihua666/pipihua666.github.io.git"
    },
    ```
 4. 发布并上线
