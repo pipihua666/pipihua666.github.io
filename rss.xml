@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[皮皮花的博客]]></title><description><![CDATA[如果觉得文章还不错，欢迎到github点击小爱心]]></description><link>https://www.pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Feb 2021 14:20:17 GMT</lastBuildDate><item><title><![CDATA[react使用websocket通信]]></title><description><![CDATA[浏览器自带的 api：（如果是 https 则采用 wss）  开发环境配置：  生产环境配置： 我的 nginx 配置： 扩展：
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[皮皮花的博客]]></title><description><![CDATA[如果觉得文章还不错，欢迎到github点击小爱心]]></description><link>https://www.pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Feb 2021 14:24:40 GMT</lastBuildDate><item><title><![CDATA[react使用websocket通信]]></title><description><![CDATA[浏览器自带的 api：（如果是 https 则采用 wss）  开发环境配置：  生产环境配置： 我的 nginx 配置： 扩展：
 nodejs 后端非常好用的 websocket 通信包：https://socket.io/基于 socket.io…]]></description><link>https://www.pipihua666.github.io/websocket/</link><guid isPermaLink="false">https://www.pipihua666.github.io/websocket/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;浏览器自带的 api：（如果是 https 则采用 wss）&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 这里的转发标识为/ws&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; wsPath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ws://&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;host&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/ws/system&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
@@ -1703,77 +1703,7 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;p&gt;&lt;br /&gt;推荐：&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/benjamingr/RegExp.escape&quot;&gt;正则转义相关地址&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Gatsby配置antd]]></title><description><![CDATA[前言 相信国内的 react 用户都是 antd 的忠实爱好者，此教程实践可行 1. 首先安装必须的npm包 2. 将以下代码添加到 gatsby-node.js 中，babel-plugin-import 配置 antd 按需加载组件 3. 将以下代码添加到 gatsby…]]></description><link>https://www.pipihua666.github.io/gatsby/</link><guid isPermaLink="false">https://www.pipihua666.github.io/gatsby/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;前言&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;相信国内的 react 用户都是 antd 的忠实爱好者，此教程实践可行&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4&gt;1. 首先安装必须的npm包&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save gatsby-plugin-antd less less-loader babel-plugin-import&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;2. 将以下代码添加到 gatsby-node.js 中，babel-plugin-import 配置 antd 按需加载组件&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;exports.onCreateBabelConfig = ({ actions }) =&amp;gt; {
-  actions.setBabelPlugin({
-    name: &amp;quot;babel-plugin-import&amp;quot;,
-    options: {
-      libraryName: &amp;quot;antd&amp;quot;,
-      style: true,
-    },
-  })
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;3. 将以下代码添加到 gatsby-config.js 的插件组中（modifyVars 可自行修改 antd 的样式）&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
-    resolve: &amp;quot;gatsby-plugin-antd&amp;quot;,
-    options: {
-    style: true,
-    },
-},
-{
-    resolve: `gatsby-plugin-less`,
-    options: {
-    modifyVars: {
-        &amp;quot;primary-color&amp;quot;: &amp;quot;#da3043&amp;quot;,
-        &amp;quot;font-family&amp;quot;: &amp;quot;Arial&amp;quot;,
-        &amp;quot;layout-body-background&amp;quot;: &amp;quot;#66ff79&amp;quot;,
-    },
-    lessOptions: {
-        javascriptEnabled: true,
-    },
-    },
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;🤔康康我的package.json吧&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  &amp;quot;dependencies&amp;quot;: {
-    &amp;quot;antd&amp;quot;: &amp;quot;^4.12.3&amp;quot;,
-    &amp;quot;babel-plugin-import&amp;quot;: &amp;quot;^1.13.3&amp;quot;,
-    &amp;quot;gatsby&amp;quot;: &amp;quot;^2.32.3&amp;quot;,
-    &amp;quot;gatsby-image&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
-    &amp;quot;gatsby-plugin-antd&amp;quot;: &amp;quot;^2.2.0&amp;quot;,
-    &amp;quot;gatsby-plugin-feed&amp;quot;: &amp;quot;^2.13.0&amp;quot;,
-    &amp;quot;gatsby-plugin-google-analytics&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
-    &amp;quot;gatsby-plugin-less&amp;quot;: &amp;quot;^4.7.0&amp;quot;,
-    &amp;quot;gatsby-plugin-manifest&amp;quot;: &amp;quot;^2.12.0&amp;quot;,
-    &amp;quot;gatsby-plugin-offline&amp;quot;: &amp;quot;^3.10.0&amp;quot;,
-    &amp;quot;gatsby-plugin-react-helmet&amp;quot;: &amp;quot;^3.10.0&amp;quot;,
-    &amp;quot;gatsby-plugin-sharp&amp;quot;: &amp;quot;^2.14.1&amp;quot;,
-    &amp;quot;gatsby-remark-copy-linked-files&amp;quot;: &amp;quot;^2.10.0&amp;quot;,
-    &amp;quot;gatsby-remark-images&amp;quot;: &amp;quot;^3.11.0&amp;quot;,
-    &amp;quot;gatsby-remark-prismjs&amp;quot;: &amp;quot;^3.13.0&amp;quot;,
-    &amp;quot;gatsby-remark-responsive-iframe&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
-    &amp;quot;gatsby-remark-smartypants&amp;quot;: &amp;quot;^2.10.0&amp;quot;,
-    &amp;quot;gatsby-source-filesystem&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
-    &amp;quot;gatsby-transformer-remark&amp;quot;: &amp;quot;^2.16.0&amp;quot;,
-    &amp;quot;gatsby-transformer-sharp&amp;quot;: &amp;quot;^2.12.0&amp;quot;,
-    &amp;quot;less&amp;quot;: &amp;quot;^4.1.1&amp;quot;,
-    &amp;quot;less-loader&amp;quot;: &amp;quot;^8.0.0&amp;quot;,
-    &amp;quot;prismjs&amp;quot;: &amp;quot;^1.22.0&amp;quot;,
-    &amp;quot;react&amp;quot;: &amp;quot;^16.12.0&amp;quot;,
-    &amp;quot;react-dom&amp;quot;: &amp;quot;^16.12.0&amp;quot;,
-    &amp;quot;react-helmet&amp;quot;: &amp;quot;^5.2.1&amp;quot;,
-    &amp;quot;typeface-merriweather&amp;quot;: &amp;quot;0.0.72&amp;quot;,
-    &amp;quot;typeface-montserrat&amp;quot;: &amp;quot;0.0.75&amp;quot;
-  },
-  &amp;quot;devDependencies&amp;quot;: {
-    &amp;quot;gh-pages&amp;quot;: &amp;quot;^3.1.0&amp;quot;,
-    &amp;quot;prettier&amp;quot;: &amp;quot;2.2.1&amp;quot;
-  },&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[通过a标签同源和跨域下载服务器文件]]></title><description><![CDATA[同源下载 跨域下载 推荐： 一个很全面的实现前端文件下载的博客 前端下载文件的 5 中方法对比 前端 zip 压缩文件/文件夹并下载到本地]]></description><link>https://www.pipihua666.github.io/element-a/</link><guid isPermaLink="false">https://www.pipihua666.github.io/element-a/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;同源下载&lt;/h4&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[通过a标签同源和跨域下载服务器文件]]></title><description><![CDATA[同源下载 跨域下载 推荐： 一个很全面的实现前端文件下载的博客 前端下载文件的 5 中方法对比 前端 zip 压缩文件/文件夹并下载到本地]]></description><link>https://www.pipihua666.github.io/element-a/</link><guid isPermaLink="false">https://www.pipihua666.github.io/element-a/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;同源下载&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
  * @description: 从ftp下载文件(同源)
  * @param {string} res -返回的字符内容
@@ -2076,4 +2006,74 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;h4&gt; D ：面向抽象编程，依赖于接口，而不是依赖于具体的实现；&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;使用方只关注接口，而不关注具体类的实现；&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item></channel></rss>
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Gatsby配置antd]]></title><description><![CDATA[前言 相信国内的 react 用户都是 antd 的忠实爱好者，此教程实践可行 1. 首先安装必须的 npm 包 2. 将以下代码添加到 gatsby-node.js 中，babel-plugin-import 配置 antd 按需加载组件 3. 将以下代码添加到 gatsby…]]></description><link>https://www.pipihua666.github.io/gatsby/</link><guid isPermaLink="false">https://www.pipihua666.github.io/gatsby/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;前言&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;相信国内的 react 用户都是 antd 的忠实爱好者，此教程实践可行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;1. 首先安装必须的 npm 包&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save gatsby-plugin-antd less less-loader babel-plugin-import&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;2. 将以下代码添加到 gatsby-node.js 中，babel-plugin-import 配置 antd 按需加载组件&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onCreateBabelConfig&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; actions &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  actions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setBabelPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;babel-plugin-import&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    options&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      libraryName&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;antd&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      style&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;3. 将以下代码添加到 gatsby-config.js 的插件组中（modifyVars 可自行修改 antd 的样式）&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+    resolve: &amp;quot;gatsby-plugin-antd&amp;quot;,
+    options: {
+      style: true,
+    },
+},
+{
+    resolve: `gatsby-plugin-less`,
+    options: {
+      modifyVars: {
+          &amp;quot;primary-color&amp;quot;: &amp;quot;#da3043&amp;quot;,
+          &amp;quot;font-family&amp;quot;: &amp;quot;Arial&amp;quot;,
+          &amp;quot;layout-body-background&amp;quot;: &amp;quot;#66ff79&amp;quot;,
+      },
+      lessOptions: {
+          javascriptEnabled: true,
+      },
+    },
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;🤔 康康我的 package.json 吧&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;antd&amp;quot;: &amp;quot;^4.12.3&amp;quot;,
+    &amp;quot;babel-plugin-import&amp;quot;: &amp;quot;^1.13.3&amp;quot;,
+    &amp;quot;gatsby&amp;quot;: &amp;quot;^2.32.3&amp;quot;,
+    &amp;quot;gatsby-image&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
+    &amp;quot;gatsby-plugin-antd&amp;quot;: &amp;quot;^2.2.0&amp;quot;,
+    &amp;quot;gatsby-plugin-feed&amp;quot;: &amp;quot;^2.13.0&amp;quot;,
+    &amp;quot;gatsby-plugin-google-analytics&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
+    &amp;quot;gatsby-plugin-less&amp;quot;: &amp;quot;^4.7.0&amp;quot;,
+    &amp;quot;gatsby-plugin-manifest&amp;quot;: &amp;quot;^2.12.0&amp;quot;,
+    &amp;quot;gatsby-plugin-offline&amp;quot;: &amp;quot;^3.10.0&amp;quot;,
+    &amp;quot;gatsby-plugin-react-helmet&amp;quot;: &amp;quot;^3.10.0&amp;quot;,
+    &amp;quot;gatsby-plugin-sharp&amp;quot;: &amp;quot;^2.14.1&amp;quot;,
+    &amp;quot;gatsby-remark-copy-linked-files&amp;quot;: &amp;quot;^2.10.0&amp;quot;,
+    &amp;quot;gatsby-remark-images&amp;quot;: &amp;quot;^3.11.0&amp;quot;,
+    &amp;quot;gatsby-remark-prismjs&amp;quot;: &amp;quot;^3.13.0&amp;quot;,
+    &amp;quot;gatsby-remark-responsive-iframe&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
+    &amp;quot;gatsby-remark-smartypants&amp;quot;: &amp;quot;^2.10.0&amp;quot;,
+    &amp;quot;gatsby-source-filesystem&amp;quot;: &amp;quot;^2.11.0&amp;quot;,
+    &amp;quot;gatsby-transformer-remark&amp;quot;: &amp;quot;^2.16.0&amp;quot;,
+    &amp;quot;gatsby-transformer-sharp&amp;quot;: &amp;quot;^2.12.0&amp;quot;,
+    &amp;quot;less&amp;quot;: &amp;quot;^4.1.1&amp;quot;,
+    &amp;quot;less-loader&amp;quot;: &amp;quot;^8.0.0&amp;quot;,
+    &amp;quot;prismjs&amp;quot;: &amp;quot;^1.22.0&amp;quot;,
+    &amp;quot;react&amp;quot;: &amp;quot;^16.12.0&amp;quot;,
+    &amp;quot;react-dom&amp;quot;: &amp;quot;^16.12.0&amp;quot;,
+    &amp;quot;react-helmet&amp;quot;: &amp;quot;^5.2.1&amp;quot;,
+    &amp;quot;typeface-merriweather&amp;quot;: &amp;quot;0.0.72&amp;quot;,
+    &amp;quot;typeface-montserrat&amp;quot;: &amp;quot;0.0.75&amp;quot;
+  },
+  &amp;quot;devDependencies&amp;quot;: {
+    &amp;quot;gh-pages&amp;quot;: &amp;quot;^3.1.0&amp;quot;,
+    &amp;quot;prettier&amp;quot;: &amp;quot;2.2.1&amp;quot;
+  },&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
