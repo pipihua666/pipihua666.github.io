@@ -101,6 +101,11 @@ spec:
 </ol>
 <h4>Local Persistent Volume</h4>
 <p>指的就是利用机器上的磁盘来存放业务需要持久化的数据，和远端存储类似，此时数据依然独立于 Pod 的生命周期，即使业务 Pod 被删除，数据也不会丢失。</p>
+<h4>Local Persistent Volume 和 hostPath 的区别</h4>
+<ol>
+<li>HostPath:调度程序可能会将引用 HostPath 卷的 pod 移至其他节点，从而导致数据丢失。</li>
+<li>Local Persistent: 调度程序可确保始终将使用本地持久卷的容器调度到同一节点。</li>
+</ol>
 <p>想要更深入的理解 k8s 本地持久化推荐阅读：<a href="https://segmentfault.com/a/1190000022860937">Kubernetes 本地持久化方案</a></p></section><hr/><footer><div class="bio"><div class="bio-avatar gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAeY5rjFYKVdEzeaKf//EABwQAAICAgMAAAAAAAAAAAAAAAEDAAIREjEzQf/aAAgBAQABBQJg0qu24mRaBa9ciU59b2//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAZEAADAAMAAAAAAAAAAAAAAAAAARECEDH/2gAIAQEABj8CvSyaj4xYraMj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIVExQWFx8P/aAAgBAQABPyG2OBqedFQ4gW7ZAWImBlbS5IcnuH36jqjc/9oADAMBAAIAAwAAABCvB4P/xAAZEQEAAgMAAAAAAAAAAAAAAAABADEQESH/2gAIAQMBAT8Q0TmBUbn/xAAXEQEAAwAAAAAAAAAAAAAAAAARABAh/9oACAECAQE/EG7Bf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESEQYTFB0f/aAAgBAQABPxAqOffZYytIw4Bb3AVSEpAyy33sWjiIncLHitjrt+op/Dc//9k=" alt="皮皮花" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/72e8008a1ad86357775e2878c278a5b7/340ed/profile-pic.jpg 1x,
 /static/72e8008a1ad86357775e2878c278a5b7/32ce1/profile-pic.jpg 1.5x,
 /static/72e8008a1ad86357775e2878c278a5b7/04d41/profile-pic.jpg 2x" /><img loading="lazy" width="50" height="50" srcset="/static/72e8008a1ad86357775e2878c278a5b7/340ed/profile-pic.jpg 1x,

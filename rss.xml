@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[皮皮花的博客]]></title><description><![CDATA[如果觉得文章还不错，欢迎到github点击小爱心]]></description><link>https://www.pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Feb 2021 08:31:01 GMT</lastBuildDate><item><title><![CDATA[k8s持久化存储实现前端oem需求]]></title><description><![CDATA[需求陈述 技术栈：react，docker，k8s 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[皮皮花的博客]]></title><description><![CDATA[如果觉得文章还不错，欢迎到github点击小爱心]]></description><link>https://www.pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Feb 2021 08:36:25 GMT</lastBuildDate><item><title><![CDATA[k8s持久化存储实现前端oem需求]]></title><description><![CDATA[需求陈述 技术栈：react，docker，k8s 
 需求：前端实现界面的 licence 控制，根据 licence 显示不同的背景和文字信息，并且不用重新编译前端镜像，达到可以在宿主机上随时都可以定制的需求 
 需求分析：创建一个 oem 文件夹，存放不同的 licence…]]></description><link>https://www.pipihua666.github.io/k8s-persistence/</link><guid isPermaLink="false">https://www.pipihua666.github.io/k8s-persistence/</guid><pubDate>Sun, 21 Feb 2021 07:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -100,6 +100,11 @@ spec:
 &lt;/ol&gt;
 &lt;h4&gt;Local Persistent Volume&lt;/h4&gt;
 &lt;p&gt;指的就是利用机器上的磁盘来存放业务需要持久化的数据，和远端存储类似，此时数据依然独立于 Pod 的生命周期，即使业务 Pod 被删除，数据也不会丢失。&lt;/p&gt;
+&lt;h4&gt;Local Persistent Volume 和 hostPath 的区别&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;HostPath:调度程序可能会将引用 HostPath 卷的 pod 移至其他节点，从而导致数据丢失。&lt;/li&gt;
+&lt;li&gt;Local Persistent: 调度程序可确保始终将使用本地持久卷的容器调度到同一节点。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;想要更深入的理解 k8s 本地持久化推荐阅读：&lt;a href=&quot;https://segmentfault.com/a/1190000022860937&quot;&gt;Kubernetes 本地持久化方案&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react使用websocket通信]]></title><description><![CDATA[浏览器自带的 api：（如果是 https 则采用 wss）  开发环境配置：  生产环境配置： 我的 nginx 配置： 扩展：
 nodejs 后端非常好用的 websocket 通信包：https://socket.io/基于 socket.io…]]></description><link>https://www.pipihua666.github.io/websocket/</link><guid isPermaLink="false">https://www.pipihua666.github.io/websocket/</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h4&gt;浏览器自带的 api：（如果是 https 则采用 wss）&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 这里的转发标识为/ws&lt;/span&gt;
