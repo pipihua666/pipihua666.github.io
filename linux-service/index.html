@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.01877a06b072953c14c7.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.32.12"/><title data-react-helmet="true">Linux-服务管理 - pipihua&#x27;s blog</title><meta data-react-helmet="true" name="description" content="linux-服务管理，个人记录学习"/><meta data-react-helmet="true" property="og:title" content="Linux-服务管理 - pipihua&#x27;s blog"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:description" content="linux-服务管理，个人记录学习"/><meta data-react-helmet="true" property="og:url" content="https://pipihua666.github.io/linux-service"/><meta data-react-helmet="true" name="twitter:label1" content="Written by"/><meta data-react-helmet="true" name="twitter:data1" content="pipihua"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="pipihua"/><meta data-react-helmet="true" name="twitter:title" content="Linux-服务管理 - pipihua&#x27;s blog"/><meta data-react-helmet="true" name="twitter:description" content="linux-服务管理，个人记录学习"/><meta data-react-helmet="true" name="keywords" content="React, JavaScript, TypeScript, Echarts, DevOps, Linux"/><meta data-react-helmet="true" name="article:published_time" content="2021-04-11T00:00:00.000Z"/><meta data-react-helmet="true" name="article:modified_time" content="2021-04-11T00:00:00.000Z"/><meta data-react-helmet="true" name="twitter:label2" content="Filed under"/><meta data-react-helmet="true" name="twitter:data2" content="Linux"/><meta data-react-helmet="true" property="og:image" content="https://pipihua666.github.io/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png"/><meta data-react-helmet="true" name="twitter:image" content="https://pipihua666.github.io/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png"/><script data-react-helmet="true" type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Article",
+          "author": {
+            "@type": "Person",
+            "name": "pipihua"
+          },
+          "keywords": "Linux",
+          "headline": "Linux-服务管理 - pipihua's blog",
+          "url": "https://pipihua666.github.io/linux-service",
+          "datePublished": "2021-04-11T00:00:00.000Z",
+          "dateModified": "2021-04-11T00:00:00.000Z",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://pipihua666.github.io/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png",
+            "width": "1000",
+            "height": "520"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "pipihua's blog"
+          },
+          "description": "linux-服务管理，个人记录学习",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://pipihua666.github.io"
+          }
+        }
+      </script><style data-styled="bzOPpS kHKWRw fOuWxu biTeGs jLOYBk fVqyTA cROOCp gWrDHi MQpwo llwmof fYiJFa iRZLqu jZNSfz hRYAD faXnX lhFcmu GDWrm fTdjuL bXjWFc iHPqjx jtkVLk jqyLKa cCerLd bVnRow jqxPBx bYZhdV iKTLAq gTfYTh iHGPyz kXzLbm lfACiL lbetsi YZAaE hLhzMS gpDhwt ctpkkx etXHUJ dLTgSL cXOFUh bqPxdl" data-styled-version="4.4.1">
+/* sc-component-id: sc-global-705724203 */
+html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{display:block;} h1{font-size:2em;margin:0.67em 0;} hr{box-sizing:content-box;height:0;overflow:visible;} pre{font-family:monospace,monospace;font-size:1em;} a{background-color:transparent;} abbr[title]{border-bottom:none;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;} b,strong{font-weight:bolder;} code,kbd,samp{font-family:monospace,monospace;font-size:1em;} small{font-size:80%;} sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;} sub{bottom:-0.25em;} sup{top:-0.5em;} img{border-style:none;} button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;} button,input{overflow:visible;} button,select{text-transform:none;} button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button;} button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0;} button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText;} fieldset{padding:0.35em 0.75em 0.625em;} legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;} progress{vertical-align:baseline;} textarea{overflow:auto;} [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0;} [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto;} [type="search"]{-webkit-appearance:textfield;outline-offset:-2px;} [type="search"]::-webkit-search-decoration{-webkit-appearance:none;} ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;} details{display:block;} summary{display:list-item;} template{display:none;} [hidden]{display:none;} html{box-sizing:border-box;background-color:#fafafa;} body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;line-height:1.9em;} *{box-sizing:border-box;} h1,h2,h3,h4,h5,h6{outline:none;} a{color:#000;-webkit-text-decoration:none;text-decoration:none;} .gatsby-highlight{max-width:100% !important;} .gatsby-highlight-code-line{background-color:#353631;display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:0.75em;}
+/* sc-component-id: style__NavContainer-sc-1ck1w82-0 */
+.bzOPpS{z-index:1000;background-color:#20232a;position:-webkit-sticky;position:sticky;top:0;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.07);}
+/* sc-component-id: style__Nav-sc-1ck1w82-1 */
+.kHKWRw{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;} @media (max-width:1300px){.kHKWRw{padding:0 20px;}}
+/* sc-component-id: style__NavWrapper-sc-1ck1w82-2 */
+.jLOYBk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;width:100%;height:70px;white-space:nowrap;} @media (max-width:576px){.jLOYBk{width:90%;}}
+/* sc-component-id: style__NavMenu-sc-1ck1w82-3 */
+.fVqyTA{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;} @media (max-width:576px){.fVqyTA{width:80%;overflow-x:auto;overflow-y:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);}}.cROOCp{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: style__NavMenuItem-sc-1ck1w82-4 */
+.gWrDHi{cursor:pointer;display:inline-block;border:0;background:transparent;outline:none;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: style__NavLink-sc-1ck1w82-5 */
+.MQpwo{color:#fff;opacity:.8;padding:16px;-webkit-transition:opacity .5s;transition:opacity .5s;} .MQpwo:hover{opacity:1;}
+/* sc-component-id: style__SearchContainer-sc-1ck1w82-6 */
+.llwmof{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;position:relative;}
+/* sc-component-id: style__ToggleSearchButton-sc-1ck1w82-7 */
+.fYiJFa{cursor:pointer;color:#fff;opacity:.8;background:none;outline:none;border:0;-webkit-transition:opacity .5s;transition:opacity .5s;} .fYiJFa:hover{opacity:1;}
+/* sc-component-id: logo__LogoImage-sc-1eqkae8-0 */
+.biTeGs{max-height:30px;width:30px;margin-right:45px;} @media (max-width:576px){.biTeGs{margin-right:15px;}}
+/* sc-component-id: logo__HomeLink-sc-1eqkae8-1 */
+.fOuWxu{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;height:30px;}
+/* sc-component-id: style__StyledFooter-sc-1oqvjzu-0 */
+.gpDhwt{max-width:100%;padding:10px 0;z-index:700;position:relative;font-size:.9em;margin-top:50px;}
+/* sc-component-id: style__FooterContainer-sc-1oqvjzu-1 */
+.ctpkkx{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;text-align:right;line-height:1.1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;} @media (max-width:1300px){.ctpkkx{padding:0 20px;}}
+/* sc-component-id: style__Copyright-sc-1oqvjzu-2 */
+.cXOFUh{margin:0;}
+/* sc-component-id: style__DesignBy-sc-1oqvjzu-3 */
+.bqPxdl{margin:0;opacity:.8;font-size:.8em;} .bqPxdl a{font-weight:bold;-webkit-text-decoration:none;text-decoration:none;color:#000;} .bqPxdl a:hover{-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: style__StyledNav-sc-1oqvjzu-4 */
+.etXHUJ ul{list-style-type:none;margin:0;padding:0;} .etXHUJ li{display:inline-block;margin-right:25px;} .etXHUJ li:last-child{margin-right:0;}
+/* sc-component-id: style__FooterMenuLink-sc-1oqvjzu-6 */
+.dLTgSL{color:#000;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: toc__StyledNav-sc-1hwup8p-0 */
+.lhFcmu .toc-list{list-style-type:none;margin:0;padding:0;} .lhFcmu .toc-list .toc-list{padding-left:17px;padding-top:10px;} .lhFcmu .toc-list-item{line-height:1.2em;padding-bottom:10px;} .lhFcmu .toc-list-item:last-child{padding-bottom:0;} .lhFcmu .toc-link{color:#808080;-webkit-text-decoration:none;text-decoration:none;} .lhFcmu .is-active-link{color:#404040;font-weight:700;}
+/* sc-component-id: reading-progress__ReadingProgressBar-vxjjnv-0 */
+.iRZLqu{position:-webkit-sticky;position:sticky;height:5px;top:70px;background-color:#a4cbb8;z-index:500;}
+/* sc-component-id: social-channel-list__StyledSocialChannels-sc-16w9pwh-0 */
+.YZAaE{list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: social-channel-list__StyledSocialChannel-sc-16w9pwh-1 */
+.hLhzMS{display:inline-block;margin:0 10px;font-size:1.6em;opacity:.7;-webkit-transition:opacity .5s;transition:opacity .5s;} .hLhzMS:hover{opacity:1;}
+/* sc-component-id: avatar__StyledAvatar-sc-1v6bq9n-0 */
+.kXzLbm{max-width:55px;border-radius:100%;}
+/* sc-component-id: bio__StyledBio-sc-19adui4-0 */
+.iHGPyz{margin:auto;text-align:center;width:100%;}
+/* sc-component-id: bio__AuthorDescription-sc-19adui4-1 */
+.lbetsi{margin:10px 0 13px;} .lbetsi a{color:#000;-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: bio__AuthorName-sc-19adui4-2 */
+.lfACiL{margin:10px;}
+/* sc-component-id: post__PostContainer-h8gzap-0 */
+.jZNSfz{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding:0 !important;} @media (max-width:1300px){.jZNSfz{padding:0 20px;}}
+/* sc-component-id: post__LeftSidebar-h8gzap-1 */
+.hRYAD{min-width:255px;max-width:225px;-webkit-transition:opacity .5s,z-index .5s;transition:opacity .5s,z-index .5s;} @media (max-width:1300px){.hRYAD{position:fixed;opacity:0;z-index:-1;background-color:#fff;width:100% !important;max-width:100%;padding:0 20px;margin-top:-5px;height:calc(100vh - 70px);}}
+/* sc-component-id: post__PostContent-h8gzap-2 */
+.fTdjuL{margin-top:-5px;border-right:1px #e5eff5 solid;border-left:1px #e5eff5 solid;background-color:#fff;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);z-index:10;width:1035px;max-width:100%;} .fTdjuL li > a,.fTdjuL p > a{color:#a4cbb8;border-bottom:2px #a4cbb8 solid;} .fTdjuL pre{margin:30px 0;} .fTdjuL blockquote{border-left:4px #a4cbb8 solid;background-color:#fafafa;margin:30px 0;padding:5px 20px;border-radius:.3em;} .fTdjuL h3::before,.fTdjuL h4::before,.fTdjuL h5::before,.fTdjuL h6::before{display:block;content:" ";height:90px;margin-top:-90px;visibility:hidden;} .fTdjuL h2{border-top:1px solid #ececec;margin-top:44px;padding-top:40px;line-height:1.2;} .fTdjuL code[class*="language-text"]{padding:5px;} .fTdjuL p > img{max-width:100%;border-radius:.3em;margin:30px 0;} .fTdjuL hr{border-top:1px solid #ececec;border-bottom:0;margin-top:44px;margin-bottom:40px;} .fTdjuL .gatsby-resp-image-link{margin:30px 0;max-width:100%;} .fTdjuL .gatsby-resp-image-link .gatsby-resp-image-image{border-radius:.3em;}
+/* sc-component-id: post__TocWrapper-h8gzap-3 */
+.faXnX{position:-webkit-sticky;position:sticky;top:70px;padding:40px 30px 40px 0;}
+/* sc-component-id: post__PostHeader-h8gzap-4 */
+.bXjWFc{padding:40px;} @media (max-width:576px){.bXjWFc{padding:20px;}}
+/* sc-component-id: post__FeaturedImage-h8gzap-5 */
+.jqyLKa{border-radius:0;} @media (max-width:1300px){.jqyLKa{margin-left:-1px;margin-right:-1px;}}
+/* sc-component-id: post__StyledPost-h8gzap-6 */
+.cCerLd{padding:40px;} @media (max-width:576px){.cCerLd{padding:20px;}}
+/* sc-component-id: post__PostMeta-h8gzap-7 */
+.iHPqjx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;opacity:.8;font-size:.9em;}
+/* sc-component-id: post__PostTitle-h8gzap-8 */
+.jtkVLk{margin:0;padding:0;}
+/* sc-component-id: post__PostFooter-h8gzap-9 */
+.bVnRow{background-color:#fafafa;font-size:.8em;color:#666;padding:40px;line-height:1em;} .bVnRow p{margin:5px 0;}
+/* sc-component-id: post__FooterTagLink-h8gzap-10 */
+.jqxPBx{color:#000 !important;-webkit-text-decoration:none;text-decoration:none;border-bottom:0 !important;}
+/* sc-component-id: post__PostAddition-h8gzap-11 */
+.bYZhdV{background-color:#fff;border-top:1px #e5eff5 solid;border-bottom:1px #e5eff5 solid;z-index:700;position:relative;padding:40px;}
+/* sc-component-id: post__PostAdditionContent-h8gzap-12 */
+.iKTLAq{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;} @media (max-width:1300px){.iKTLAq{padding:0 20px;}}
+/* sc-component-id: post__BioWrapper-h8gzap-13 */
+.gTfYTh{width:50%;margin:auto;} @media (max-width:576px){.gTfYTh{width:100%;}}
+/* sc-component-id: post__ToggleTocButton-h8gzap-14 */
+.GDWrm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;right:20px;bottom:20px;border-radius:100%;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);border:0;z-index:5000;width:50px;height:50px;background-color:#20232a;color:#fff;outline:none;} @media (min-width:1300px){.GDWrm{display:none;}}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=72e8008a1ad86357775e2878c278a5b7" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#a4cbb8"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=72e8008a1ad86357775e2878c278a5b7"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-3f32ef2c5f8029f8d8b2.js"/><link as="script" rel="preload" href="/framework-5dc1caea2c5fd4bcd10a.js"/><link as="script" rel="preload" href="/app-6124a287738eddf542a4.js"/><link as="script" rel="preload" href="/styles-7d4153d260c0197f0043.js"/><link as="script" rel="preload" href="/fa5f8105-9880536ad98180a733c3.js"/><link as="script" rel="preload" href="/commons-f9f6a650dbf2a6231e53.js"/><link as="script" rel="preload" href="/component---theme-src-templates-post-tsx-0578bc3901073525e650.js"/><link as="fetch" rel="preload" href="/page-data/linux-service/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1116962356.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2275848304.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3138592700.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3462520645.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/545095672.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style__NavContainer-sc-1ck1w82-0 bzOPpS"><div class="common__Container-sc-1d5kp8-0 style__Nav-sc-1ck1w82-1 kHKWRw"><a class="logo__HomeLink-sc-1eqkae8-1 fOuWxu" href="/"><div class="logo__LogoImage-sc-1eqkae8-0 biTeGs gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:30px;height:30px"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAeY5rjFYKVdEzeaKf//EABwQAAICAgMAAAAAAAAAAAAAAAEDAAIREjEzQf/aAAgBAQABBQJg0qu24mRaBa9ciU59b2//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAZEAADAAMAAAAAAAAAAAAAAAAAARECEDH/2gAIAQEABj8CvSyaj4xYraMj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIVExQWFx8P/aAAgBAQABPyG2OBqedFQ4gW7ZAWImBlbS5IcnuH36jqjc/9oADAMBAAIAAwAAABCvB4P/xAAZEQEAAgMAAAAAAAAAAAAAAAABADEQESH/2gAIAQMBAT8Q0TmBUbn/xAAXEQEAAwAAAAAAAAAAAAAAAAARABAh/9oACAECAQE/EG7Bf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESEQYTFB0f/aAAgBAQABPxAqOffZYytIw4Bb3AVSEpAyy33sWjiIncLHitjrt+op/Dc//9k=" alt="pipihua&#x27;s blog" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/f8771/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/56ed0/profile-pic.jpg 2x" /><img loading="lazy" width="30" height="30" srcset="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/f8771/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/56ed0/profile-pic.jpg 2x" src="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg" alt="pipihua's blog" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></a><div class="style__NavWrapper-sc-1ck1w82-2 jLOYBk"><ul class="style__NavMenu-sc-1ck1w82-3 fVqyTA"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><a class="style__NavLink-sc-1ck1w82-5 MQpwo" href="/">Home</a></li></ul><div class="style__SearchContainer-sc-1ck1w82-6 llwmof"><ul class="style__NavMenu-sc-1ck1w82-3 cROOCp"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><button role="button" aria-label="Toggle search" class="style__ToggleSearchButton-sc-1ck1w82-7 fYiJFa"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></button></li></ul></div></div></div></div><main><div style="width:0%" class="reading-progress__ReadingProgressBar-vxjjnv-0 iRZLqu"></div><div class="common__Container-sc-1d5kp8-0 post__PostContainer-h8gzap-0 jZNSfz"><div class="post__LeftSidebar-h8gzap-1 hRYAD"><div class="post__TocWrapper-h8gzap-3 faXnX"><nav class="toc__StyledNav-sc-1hwup8p-0 lhFcmu toc"></nav></div></div><button role="button" aria-label="Toggle table of contents" class="post__ToggleTocButton-h8gzap-14 GDWrm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M432 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button><div class="post__PostContent-h8gzap-2 fTdjuL"><article class="post"><header class="post__PostHeader-h8gzap-4 bXjWFc"><section class="post__PostMeta-h8gzap-7 iHPqjx"><a href="/tag/linux">Linux</a><time dateTime="2021-04-11T00:00:00.000Z">11 April, 2021</time></section><h1 class="post__PostTitle-h8gzap-8 jtkVLk">Linux-服务管理</h1></header><div class="post__FeaturedImage-h8gzap-5 jqyLKa gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:66.5%"></div><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQozwEZA+b8ABAPDhUgLRMZIBYgKhokMB04UwlRiwFKfgNFdgFAbwE9agE7ZwE4ZgE3ZQE1YwI0YgI0YQEzYgEzYgIzYQAQDw0UGR4YJDEYHSMcJS0fJSkgSm4EU4oASnsCR3YCQ3EBP20DPmwEPWwDO2wBPHAAN20BN2oBNWgANGgAEhMWEhANFyMtFRshHycxLDlKRF5/PGqWC1SEAE1+A0x8A0d6AEB1ADp1AD15BjpqEUJyBkF7CUR+DUV9AA4VHxcYHS83SENTcFhskF58qFJ2oktwmDNlkRdYiQZLgQBIghlaj050lTxLVjtAOkA/OR0yTBcsShoqQQBBSl13g6KHkrKJlrODkax6iaNwhqBYeZxFbJQ/Z5FniqqJobOfpaippJzAuaOmpI6OhnpPTVEqLDclJzMAqbPIpbHGnaa5jZeqlZurlZqrhY2gbX+XV3GTUm2Rio2MzsrAlZSQo6WjqKqmgH99wbmqxbijoJOFSEI7AL7Aw7q+w660vZ2ktoiTqHZ/jYKJnHaDnVxzk1t2oB8vTHh6d9DSynZ4eeXm35OUkVpbWtDOwtDJto2HeADKzszS0c7FxMmpq7xxfn48SEksOExOWXJeb41Zc51NY4sVGyqvsKzn59/g4djT0suSko9tbWxwcGyhn5YAusLFt73FtLfLgImRVWRcMzxAHys4DhIhU1xzeoqrW3urKDtbJSYn19bK4+PZ3t3Ux8fAi4uFcXFubW1qAMO7sLWvtoaKl1VlX0ZQTB0kLiAqNA4QHFNYcImSs2d+plJokAAAA1pcXenp3OHh1oaGgCMjI1BPTpeWkQC7rKOgmqBUYVxKWFIpMDIaIysdIywLDBY+Q1t3f55weZlodZ4wOlQCBQyNjYfo5tra2c45OTkzMzJdXVcAqI+NWl1YQE1FNz46GiAkHSguFRgfHBsiOz9ISlZcTVZlYWqXTFaAEBcmHSIsuLar3dvOmJeOFhYVNjY2AFpfbT9KPis2NxsjKBUbIhQcJQ4OFCQjJz5ARTA6RB8qMUpai1Vopys2WQAAAD8/P83MwNPRxJiYkYiHgSdtMYpo6E3kAAAAAElFTkSuQmCC" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/2488e7022098906f1e790b6c6b7279a3/dc47e/header.png 200w,
+/static/2488e7022098906f1e790b6c6b7279a3/9f2d5/header.png 400w,
+/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png 800w,
+/static/2488e7022098906f1e790b6c6b7279a3/77647/header.png 1200w,
+/static/2488e7022098906f1e790b6c6b7279a3/f8d4f/header.png 1600w,
+/static/2488e7022098906f1e790b6c6b7279a3/4ce6a/header.png 1920w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/2488e7022098906f1e790b6c6b7279a3/dc47e/header.png 200w,
+/static/2488e7022098906f1e790b6c6b7279a3/9f2d5/header.png 400w,
+/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png 800w,
+/static/2488e7022098906f1e790b6c6b7279a3/77647/header.png 1200w,
+/static/2488e7022098906f1e790b6c6b7279a3/f8d4f/header.png 1600w,
+/static/2488e7022098906f1e790b6c6b7279a3/4ce6a/header.png 1920w" src="/static/2488e7022098906f1e790b6c6b7279a3/90823/header.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><section class="post__StyledPost-h8gzap-6 cCerLd post"><p><a name="4LcBi"></a></p>
+<h2 id="防火墙的概述：" style="position:relative;"><a href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%A6%82%E8%BF%B0%EF%BC%9A" aria-label="防火墙的概述： permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>防火墙的概述：</h2>
+<p><a name="npBbA"></a></p>
+<h3 id="软件防火墙，主要限制-ip，过滤-ip-等" style="position:relative;"><a href="#%E8%BD%AF%E4%BB%B6%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E4%B8%BB%E8%A6%81%E9%99%90%E5%88%B6-ip%EF%BC%8C%E8%BF%87%E6%BB%A4-ip-%E7%AD%89" aria-label="软件防火墙，主要限制 ip，过滤 ip 等 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>软件防火墙，主要限制 ip，过滤 ip 等</h3>
+<ul>
+<li>包过滤防火墙，比如 ip，iptables 就是包过滤防火墙</li>
+<li>应用层防火墙，比如根据系统用户来控制
+<a name="Db2J4"></a></li>
+</ul>
+<h3 id="硬件防火墙，用来防-dos-攻击等，也兼顾一些软件防火墙的功能" style="position:relative;"><a href="#%E7%A1%AC%E4%BB%B6%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E7%94%A8%E6%9D%A5%E9%98%B2-dos-%E6%94%BB%E5%87%BB%E7%AD%89%EF%BC%8C%E4%B9%9F%E5%85%BC%E9%A1%BE%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8A%9F%E8%83%BD" aria-label="硬件防火墙，用来防 dos 攻击等，也兼顾一些软件防火墙的功能 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>硬件防火墙，用来防 dos 攻击等，也兼顾一些软件防火墙的功能</h3>
+<blockquote>
+<p>Centos 6 默认使用的防火墙是 iptables,
+Centos 7 是 firewallD，
+但这两者底层都是内核中的 filter 过滤表来进行实际的控制</p>
+</blockquote>
+<p><a name="Au3lM"></a></p>
+<h2 id="iptables-的表和链" style="position:relative;"><a href="#iptables-%E7%9A%84%E8%A1%A8%E5%92%8C%E9%93%BE" aria-label="iptables 的表和链 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iptables 的表和链</h2>
+<p><a name="Jqrw9"></a></p>
+<h3 id="规则表" style="position:relative;"><a href="#%E8%A7%84%E5%88%99%E8%A1%A8" aria-label="规则表 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>规则表</h3>
+<ul>
+<li>filter,用来过滤</li>
+<li>nat，地址转换</li>
+<li>其他查看 man iptables
+<a name="hjkma"></a></li>
+</ul>
+<h3 id="规则链确定规则的方向" style="position:relative;"><a href="#%E8%A7%84%E5%88%99%E9%93%BE%E7%A1%AE%E5%AE%9A%E8%A7%84%E5%88%99%E7%9A%84%E6%96%B9%E5%90%91" aria-label="规则链确定规则的方向 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>规则链(确定规则的方向)</h3>
+<ul>
+<li>INPUT，外部请求进入当前主机</li>
+<li>OUTPUT，当前主机发出的数据包</li>
+<li>FORWARD，数据包经过当前主机转给其他主机</li>
+<li>PREROUTING，路由前</li>
+<li>POSTROUTING，路由后</li>
+</ul>
+<p><a name="v7mOl"></a></p>
+<h2 id="iptables-filter-表" style="position:relative;"><a href="#iptables-filter-%E8%A1%A8" aria-label="iptables filter 表 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iptables filter 表</h2>
+<ul>
+<li>iptales -t filter 命令 规则链 规则</li>
+</ul>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># -v 显示更详细信息</span>
+<span class="token comment"># -n 不进行反向域名解析</span>
+<span class="token comment"># -L 显示iptables信息</span>
+<span class="token comment"># 所以查看防火墙的配置可以使用iptables -t filter -vnL</span>
+<span class="token punctuation">[</span>root@iz2zeje77jss3tlyqj8p12z ~<span class="token punctuation">]</span><span class="token comment"># iptables -t filter -vnL</span>
+Chain INPUT <span class="token punctuation">(</span>policy ACCEPT <span class="token number">0</span> packets, <span class="token number">0</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+
+Chain FORWARD <span class="token punctuation">(</span>policy ACCEPT <span class="token number">0</span> packets, <span class="token number">0</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+
+Chain OUTPUT <span class="token punctuation">(</span>policy ACCEPT <span class="token number">0</span> packets, <span class="token number">0</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination</code></pre></div>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"> <span class="token comment"># 增加iptables规则</span>
+ <span class="token comment"># -A 在规则后加入 -I 在规则前加入（靠前的优先级高）</span>
+ <span class="token comment"># -s 源地址 -d 目的地址</span>
+ <span class="token comment"># -j 指定是ACCEPT还是DROP</span>
+ <span class="token punctuation">[</span>root@iz2zeje77jss3tlyqj8p12z ~<span class="token punctuation">]</span><span class="token comment"># iptables -t filter -A INPUT -s 10.0.0.1 -j ACCEPT</span></code></pre></div>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"> <span class="token comment"># 下面默认规则都是ACCEPT，如果没有匹配到我们指定的规则，最后就会匹配默认规则</span>
+<span class="token punctuation">[</span>root@iz2zeje77jss3tlyqj8p12z ~<span class="token punctuation">]</span><span class="token comment"># iptables -nvL</span>
+Chain INPUT <span class="token punctuation">(</span>policy ACCEPT <span class="token number">49</span> packets, <span class="token number">3361</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+    <span class="token number">0</span>     <span class="token number">0</span> ACCEPT     all  --  *      *       <span class="token number">10.0</span>.0.1             <span class="token number">0.0</span>.0.0/0
+
+Chain FORWARD <span class="token punctuation">(</span>policy ACCEPT <span class="token number">0</span> packets, <span class="token number">0</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+
+Chain OUTPUT <span class="token punctuation">(</span>policy ACCEPT <span class="token number">31</span> packets, <span class="token number">8484</span> bytes<span class="token punctuation">)</span>
+ pkts bytes target     prot opt <span class="token keyword">in</span>     out     <span class="token builtin class-name">source</span>               destination
+
+ <span class="token comment"># 修改默认规则，以下为拒绝所有INPUT的ip连接</span>
+ iptables -P INPUT DROP
+
+ <span class="token comment"># 清空所有自定义规则，不会修改默认规则</span>
+ iptables -F
+
+ <span class="token comment"># 清空某个规则</span>
+ iptables -D 序列号
+
+ <span class="token comment"># 多个规则</span>
+ <span class="token comment"># -i 指定网络接口（网卡）</span>
+ <span class="token comment"># -p 指定协议tcp/udp</span>
+ <span class="token comment"># -dport 指定端口</span>
+iptables -t filter -A INPUT -i eth0 -s <span class="token number">10.0</span>.0.2 -p tcp --dport <span class="token number">80</span> -j ACCEPT</code></pre></div>
+<p><a name="Z16YH"></a></p>
+<h2 id="iptables-nat-表" style="position:relative;"><a href="#iptables-nat-%E8%A1%A8" aria-label="iptables nat 表 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iptables nat 表</h2>
+<ul>
+<li>iptables -t nat 命令 规则链 规则</li>
+</ul>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 修改目的地址，转发到10.0.0.1上</span>
+iptables -t nat -A PREROUTING -i eth0 -d <span class="token number">114.115</span>.116.117 -p tcp -dport <span class="token number">80</span> -j DNAT --to-destination <span class="token number">10.0</span>.0.1
+
+<span class="token comment"># 修改源地址，将内网ip都改为出口IP地址</span>
+iptables -t nat -A POSTROUTING -s <span class="token number">10.0</span>.0.0/24 -o eth1 -j SNAT --to-source <span class="token number">111.112</span>.113.114</code></pre></div>
+<blockquote>
+<p>iptables 自定义的规则默认是存在内存中的，需要持久化
+可以直接在 /etc/sysconfig/iptables 中写数据，也可以下载工具将内存中的数据写到文件中 yum install iptables-services</p>
+</blockquote>
+<p><a name="szxJF"></a></p>
+<h2 id="ssh" style="position:relative;"><a href="#ssh" aria-label="ssh permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SSH</h2>
+<p><a name="xVyDj"></a></p>
+<h3 id="ssh-服务配置文件---sshd_config" style="position:relative;"><a href="#ssh-%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6---sshd_config" aria-label="ssh 服务配置文件   sshd_config permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ssh 服务配置文件 - sshd_config</h3>
+<ul>
+<li>Port 22 默认端口</li>
+<li>PermitRootLogin yes 是否允许 root 登录</li>
+<li>AuthorizedKeysFile .ssh/authorized_keys 秘钥认证文件</li>
+</ul>
+<br />
+<a name="lxoKU"></a>
+### 将公钥拷贝到服务器上
+<ul>
+<li>ssh-copy-id -i /root/.ssh/id_ras.pub root@/xxx</li>
+</ul>
+<p><a name="rYekR"></a></p>
+<h2 id="ftp-服务器-vsftpd-介绍与软件包安装" style="position:relative;"><a href="#ftp-%E6%9C%8D%E5%8A%A1%E5%99%A8-vsftpd-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%AE%89%E8%A3%85" aria-label="ftp 服务器 vsftpd 介绍与软件包安装 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FTP 服务器 vsftpd 介绍与软件包安装</h2>
+<p><a name="oVW3t"></a></p>
+<h3 id="ftp-协议分为两条连接不同的信息要用不同连接传输" style="position:relative;"><a href="#ftp-%E5%8D%8F%E8%AE%AE%E5%88%86%E4%B8%BA%E4%B8%A4%E6%9D%A1%E8%BF%9E%E6%8E%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A6%81%E7%94%A8%E4%B8%8D%E5%90%8C%E8%BF%9E%E6%8E%A5%E4%BC%A0%E8%BE%93" aria-label="ftp 协议分为两条连接不同的信息要用不同连接传输 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FTP 协议分为两条连接,不同的信息要用不同连接传输</h3>
+<ul>
+<li>命令链路</li>
+<li>数据链路</li>
+</ul>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 安装</span>
+yum <span class="token function">install</span> vsftpd <span class="token function">ftp</span>
+
+<span class="token comment"># 启动</span>
+systemctl start vsftpd.service
+
+<span class="token comment"># 开机自启动</span>
+systemctl <span class="token builtin class-name">enable</span> vsftpd.service
+
+<span class="token comment"># 访问，使用ftp账户，则是匿名模式，默认的目录是宿主机的/var/ftp目录。也可以用系统用户，目录则是用户根目录</span>
+<span class="token punctuation">[</span>root@VM-0-16-centos ~<span class="token punctuation">]</span><span class="token comment"># ftp localhost</span>
+Trying ::1<span class="token punctuation">..</span>.
+Connected to localhost <span class="token punctuation">(</span>::1<span class="token punctuation">)</span>.
+<span class="token number">220</span> <span class="token punctuation">(</span>vsFTPd <span class="token number">3.0</span>.2<span class="token punctuation">)</span>
+Name <span class="token punctuation">(</span>localhost:root<span class="token punctuation">)</span>: <span class="token function">ftp</span>
+<span class="token number">331</span> Please specify the password.
+Password:
+<span class="token number">230</span> Login successful.
+Remote system <span class="token builtin class-name">type</span> is UNIX.
+Using binary mode to transfer files.
+ftp<span class="token operator">></span> <span class="token function">ls</span>
+<span class="token number">229</span> Entering Extended Passive Mode <span class="token punctuation">(</span><span class="token operator">||</span><span class="token operator">|</span><span class="token number">31008</span><span class="token operator">|</span><span class="token punctuation">)</span>.
+<span class="token number">150</span> Here comes the directory listing.
+drwxr-xr-x    <span class="token number">2</span> <span class="token number">0</span>        <span class="token number">0</span>            <span class="token number">4096</span> Apr 01  <span class="token number">2020</span> pub
+<span class="token number">226</span> Directory send OK.
+
+<span class="token comment"># 要开启ftp服务让别的主机访问，需要开放端口，最简单的用firewall-cmd --add-service ftp</span>
+
+<span class="token comment"># 下载和上传</span>
+➜ <span class="token function">ftp</span> <span class="token number">139.155</span>.182.202
+Connected to <span class="token number">139.155</span>.182.202.
+<span class="token number">220</span> <span class="token punctuation">(</span>vsFTPd <span class="token number">3.0</span>.2<span class="token punctuation">)</span>
+Name <span class="token punctuation">(</span><span class="token number">139.155</span>.182.202:qq<span class="token punctuation">)</span>: xx
+<span class="token number">331</span> Please specify the password.
+Password:
+<span class="token number">230</span> Login successful.
+ftp<span class="token operator">></span> <span class="token operator">!</span>ls <span class="token comment"># ！可以执行本机命令</span>
+a.txt        get_product.py    ipv4        main.go        utils
+aa.txt        go.mod        ipv6        result.txt    writefile.py
+bfile        go.sum        knowledge.py    <span class="token builtin class-name">test</span>
+ftp<span class="token operator">></span> put a.txt <span class="token comment"># 上传文件，既在远程主机上写入文件</span>
+<span class="token number">200</span> PORT <span class="token builtin class-name">command</span> successful. Consider using PASV.
+<span class="token number">150</span> Ok to send data.
+<span class="token number">226</span> Transfer complete.
+<span class="token number">7500000</span> bytes sent <span class="token keyword">in</span> <span class="token number">0.926</span> seconds <span class="token punctuation">(</span><span class="token number">7.72</span> Mbytes/s<span class="token punctuation">)</span>
+ftp<span class="token operator">></span> <span class="token function">ls</span>
+<span class="token number">200</span> PORT <span class="token builtin class-name">command</span> successful. Consider using PASV.
+<span class="token number">150</span> Here comes the directory listing.
+-rw-r--r--    <span class="token number">1</span> <span class="token number">1000</span>     <span class="token number">1000</span>      <span class="token number">7500000</span> Nov 02 <span class="token number">14</span>:21 a.txt
+drwxrwxr-x    <span class="token number">2</span> <span class="token number">1000</span>     <span class="token number">1000</span>         <span class="token number">4096</span> Nov 02 <span class="token number">14</span>:19 <span class="token builtin class-name">test</span>
+<span class="token number">226</span> Directory send OK.
+ftp<span class="token operator">></span> get aaaa.txt <span class="token comment"># 下载文件，既在本地主机上写入文件</span>
+<span class="token number">200</span> PORT <span class="token builtin class-name">command</span> successful. Consider using PASV.
+<span class="token number">150</span> Opening BINARY mode data connection <span class="token keyword">for</span> aaaa.txt <span class="token punctuation">(</span><span class="token number">7</span> bytes<span class="token punctuation">)</span>.
+WARNING<span class="token operator">!</span> <span class="token number">2</span> bare linefeeds received <span class="token keyword">in</span> ASCII mode
+File may not have transferred correctly.
+<span class="token number">226</span> Transfer complete.
+<span class="token number">7</span> bytes received <span class="token keyword">in</span> <span class="token number">0.000211</span> seconds <span class="token punctuation">(</span><span class="token number">32.4</span> kbytes/s<span class="token punctuation">)</span></code></pre></div>
+<p><a name="51nHl"></a></p>
+<h2 id="samba-和-nfs-服务" style="position:relative;"><a href="#samba-%E5%92%8C-nfs-%E6%9C%8D%E5%8A%A1" aria-label="samba 和 nfs 服务 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Samba 和 NFS 服务</h2>
+<ul>
+<li>samba 服务主要针对于 windows 和 windows 系统</li>
+<li>NFS 主要针对的的是 linux 和 linux 系统</li>
+</ul>
+<p><a name="HcTgt"></a></p>
+<h2 id="nginx-基本配置文件" style="position:relative;"><a href="#nginx-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" aria-label="nginx 基本配置文件 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nginx 基本配置文件</h2>
+<p>OpenResty® 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。<br />
+<br />OpenResty® 通过汇聚各种设计精良的 Nginx 模块（主要由 OpenResty 团队自主开发），从而将 Nginx 有效地变成一个强大的通用 Web 应用平台。这样，Web 开发人员和系统工程师可以使用 Lua 脚本语言调动 Nginx 支持的各种 C 以及 Lua 模块，快速构造出足以胜任 10K 乃至 1000K 以上单机并发连接的高性能 Web 应用系统。<br />
+<br />OpenResty® 的目标是让你的 Web 服务直接跑在 Nginx 服务内部，充分利用 Nginx 的非阻塞 I/O 模型，不仅仅对 HTTP 客户端请求，甚至于对远程后端诸如 MySQL、PostgreSQL、Memcached 以及 Redis 等都进行一致的高性能响应。来自 OpenResty® 官网</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 下载</span>
+yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+yum <span class="token function">install</span> openresty
+
+<span class="token comment"># 配置文件</span>
+/usr/local/openresty/nginx/conf/nginx.conf
+
+<span class="token comment"># 启动</span>
+<span class="token function">service</span> openresty start<span class="token operator">|</span>stop<span class="token operator">|</span>restart<span class="token operator">|</span>reload</code></pre></div>
+<br />
+<br />
+<br /></section><footer class="post__PostFooter-h8gzap-9 bVnRow"><p>Published under <span><a class="post__FooterTagLink-h8gzap-10 jqxPBx" href="/tag/linux">Linux</a></span> on <time dateTime="2021-04-11T00:00:00.000Z">11 April, 2021</time>.</p></footer></article></div></div><section class="post__PostAddition-h8gzap-11 bYZhdV"><div class="common__Container-sc-1d5kp8-0 post__PostAdditionContent-h8gzap-12 iKTLAq"><div class="post__BioWrapper-h8gzap-13 gTfYTh"><section class="bio__StyledBio-sc-19adui4-0 iHGPyz"><div class="avatar__StyledAvatar-sc-1v6bq9n-0 kXzLbm gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:55px;height:55px"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAeY5rjFYKVdEzeaKf//EABwQAAICAgMAAAAAAAAAAAAAAAEDAAIREjEzQf/aAAgBAQABBQJg0qu24mRaBa9ciU59b2//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAZEAADAAMAAAAAAAAAAAAAAAAAARECEDH/2gAIAQEABj8CvSyaj4xYraMj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIVExQWFx8P/aAAgBAQABPyG2OBqedFQ4gW7ZAWImBlbS5IcnuH36jqjc/9oADAMBAAIAAwAAABCvB4P/xAAZEQEAAgMAAAAAAAAAAAAAAAABADEQESH/2gAIAQMBAT8Q0TmBUbn/xAAXEQEAAwAAAAAAAAAAAAAAAAARABAh/9oACAECAQE/EG7Bf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESEQYTFB0f/aAAgBAQABPxAqOffZYytIw4Bb3AVSEpAyy33sWjiIncLHitjrt+op/Dc//9k=" alt="pipihua" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/aa6d7/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/05b67/profile-pic.jpg 2x" /><img loading="lazy" width="55" height="55" srcset="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/aa6d7/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/05b67/profile-pic.jpg 2x" src="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg" alt="pipihua" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><h3 class="bio__AuthorName-sc-19adui4-2 lfACiL">pipihua</h3><p class="bio__AuthorDescription-sc-19adui4-1 lbetsi">I'm <strong>pipihua</strong>, The best way to deal with anxiety is to get started right now.
+        If you like what you see feel free to give a 
+        <a href="https://github.com/pipihua666" rel="noopener" target="_blank">star on GitHub!</a></p><ul class="social-channel-list__StyledSocialChannels-sc-16w9pwh-0 YZAaE"><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://github.com/pipihua666" target="_blank" rel="noopener" aria-label="github"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></li></ul></section></div></div></section></main><footer class="style__StyledFooter-sc-1oqvjzu-0 gpDhwt"><div class="common__Container-sc-1d5kp8-0 style__FooterContainer-sc-1oqvjzu-1 ctpkkx"><nav class="style__StyledNav-sc-1oqvjzu-4 etXHUJ"><ul><li><a href="https://www.cnblogs.com/yahuian/" target="_blank" class="style__FooterMenuLink-sc-1oqvjzu-6 dLTgSL">推荐一个Golang工程师</a></li></ul></nav><div><p class="style__Copyright-sc-1oqvjzu-2 cXOFUh"><strong>pipihua&#x27;s blog</strong> © <!-- -->2021</p><p class="style__DesignBy-sc-1oqvjzu-3 bqPxdl">Theme by<!-- --> <a href="https://nehalist.io" target="_blank" rel="noopener">nehalist.io</a></p></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/linux-service";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-25cf05b7fad03f114865.js"],"app":["/app-6124a287738eddf542a4.js"],"component---theme-src-pages-404-tsx":["/component---theme-src-pages-404-tsx-8164ccd1f47bf761fa52.js"],"component---theme-src-pages-archive-tsx":["/component---theme-src-pages-archive-tsx-bea44c6f4fba5c2e6e3a.js"],"component---theme-src-pages-tags-tsx":["/component---theme-src-pages-tags-tsx-43a7c6667512c3c1c411.js"],"component---theme-src-templates-page-tsx":["/component---theme-src-templates-page-tsx-d8ba7e74bef2b20f7182.js"],"component---theme-src-templates-post-tsx":["/component---theme-src-templates-post-tsx-0578bc3901073525e650.js"],"component---theme-src-templates-posts-tsx":["/component---theme-src-templates-posts-tsx-bdc73af120c880ed05df.js"],"component---theme-src-templates-tag-tsx":["/component---theme-src-templates-tag-tsx-538acdd95d17278693dd.js"]};/*]]>*/</script><script src="/polyfill-25cf05b7fad03f114865.js" nomodule=""></script><script src="/component---theme-src-templates-post-tsx-0578bc3901073525e650.js" async=""></script><script src="/commons-f9f6a650dbf2a6231e53.js" async=""></script><script src="/fa5f8105-9880536ad98180a733c3.js" async=""></script><script src="/styles-7d4153d260c0197f0043.js" async=""></script><script src="/app-6124a287738eddf542a4.js" async=""></script><script src="/framework-5dc1caea2c5fd4bcd10a.js" async=""></script><script src="/webpack-runtime-3f32ef2c5f8029f8d8b2.js" async=""></script></body></html>
