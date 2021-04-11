@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.01877a06b072953c14c7.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.32.12"/><title data-react-helmet="true">TCP服务端和浏览器端的三次握手和四次分手 - pipihua&#x27;s blog</title><meta data-react-helmet="true" name="description" content="TCP服务端和浏览器端的三次握手和四次分手"/><meta data-react-helmet="true" property="og:title" content="TCP服务端和浏览器端的三次握手和四次分手 - pipihua&#x27;s blog"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:description" content="TCP服务端和浏览器端的三次握手和四次分手"/><meta data-react-helmet="true" property="og:url" content="https://pipihua666.github.io/tcp"/><meta data-react-helmet="true" name="twitter:label1" content="Written by"/><meta data-react-helmet="true" name="twitter:data1" content="pipihua"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="pipihua"/><meta data-react-helmet="true" name="twitter:title" content="TCP服务端和浏览器端的三次握手和四次分手 - pipihua&#x27;s blog"/><meta data-react-helmet="true" name="twitter:description" content="TCP服务端和浏览器端的三次握手和四次分手"/><meta data-react-helmet="true" name="keywords" content="React, JavaScript, TypeScript, Echarts, DevOps, Network"/><meta data-react-helmet="true" name="article:published_time" content="2021-02-20 21:45"/><meta data-react-helmet="true" name="article:modified_time" content="2021-04-11T00:00:00.000Z"/><meta data-react-helmet="true" name="twitter:label2" content="Filed under"/><meta data-react-helmet="true" name="twitter:data2" content="Network"/><meta data-react-helmet="true" property="og:image" content="https://pipihua666.github.io/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png"/><meta data-react-helmet="true" name="twitter:image" content="https://pipihua666.github.io/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png"/><script data-react-helmet="true" type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Article",
+          "author": {
+            "@type": "Person",
+            "name": "pipihua"
+          },
+          "keywords": "Network",
+          "headline": "TCP服务端和浏览器端的三次握手和四次分手 - pipihua's blog",
+          "url": "https://pipihua666.github.io/tcp",
+          "datePublished": "2021-02-20 21:45",
+          "dateModified": "2021-04-11T00:00:00.000Z",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://pipihua666.github.io/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png",
+            "width": "1000",
+            "height": "520"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "pipihua's blog"
+          },
+          "description": "TCP服务端和浏览器端的三次握手和四次分手",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://pipihua666.github.io"
+          }
+        }
+      </script><style data-styled="bzOPpS kHKWRw fOuWxu biTeGs jLOYBk fVqyTA cROOCp gWrDHi MQpwo llwmof fYiJFa iRZLqu jZNSfz hRYAD faXnX lhFcmu GDWrm fTdjuL bXjWFc iHPqjx jtkVLk jqyLKa cCerLd bVnRow jqxPBx bYZhdV iKTLAq gTfYTh iHGPyz kXzLbm lfACiL lbetsi YZAaE hLhzMS gpDhwt ctpkkx etXHUJ dLTgSL cXOFUh bqPxdl" data-styled-version="4.4.1">
+/* sc-component-id: sc-global-705724203 */
+html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{display:block;} h1{font-size:2em;margin:0.67em 0;} hr{box-sizing:content-box;height:0;overflow:visible;} pre{font-family:monospace,monospace;font-size:1em;} a{background-color:transparent;} abbr[title]{border-bottom:none;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;} b,strong{font-weight:bolder;} code,kbd,samp{font-family:monospace,monospace;font-size:1em;} small{font-size:80%;} sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;} sub{bottom:-0.25em;} sup{top:-0.5em;} img{border-style:none;} button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;} button,input{overflow:visible;} button,select{text-transform:none;} button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button;} button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0;} button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText;} fieldset{padding:0.35em 0.75em 0.625em;} legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;} progress{vertical-align:baseline;} textarea{overflow:auto;} [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0;} [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto;} [type="search"]{-webkit-appearance:textfield;outline-offset:-2px;} [type="search"]::-webkit-search-decoration{-webkit-appearance:none;} ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;} details{display:block;} summary{display:list-item;} template{display:none;} [hidden]{display:none;} html{box-sizing:border-box;background-color:#fafafa;} body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;line-height:1.9em;} *{box-sizing:border-box;} h1,h2,h3,h4,h5,h6{outline:none;} a{color:#000;-webkit-text-decoration:none;text-decoration:none;} .gatsby-highlight{max-width:100% !important;} .gatsby-highlight-code-line{background-color:#353631;display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:0.75em;}
+/* sc-component-id: style__NavContainer-sc-1ck1w82-0 */
+.bzOPpS{z-index:1000;background-color:#20232a;position:-webkit-sticky;position:sticky;top:0;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.07);}
+/* sc-component-id: style__Nav-sc-1ck1w82-1 */
+.kHKWRw{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;} @media (max-width:1300px){.kHKWRw{padding:0 20px;}}
+/* sc-component-id: style__NavWrapper-sc-1ck1w82-2 */
+.jLOYBk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;width:100%;height:70px;white-space:nowrap;} @media (max-width:576px){.jLOYBk{width:90%;}}
+/* sc-component-id: style__NavMenu-sc-1ck1w82-3 */
+.fVqyTA{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;} @media (max-width:576px){.fVqyTA{width:80%;overflow-x:auto;overflow-y:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 25px,#000 90%,transparent);}}.cROOCp{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: style__NavMenuItem-sc-1ck1w82-4 */
+.gWrDHi{cursor:pointer;display:inline-block;border:0;background:transparent;outline:none;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: style__NavLink-sc-1ck1w82-5 */
+.MQpwo{color:#fff;opacity:.8;padding:16px;-webkit-transition:opacity .5s;transition:opacity .5s;} .MQpwo:hover{opacity:1;}
+/* sc-component-id: style__SearchContainer-sc-1ck1w82-6 */
+.llwmof{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;position:relative;}
+/* sc-component-id: style__ToggleSearchButton-sc-1ck1w82-7 */
+.fYiJFa{cursor:pointer;color:#fff;opacity:.8;background:none;outline:none;border:0;-webkit-transition:opacity .5s;transition:opacity .5s;} .fYiJFa:hover{opacity:1;}
+/* sc-component-id: logo__LogoImage-sc-1eqkae8-0 */
+.biTeGs{max-height:30px;width:30px;margin-right:45px;} @media (max-width:576px){.biTeGs{margin-right:15px;}}
+/* sc-component-id: logo__HomeLink-sc-1eqkae8-1 */
+.fOuWxu{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;height:30px;}
+/* sc-component-id: style__StyledFooter-sc-1oqvjzu-0 */
+.gpDhwt{max-width:100%;padding:10px 0;z-index:700;position:relative;font-size:.9em;margin-top:50px;}
+/* sc-component-id: style__FooterContainer-sc-1oqvjzu-1 */
+.ctpkkx{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;text-align:right;line-height:1.1em;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;} @media (max-width:1300px){.ctpkkx{padding:0 20px;}}
+/* sc-component-id: style__Copyright-sc-1oqvjzu-2 */
+.cXOFUh{margin:0;}
+/* sc-component-id: style__DesignBy-sc-1oqvjzu-3 */
+.bqPxdl{margin:0;opacity:.8;font-size:.8em;} .bqPxdl a{font-weight:bold;-webkit-text-decoration:none;text-decoration:none;color:#000;} .bqPxdl a:hover{-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: style__StyledNav-sc-1oqvjzu-4 */
+.etXHUJ ul{list-style-type:none;margin:0;padding:0;} .etXHUJ li{display:inline-block;margin-right:25px;} .etXHUJ li:last-child{margin-right:0;}
+/* sc-component-id: style__FooterMenuLink-sc-1oqvjzu-6 */
+.dLTgSL{color:#000;-webkit-text-decoration:none;text-decoration:none;}
+/* sc-component-id: toc__StyledNav-sc-1hwup8p-0 */
+.lhFcmu .toc-list{list-style-type:none;margin:0;padding:0;} .lhFcmu .toc-list .toc-list{padding-left:17px;padding-top:10px;} .lhFcmu .toc-list-item{line-height:1.2em;padding-bottom:10px;} .lhFcmu .toc-list-item:last-child{padding-bottom:0;} .lhFcmu .toc-link{color:#808080;-webkit-text-decoration:none;text-decoration:none;} .lhFcmu .is-active-link{color:#404040;font-weight:700;}
+/* sc-component-id: reading-progress__ReadingProgressBar-vxjjnv-0 */
+.iRZLqu{position:-webkit-sticky;position:sticky;height:5px;top:70px;background-color:#a4cbb8;z-index:500;}
+/* sc-component-id: social-channel-list__StyledSocialChannels-sc-16w9pwh-0 */
+.YZAaE{list-style-type:none;margin:0;padding:0;}
+/* sc-component-id: social-channel-list__StyledSocialChannel-sc-16w9pwh-1 */
+.hLhzMS{display:inline-block;margin:0 10px;font-size:1.6em;opacity:.7;-webkit-transition:opacity .5s;transition:opacity .5s;} .hLhzMS:hover{opacity:1;}
+/* sc-component-id: avatar__StyledAvatar-sc-1v6bq9n-0 */
+.kXzLbm{max-width:55px;border-radius:100%;}
+/* sc-component-id: bio__StyledBio-sc-19adui4-0 */
+.iHGPyz{margin:auto;text-align:center;width:100%;}
+/* sc-component-id: bio__AuthorDescription-sc-19adui4-1 */
+.lbetsi{margin:10px 0 13px;} .lbetsi a{color:#000;-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: bio__AuthorName-sc-19adui4-2 */
+.lfACiL{margin:10px;}
+/* sc-component-id: post__PostContainer-h8gzap-0 */
+.jZNSfz{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding:0 !important;} @media (max-width:1300px){.jZNSfz{padding:0 20px;}}
+/* sc-component-id: post__LeftSidebar-h8gzap-1 */
+.hRYAD{min-width:255px;max-width:225px;-webkit-transition:opacity .5s,z-index .5s;transition:opacity .5s,z-index .5s;} @media (max-width:1300px){.hRYAD{position:fixed;opacity:0;z-index:-1;background-color:#fff;width:100% !important;max-width:100%;padding:0 20px;margin-top:-5px;height:calc(100vh - 70px);}}
+/* sc-component-id: post__PostContent-h8gzap-2 */
+.fTdjuL{margin-top:-5px;border-right:1px #e5eff5 solid;border-left:1px #e5eff5 solid;background-color:#fff;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);z-index:10;width:1035px;max-width:100%;} .fTdjuL li > a,.fTdjuL p > a{color:#a4cbb8;border-bottom:2px #a4cbb8 solid;} .fTdjuL pre{margin:30px 0;} .fTdjuL blockquote{border-left:4px #a4cbb8 solid;background-color:#fafafa;margin:30px 0;padding:5px 20px;border-radius:.3em;} .fTdjuL h3::before,.fTdjuL h4::before,.fTdjuL h5::before,.fTdjuL h6::before{display:block;content:" ";height:90px;margin-top:-90px;visibility:hidden;} .fTdjuL h2{border-top:1px solid #ececec;margin-top:44px;padding-top:40px;line-height:1.2;} .fTdjuL code[class*="language-text"]{padding:5px;} .fTdjuL p > img{max-width:100%;border-radius:.3em;margin:30px 0;} .fTdjuL hr{border-top:1px solid #ececec;border-bottom:0;margin-top:44px;margin-bottom:40px;} .fTdjuL .gatsby-resp-image-link{margin:30px 0;max-width:100%;} .fTdjuL .gatsby-resp-image-link .gatsby-resp-image-image{border-radius:.3em;}
+/* sc-component-id: post__TocWrapper-h8gzap-3 */
+.faXnX{position:-webkit-sticky;position:sticky;top:70px;padding:40px 30px 40px 0;}
+/* sc-component-id: post__PostHeader-h8gzap-4 */
+.bXjWFc{padding:40px;} @media (max-width:576px){.bXjWFc{padding:20px;}}
+/* sc-component-id: post__FeaturedImage-h8gzap-5 */
+.jqyLKa{border-radius:0;} @media (max-width:1300px){.jqyLKa{margin-left:-1px;margin-right:-1px;}}
+/* sc-component-id: post__StyledPost-h8gzap-6 */
+.cCerLd{padding:40px;} @media (max-width:576px){.cCerLd{padding:20px;}}
+/* sc-component-id: post__PostMeta-h8gzap-7 */
+.iHPqjx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;opacity:.8;font-size:.9em;}
+/* sc-component-id: post__PostTitle-h8gzap-8 */
+.jtkVLk{margin:0;padding:0;}
+/* sc-component-id: post__PostFooter-h8gzap-9 */
+.bVnRow{background-color:#fafafa;font-size:.8em;color:#666;padding:40px;line-height:1em;} .bVnRow p{margin:5px 0;}
+/* sc-component-id: post__FooterTagLink-h8gzap-10 */
+.jqxPBx{color:#000 !important;-webkit-text-decoration:none;text-decoration:none;border-bottom:0 !important;}
+/* sc-component-id: post__PostAddition-h8gzap-11 */
+.bYZhdV{background-color:#fff;border-top:1px #e5eff5 solid;border-bottom:1px #e5eff5 solid;z-index:700;position:relative;padding:40px;}
+/* sc-component-id: post__PostAdditionContent-h8gzap-12 */
+.iKTLAq{width:1260px;margin-left:auto;margin-right:auto;max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;} @media (max-width:1300px){.iKTLAq{padding:0 20px;}}
+/* sc-component-id: post__BioWrapper-h8gzap-13 */
+.gTfYTh{width:50%;margin:auto;} @media (max-width:576px){.gTfYTh{width:100%;}}
+/* sc-component-id: post__ToggleTocButton-h8gzap-14 */
+.GDWrm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;right:20px;bottom:20px;border-radius:100%;box-shadow:0 0 3px rgba(0,0,0,.03),0 3px 46px rgba(0,0,0,.1);border:0;z-index:5000;width:50px;height:50px;background-color:#20232a;color:#fff;outline:none;} @media (min-width:1300px){.GDWrm{display:none;}}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=72e8008a1ad86357775e2878c278a5b7" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#a4cbb8"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=72e8008a1ad86357775e2878c278a5b7"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=72e8008a1ad86357775e2878c278a5b7"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-3f32ef2c5f8029f8d8b2.js"/><link as="script" rel="preload" href="/framework-5dc1caea2c5fd4bcd10a.js"/><link as="script" rel="preload" href="/app-6124a287738eddf542a4.js"/><link as="script" rel="preload" href="/styles-7d4153d260c0197f0043.js"/><link as="script" rel="preload" href="/fa5f8105-9880536ad98180a733c3.js"/><link as="script" rel="preload" href="/commons-f9f6a650dbf2a6231e53.js"/><link as="script" rel="preload" href="/component---theme-src-templates-post-tsx-0578bc3901073525e650.js"/><link as="fetch" rel="preload" href="/page-data/tcp/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1116962356.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2275848304.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3138592700.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3462520645.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/545095672.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="style__NavContainer-sc-1ck1w82-0 bzOPpS"><div class="common__Container-sc-1d5kp8-0 style__Nav-sc-1ck1w82-1 kHKWRw"><a class="logo__HomeLink-sc-1eqkae8-1 fOuWxu" href="/"><div class="logo__LogoImage-sc-1eqkae8-0 biTeGs gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:30px;height:30px"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAeY5rjFYKVdEzeaKf//EABwQAAICAgMAAAAAAAAAAAAAAAEDAAIREjEzQf/aAAgBAQABBQJg0qu24mRaBa9ciU59b2//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAZEAADAAMAAAAAAAAAAAAAAAAAARECEDH/2gAIAQEABj8CvSyaj4xYraMj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIVExQWFx8P/aAAgBAQABPyG2OBqedFQ4gW7ZAWImBlbS5IcnuH36jqjc/9oADAMBAAIAAwAAABCvB4P/xAAZEQEAAgMAAAAAAAAAAAAAAAABADEQESH/2gAIAQMBAT8Q0TmBUbn/xAAXEQEAAwAAAAAAAAAAAAAAAAARABAh/9oACAECAQE/EG7Bf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESEQYTFB0f/aAAgBAQABPxAqOffZYytIw4Bb3AVSEpAyy33sWjiIncLHitjrt+op/Dc//9k=" alt="pipihua&#x27;s blog" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/f8771/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/56ed0/profile-pic.jpg 2x" /><img loading="lazy" width="30" height="30" srcset="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/f8771/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/56ed0/profile-pic.jpg 2x" src="/static/72e8008a1ad86357775e2878c278a5b7/58a4b/profile-pic.jpg" alt="pipihua's blog" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></a><div class="style__NavWrapper-sc-1ck1w82-2 jLOYBk"><ul class="style__NavMenu-sc-1ck1w82-3 fVqyTA"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><a class="style__NavLink-sc-1ck1w82-5 MQpwo" href="/">Home</a></li></ul><div class="style__SearchContainer-sc-1ck1w82-6 llwmof"><ul class="style__NavMenu-sc-1ck1w82-3 cROOCp"><li class="style__NavMenuItem-sc-1ck1w82-4 gWrDHi"><button role="button" aria-label="Toggle search" class="style__ToggleSearchButton-sc-1ck1w82-7 fYiJFa"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></button></li></ul></div></div></div></div><main><div style="width:0%" class="reading-progress__ReadingProgressBar-vxjjnv-0 iRZLqu"></div><div class="common__Container-sc-1d5kp8-0 post__PostContainer-h8gzap-0 jZNSfz"><div class="post__LeftSidebar-h8gzap-1 hRYAD"><div class="post__TocWrapper-h8gzap-3 faXnX"><nav class="toc__StyledNav-sc-1hwup8p-0 lhFcmu toc"></nav></div></div><button role="button" aria-label="Toggle table of contents" class="post__ToggleTocButton-h8gzap-14 GDWrm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M432 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button><div class="post__PostContent-h8gzap-2 fTdjuL"><article class="post"><header class="post__PostHeader-h8gzap-4 bXjWFc"><section class="post__PostMeta-h8gzap-7 iHPqjx"><a href="/tag/network">Network</a><time dateTime="2021-02-20 21:45">20 February, 2021</time></section><h1 class="post__PostTitle-h8gzap-8 jtkVLk">TCP服务端和浏览器端的三次握手和四次分手</h1></header><div class="post__FeaturedImage-h8gzap-5 jqyLKa gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:62.5%"></div><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADAklEQVQoz1WP+09SARTH75/QDJTHBS4CCqbRsMyl5tSpKx9Np8upG2u1sjRTm25qbm31g2W6NjVL1NRIS803yHyCgMC9PC9wQbhwUURt1S/92i9drR/qu8/OznbO+Z5zgO6u7oG+gY8jo/OTn1Szc1sK5fbahn5LC++YtBo9bLLABsSGWO0w4oBhsxHR62H1tkG1qVOua4DO3nevh8dlk1+mF1eUa2qN1miEzXaH02Aw5eflZqRdqa6s9GJeL4aR+N0un9OB2a0oYrIZdUDPqHxwZn5iZW1BrV81mjVWVG93uolwv2yEwWDer60TikSzS4pgOOLa9bt9uNvrd3o8VhSFbRZAPj2xoFre0G7pEANst1idDpsLDUXCjxobmCDY1d0tEAgKi4uIvRAeDOAB3B/w+3CfZxdzeRzAouKzRqtCzFoUNbkxG+ZBSfYPiJaWxxQKhclgUKnUioqbBwehIOEjQj6C8AUJbzCIBfwOYH5ueHN9xqBTWJENh23b4zZ5MOQo4pN/GKLR6HwBn0KhdnY++/E9HMRdewS2R7j3gs4Qbid2YUA91G78/Mo832dbGnQoR3DN5L5hJmJR3CjIi46O4fN4ZynUpod3fxJwxKM9wuEj3HiM7xwHdId+NWAcaXROPUXnXvhVvcSWDFuVEZrxrtaaGBodgqBYLjeKEt14u/zXruKbeeqrZTpskId170PbstBmP/BWmjVTW7DUUKJorlhrlyrb7jyXltEYTDabDZ2KzOvKS+TtTWOt9csdta6X9XhP3eGb2v2xOiA9SVKYkirNya7Ozb91vaChrCzrooTOBLkQxOFwhPEiFpuVLrlUlZsvzc6syb3aXJTdUZrzpDTnXtk1QJiYHJdwgSc6zxOJecIkbvw5kAOdDEJcfpwwq7iSw2GLUzMziqtimCCVAUbRmGdi6FF0EIoXA2yyyCbdScA/kAvJaZDJkFzOqHjQJkxIShQnS1LSOCwWF+KSF8VCEBnJToDzV9A/nIj8mS+ITxInk/0sFsg6Nf1PEPQb/LmEKWGS80AAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f1c2b97eb13574766d32aacd28ee9c75/dc47e/couple.png 200w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/9f2d5/couple.png 400w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png 800w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/77647/couple.png 1200w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/f8d4f/couple.png 1600w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/4ce6a/couple.png 1920w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/f1c2b97eb13574766d32aacd28ee9c75/dc47e/couple.png 200w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/9f2d5/couple.png 400w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png 800w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/77647/couple.png 1200w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/f8d4f/couple.png 1600w,
+/static/f1c2b97eb13574766d32aacd28ee9c75/4ce6a/couple.png 1920w" src="/static/f1c2b97eb13574766d32aacd28ee9c75/90823/couple.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><section class="post__StyledPost-h8gzap-6 cCerLd post"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1031px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6b51daad90009cb69b9edc04b133994d/23592/tcp.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 29.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAlklEQVQY042QSw4DIQxDuf9Zp6IzfJMw0KemYtFFVWEEcbBjEe55/4kuvbbqKLW03gI7PuNcC/wW55Jt2LgHdzWlDGzErdeUk5jup3NNx2aYRsn78zq5UAbCcIjJ8ThEFRZvgLewTL0ELiYzevcKn5kq+G0BgIxnTDnrMGeudH3H5sAMyhve89iLj5i6k78/rDAQoET1AsSWX4lcrCKoAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="tcp"
+        title="tcp"
+        src="/static/6b51daad90009cb69b9edc04b133994d/23592/tcp.png"
+        srcset="/static/6b51daad90009cb69b9edc04b133994d/5a46d/tcp.png 300w,
+/static/6b51daad90009cb69b9edc04b133994d/0a47e/tcp.png 600w,
+/static/6b51daad90009cb69b9edc04b133994d/23592/tcp.png 1031w"
+        sizes="(max-width: 1031px) 100vw, 1031px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<blockquote>
+<p>有图可知，由于 HTTP 只有请求和响应的概念，信道连接需要通过 TCP 来完成的，因此让我们先来谈谈 TCP 的三次握手和四次分手吧</p>
+</blockquote>
+<h2 id="三次握手" style="position:relative;"><a href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B" aria-label="三次握手 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>三次握手</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 543px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a98fd5b57c7cb69e93dd4c06df8f1eee/fcee8/3times.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 71.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGi6o4jJNFD/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIAAxET/9oACAEBAAEFAqie0RmypSLYiHP/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAECMf/aAAgBAgEBPwG2pf/EABsQAAIBBQAAAAAAAAAAAAAAAAABEAIDETFR/9oACAEBAAY/ArmW42yt9hn/xAAdEAADAAICAwAAAAAAAAAAAAAAARExUSFBYZHR/9oACAEBAAE/IWEMLpXyeyxc2xppPo52L0mT/9oADAMBAAIAAwAAABCEL//EABcRAAMBAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8QyKw//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QUV//xAAbEAEAAwADAQAAAAAAAAAAAAABABEhMVFh8f/aAAgBAQABPxA+BWxIa46glzre3q25REcsNU7ygfCCi23F88n/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="3times"
+        title="3times"
+        src="/static/a98fd5b57c7cb69e93dd4c06df8f1eee/fcee8/3times.jpg"
+        srcset="/static/a98fd5b57c7cb69e93dd4c06df8f1eee/f93b5/3times.jpg 300w,
+/static/a98fd5b57c7cb69e93dd4c06df8f1eee/fcee8/3times.jpg 543w"
+        sizes="(max-width: 543px) 100vw, 543px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<ol>
+<li>客户端首先要 SYN=1,表示要创建连接</li>
+<li>服务端接收到后，要告诉客户端：我接受到了！所以加个 ACK=1 表示确认跟客户端创建连接，因为 TCP 连接是双向的，然后还需要发送 SYN=1 表示我也想跟你连接</li>
+<li>理论上这时就创建连接成功（也就是半连接状态）了，但是要防止一个意外(也就是下面的为什么需要三次握手)，所以客户端要再发一个消息给服务端确认一下，这时只需要 ACK=1 就行了</li>
+<li>三次握手完成</li>
+</ol>
+<blockquote>
+<ul>
+<li>SYN：代表请求创建连接，所以在三次握手中前两次要 SYN=1，表示这两次用于建立连接；</li>
+<li>ACK：代表确认接受，不管是三次握手还是四次分手，在回应的时候都会加上 ACK=1，表示消息接收到了，并且在建立连接以后的发送数据时，都需加上 ACK=1,来表示数据接收成功；</li>
+<li>seq：序列号，什么意思呢？当发送一个数据时，数据是被拆成多个数据包来发送，序列号就是对每个数据包进行编号，这样接受方才能对数据包进行再次拼接。初始序列号是随机生成的，这样不一样的数据拆包解包就不会连接错了。（例如：两个数据都被拆成 1，2，3 和一个数据是 1，2，3 一个是 101，102，103，很明显后者不会连接错误）</li>
+<li>ack:这个代表下一个数据包的编号，这也就是为什么第二请求时，ack 是 seq+1，</li>
+<li>为什么需要三次握手？---------------如果一个连接请求在网络中跑的慢，超时了，这时客户端会重发请求，但是这个跑的慢的请求最后还是跑到了，然后服务端就接收了两个连接请求，然后全部回应就会创建两个连接，浪费资源！如果加了第三次客户端确认，服务端在接受到一个客户端连接确认请求后，后面再接收到的连接确认请求就可以抛弃不管了。<br />-------------- 还有一个原因是：因为 TCP 连接时双向的，所以不仅需要连接客户端和服务端的单向连接，还需要连接服务端和客户端的单向连接，在第二次服务端发送了 SYN=1 请求连接的时候还需要客户端发送 ACK=1 来确认连接才能成功双向连接。</li>
+</ul>
+</blockquote>
+<h2 id="四次分手" style="position:relative;"><a href="#%E5%9B%9B%E6%AC%A1%E5%88%86%E6%89%8B" aria-label="四次分手 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>四次分手</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 564px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/263613d85ce82dc31dc9281013861de6/7723c/4times.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAADBf/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB6aRsQNnaT//EABkQAAIDAQAAAAAAAAAAAAAAAAABAgMRBP/aAAgBAQABBQKicpCelds2ufUIqTz/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQMBAT8BmI//xAAYEQACAwAAAAAAAAAAAAAAAAAAAQIRMf/aAAgBAgEBPwGWjo//xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRMRIhQf/aAAgBAQAGPwJ2Slm1HzNnSlP/xAAcEAACAgIDAAAAAAAAAAAAAAAAARExIVFBcYH/2gAIAQEAAT8htZDhYE0kMb5NC4BOg0qvRLzZo//aAAwDAQACAAMAAAAQaA//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/ENhnD//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPxDIwhq//8QAGhABAQEBAQEBAAAAAAAAAAAAAREhADFBwf/aAAgBAQABPxATxPAQ3jlLSXPT51taMMGQ47SCVFN5WwKmJ+cCeblXkO//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="4times"
+        title="4times"
+        src="/static/263613d85ce82dc31dc9281013861de6/7723c/4times.jpg"
+        srcset="/static/263613d85ce82dc31dc9281013861de6/f93b5/4times.jpg 300w,
+/static/263613d85ce82dc31dc9281013861de6/7723c/4times.jpg 564w"
+        sizes="(max-width: 564px) 100vw, 564px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<ol>
+<li>首先客户端请求关闭客户端到服务端方向的连接，这时客户端就要发送一个 FIN=1，表示要关闭一个方向的连接（见上面四次分手的图）</li>
+<li>服务端接收到后是需要确认一下的，所以返回了一个 ACK=1,现在处于半关闭状态，服务端还可以发送数据给客户端（关闭了客户端向服务端发送数据的信道，但 TCB 还未销毁，仍可发送 ACK）</li>
+<li>这时只关闭了 TCP 一个方向，另一个方向也需要关闭,如果服务端没有数据发送给客户端了，服务端也向客户端发了一个 FIN=1 ,ACK=1，当然也要有 seq 和 ack</li>
+<li>客户端接收到后发送 ACK=1，表示接受成功</li>
+<li>服务端接收到客户端发来的 ACK=1 后关闭 TCP 连接，销毁 TCB（什么是 TCB 见下）</li>
+<li>客户端等到 2MSL 后再销毁 TCB（什么是 2MSL 见下）</li>
+<li>四次分手完成！</li>
+</ol>
+<blockquote>
+<ul>
+<li>FIN：表示请求关闭连接，在四次分手时，我们发现 FIN 发了两遍。这是因为 TCP 的连接是双向的，所以一次 FIN 只能关闭一个方向。</li>
+<li><strong>注意</strong>：TCB 传输控制块是客户端和服务端在请求连接和关闭连接时都会生成的，在请求连接成功和关闭连接成功时销毁，ACK，ack，FIN，seq 等通过 TCB 发送给对方。</li>
+<li>为什么客户端需要等到 2MSL 后才能关闭？---------------服务端在要分手的时候，如果由于某些网络原因没有收到客户端说的确认，那么它会再说一次分手，也就是重发 FIN，如果客户端在说完确认之后就关闭了 TCP 连接，那么服务端是不知道客户端到底能不能和它和平分手的，那么它的端口就一直不能关闭，所以需要客户端等待 2MSL 再关闭 TCP 连接。</li>
+<li>为什么需要四次分手？--------------TCP 是双向的，所以需要在两个方向分别关闭，每个方向的关闭又需要请求和确认，所以一共就 4 次。</li>
+<li>为什么服务端不一起发送 FIN 和 ACK 呢？这样才三次握手-----------------------在客户端说了分手之后，它还是可以接受数据的，只是不能发送而已，如果只有三次握手，服务端在没有发完数据的情况下就关闭了 TCP，那么客户端得到的数据是不完整的，所以服务端需要在客户端请求关闭连接的时候第一次就发送 ACK 说我收到了，但是你再等等，我还有数据没有发完给你，等发完之后，才发送 FIN 关闭 TCP 连接。</li>
+</ul>
+</blockquote>
+<h2 id="参考" style="position:relative;"><a href="#%E5%8F%82%E8%80%83" aria-label="参考 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参考</h2>
+<blockquote>
+<ul>
+<li>此文章参考链接：<a href="https://baijiahao.baidu.com/s?id=1593714120815701015&#x26;wfr=spider&#x26;for=pc">TCP 的三次握手和四次分手</a></li>
+<li>2MSL 解释：<a href="https://blog.csdn.net/zxx2096/article/details/80286577">2MSL 是什么？</a></li>
+</ul>
+</blockquote></section><footer class="post__PostFooter-h8gzap-9 bVnRow"><p>Published under <span><a class="post__FooterTagLink-h8gzap-10 jqxPBx" href="/tag/network">Network</a></span> on <time dateTime="2021-02-20 21:45">20 February, 2021</time>.</p><p>Last updated on <time dateTime="2021-04-11T00:00:00.000Z">11 April, 2021</time>.</p></footer></article></div></div><section class="post__PostAddition-h8gzap-11 bYZhdV"><div class="common__Container-sc-1d5kp8-0 post__PostAdditionContent-h8gzap-12 iKTLAq"><div class="post__BioWrapper-h8gzap-13 gTfYTh"><section class="bio__StyledBio-sc-19adui4-0 iHGPyz"><div class="avatar__StyledAvatar-sc-1v6bq9n-0 kXzLbm gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:55px;height:55px"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAeY5rjFYKVdEzeaKf//EABwQAAICAgMAAAAAAAAAAAAAAAEDAAIREjEzQf/aAAgBAQABBQJg0qu24mRaBa9ciU59b2//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BI3//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQIBAT8BZ3//xAAZEAADAAMAAAAAAAAAAAAAAAAAARECEDH/2gAIAQEABj8CvSyaj4xYraMj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIVExQWFx8P/aAAgBAQABPyG2OBqedFQ4gW7ZAWImBlbS5IcnuH36jqjc/9oADAMBAAIAAwAAABCvB4P/xAAZEQEAAgMAAAAAAAAAAAAAAAABADEQESH/2gAIAQMBAT8Q0TmBUbn/xAAXEQEAAwAAAAAAAAAAAAAAAAARABAh/9oACAECAQE/EG7Bf//EABwQAQADAAIDAAAAAAAAAAAAAAEAESEQYTFB0f/aAAgBAQABPxAqOffZYytIw4Bb3AVSEpAyy33sWjiIncLHitjrt+op/Dc//9k=" alt="pipihua" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/aa6d7/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/05b67/profile-pic.jpg 2x" /><img loading="lazy" width="55" height="55" srcset="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg 1x,
+/static/72e8008a1ad86357775e2878c278a5b7/aa6d7/profile-pic.jpg 1.5x,
+/static/72e8008a1ad86357775e2878c278a5b7/05b67/profile-pic.jpg 2x" src="/static/72e8008a1ad86357775e2878c278a5b7/36742/profile-pic.jpg" alt="pipihua" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><h3 class="bio__AuthorName-sc-19adui4-2 lfACiL">pipihua</h3><p class="bio__AuthorDescription-sc-19adui4-1 lbetsi">I'm <strong>pipihua</strong>, The best way to deal with anxiety is to get started right now.
+        If you like what you see feel free to give a 
+        <a href="https://github.com/pipihua666" rel="noopener" target="_blank">star on GitHub!</a></p><ul class="social-channel-list__StyledSocialChannels-sc-16w9pwh-0 YZAaE"><li class="social-channel-list__StyledSocialChannel-sc-16w9pwh-1 hLhzMS"><a href="https://github.com/pipihua666" target="_blank" rel="noopener" aria-label="github"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></li></ul></section></div></div></section></main><footer class="style__StyledFooter-sc-1oqvjzu-0 gpDhwt"><div class="common__Container-sc-1d5kp8-0 style__FooterContainer-sc-1oqvjzu-1 ctpkkx"><nav class="style__StyledNav-sc-1oqvjzu-4 etXHUJ"><ul><li><a href="https://www.cnblogs.com/yahuian/" target="_blank" class="style__FooterMenuLink-sc-1oqvjzu-6 dLTgSL">推荐一个Golang工程师</a></li></ul></nav><div><p class="style__Copyright-sc-1oqvjzu-2 cXOFUh"><strong>pipihua&#x27;s blog</strong> © <!-- -->2021</p><p class="style__DesignBy-sc-1oqvjzu-3 bqPxdl">Theme by<!-- --> <a href="https://nehalist.io" target="_blank" rel="noopener">nehalist.io</a></p></div></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/tcp";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-25cf05b7fad03f114865.js"],"app":["/app-6124a287738eddf542a4.js"],"component---theme-src-pages-404-tsx":["/component---theme-src-pages-404-tsx-8164ccd1f47bf761fa52.js"],"component---theme-src-pages-archive-tsx":["/component---theme-src-pages-archive-tsx-bea44c6f4fba5c2e6e3a.js"],"component---theme-src-pages-tags-tsx":["/component---theme-src-pages-tags-tsx-43a7c6667512c3c1c411.js"],"component---theme-src-templates-page-tsx":["/component---theme-src-templates-page-tsx-d8ba7e74bef2b20f7182.js"],"component---theme-src-templates-post-tsx":["/component---theme-src-templates-post-tsx-0578bc3901073525e650.js"],"component---theme-src-templates-posts-tsx":["/component---theme-src-templates-posts-tsx-bdc73af120c880ed05df.js"],"component---theme-src-templates-tag-tsx":["/component---theme-src-templates-tag-tsx-538acdd95d17278693dd.js"]};/*]]>*/</script><script src="/polyfill-25cf05b7fad03f114865.js" nomodule=""></script><script src="/component---theme-src-templates-post-tsx-0578bc3901073525e650.js" async=""></script><script src="/commons-f9f6a650dbf2a6231e53.js" async=""></script><script src="/fa5f8105-9880536ad98180a733c3.js" async=""></script><script src="/styles-7d4153d260c0197f0043.js" async=""></script><script src="/app-6124a287738eddf542a4.js" async=""></script><script src="/framework-5dc1caea2c5fd4bcd10a.js" async=""></script><script src="/webpack-runtime-3f32ef2c5f8029f8d8b2.js" async=""></script></body></html>
