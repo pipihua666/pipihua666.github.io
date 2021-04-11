@@ -1,0 +1,34 @@
+- name: TypeScript
+  color: "#007acc"
+  icon: ./assets/images/typescript.svg
+  featured: true
+- name: JavaScript
+  color: #f0db4f
+  icon: ./assets/images/javascript.svg
+  featured: true
+# - name: Echarts
+#   color: #f0db4f
+#   featured: true
+#   icon: ./assets/images/echarts.png
+# - name: React
+#   color: #f0db4f
+#   featured: true
+#   icon: ./assets/images/react.png
+# - name: Linux
+#   color: #f0db4f
+#   featured: true
+#   icon: ./assets/images/linux.jpeg
+# - name: Network
+#   color: #f0db4f
+#   featured: true
+#   icon: ./assets/images/network.png
+# - name: Kubernetes
+#   color: #f0db4f
+#   featured: true
+#   icon: ./assets/images/k8s.png
+# - name: Download
+#   color: #f0db4f
+#   featured: false
+# - name: Gatsby
+#   color: #f0db4f
+#   featured: false

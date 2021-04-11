@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "demo",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public master",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipihua666/pipihua666.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "dependencies": {
+    "@nehalist/gatsby-theme-nehalem": "*",
+    "gatsby": "^2.13.1",
+    "gh-pages": "^3.1.0",
+    "react": "^16.8.6",
+    "react-carbon": "^1.0.7",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
