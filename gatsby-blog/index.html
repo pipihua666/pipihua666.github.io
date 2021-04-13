@@ -203,11 +203,11 @@ gatsby develop</code></pre></div>
 <li>
 <p>在 package.json，配置 github 仓库并添加一个 scripts 配置，将先将静态文件 build 到 public 目录，然后再 push 到 github。</p>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token string">"scripts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
-   <span class="token string">"deploy"</span><span class="token builtin class-name">:</span> <span class="token string">"gatsby build --prefix-paths &amp;&amp;  cp -f README.md public &amp;&amp; gh-pages -d public master"</span>,
+   <span class="token string">"deploy"</span><span class="token builtin class-name">:</span> <span class="token string">"gatsby build --prefix-paths  &amp;&amp; gh-pages -d public master"</span>,
  <span class="token punctuation">}</span>
 <span class="token string">"repository"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
   <span class="token string">"type"</span><span class="token builtin class-name">:</span> <span class="token string">"git"</span>,
-  <span class="token string">"url"</span><span class="token builtin class-name">:</span> <span class="token string">"git+https://github.com/pipihua666/pipihua666.github.io.git"</span>
+  <span class="token string">"url"</span><span class="token builtin class-name">:</span> <span class="token string">"git@github.com:pipihua666/pipihua666.github.io.git"</span>
 <span class="token punctuation">}</span>,</code></pre></div>
 </li>
 <li>
