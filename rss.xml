@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 28 Apr 2021 04:34:04 GMT</lastBuildDate><item><title><![CDATA[k8s修改外部访问端口]]></title><description><![CDATA[k8s修改外部访问端口，只要是涉及到service的各种端口解惑]]></description><link>https://pipihua666.github.io/k8s-port</link><guid isPermaLink="false">https://pipihua666.github.io/k8s-port</guid><pubDate>Tue, 27 Apr 2021 10:22:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;service-的-ports-字段解惑&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#service-%E7%9A%84-ports-%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%83%91&quot; aria-label=&quot;service 的 ports 字段解惑 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Service 的 ports 字段解惑&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 28 Apr 2021 04:36:48 GMT</lastBuildDate><item><title><![CDATA[k8s修改外部访问端口]]></title><description><![CDATA[k8s修改外部访问端口，只要是涉及到service的各种端口解惑]]></description><link>https://pipihua666.github.io/k8s-port</link><guid isPermaLink="false">https://pipihua666.github.io/k8s-port</guid><pubDate>Tue, 27 Apr 2021 10:22:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;service-的-ports-字段解惑&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#service-%E7%9A%84-ports-%E5%AD%97%E6%AE%B5%E8%A7%A3%E6%83%91&quot; aria-label=&quot;service 的 ports 字段解惑 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Service 的 ports 字段解惑&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;port: service 暴露在 cluster ip 上的端口，通过&lt;code class=&quot;language-text&quot;&gt;&amp;lt;cluster ip&amp;gt;:port&lt;/code&gt; 访问服务,通过此端口集群内的服务可以相互访问,简单来说就是 &lt;code class=&quot;language-text&quot;&gt;pod&lt;/code&gt; 和 pod 的端口访问。&lt;/li&gt;
 &lt;li&gt;targetPort: Pod 的外部访问端口，port 和 nodePort 的数据通过这个端口进入到 Pod 内部，Pod 里面的 containers 的端口映射到这个端口，提供服务(需要与制作容器时暴露的端口一致,与 DockerFile 中的 &lt;code class=&quot;language-text&quot;&gt;EXPOSE&lt;/code&gt; 对应)，简单来说就是&lt;code class=&quot;language-text&quot;&gt;容器&lt;/code&gt;的端口&lt;/li&gt;
@@ -2678,467 +2678,7 @@ map-remove($colors,light,dark) :从map删除键值对      //(color-red:#ff0000)
 &lt;li&gt;拥有加速 CSS 过滤器的元素&lt;/li&gt;
 &lt;li&gt;元素有一个包含复合层的后代节点（一个元素拥有一个子元素，该子元素在自己的层里）&lt;/li&gt;
 &lt;li&gt;元素有 z-index 较低且包含一个复合层的兄弟元素（换句话说就是该元素在复合层上面渲染）&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[nginx 部署 react 项目]]></title><description><![CDATA[nginx部署react单页面应用并实现静态文件下载]]></description><link>https://pipihua666.github.io/nginx-deployment</link><guid isPermaLink="false">https://pipihua666.github.io/nginx-deployment</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我用的是 create-react-app 在 nginx 上部署的前端项目，并使用 nginx 实现了下载文件的功能&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;nginx-的根目录是usrshare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nginx-%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%98%AFusrshare&quot; aria-label=&quot;nginx 的根目录是usrshare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nginx 的根目录是/usr/share&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;pkg&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;f &lt;span class=&quot;token variable&quot;&gt;$request_filename&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;文件不存在&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token comment&quot;&gt;# 可以看到，下载升级包的页面路径是/upgrade&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;upgrade &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;upgrade&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a name=&quot;k0wDy&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;项目部署上线结果白屏问题&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E7%BB%93%E6%9E%9C%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98&quot; aria-label=&quot;项目部署上线结果白屏问题 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;项目部署上线结果白屏问题&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;react 项目配置页面路由的 basename(前端路由的/等于 nginx 的根目录/use/share)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Router&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;basename&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Switch&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/404&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotFoundPage&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotFoundPage&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Switch&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Router&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;pakage.json 中配置&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;homepage&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如果是 webpack 而不是脚手架 create-react-app,则配置 publicPath,目的是让 html 中引用的 js,css 文件的路径是以/upgrade 开头的，那么路由就可以找到他们了，homepage 只会影响项目中引用的静态资源的路径&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade/static/js/2.c8c300b5.chunk.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade/static/js/main.529d8b95.chunk.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a name=&quot;ztjd1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;需求：前端实现下载文件，如果文件不存在则使用-react-router-跳转到-404-页面&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%9C%80%E6%B1%82%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%96%87%E4%BB%B6%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%88%99%E4%BD%BF%E7%94%A8-react-router-%E8%B7%B3%E8%BD%AC%E5%88%B0-404-%E9%A1%B5%E9%9D%A2&quot; aria-label=&quot;需求：前端实现下载文件，如果文件不存在则使用 react router 跳转到 404 页面 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;需求：前端实现下载文件，如果文件不存在则使用 react-router 跳转到 404 页面&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// head请求文件是否存在，如果存在才创建a标签触发浏览器的下载行为&lt;/span&gt;
-axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token function-variable function&quot;&gt;validateStatus&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; status &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;href &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;display &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;none&quot;&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;download &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;key&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;.pkg&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;application/octet-stream&quot;&lt;/span&gt;
-      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;history&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/404&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a name=&quot;YM84e&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;为什么使用-head-先请求一次？&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-head-%E5%85%88%E8%AF%B7%E6%B1%82%E4%B8%80%E6%AC%A1%EF%BC%9F&quot; aria-label=&quot;为什么使用 head 先请求一次？ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么使用 head 先请求一次？&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;HTTP &lt;code class=&quot;language-text&quot;&gt;HEAD&lt;/code&gt; 方法&lt;/strong&gt; 请求资源的头部信息, 并且这些头部与 HTTP &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;&lt;/a&gt; 方法请求时返回的一致. 该请求方法的一个使用场景是在下载一个大文件前先获取其大小再决定是否要下载, 以此可以节约带宽资源.&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;hzhvb&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/jingtian678/article/details/90239919&quot;&gt;HashRouter 和 BrowserRouter 的区别&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html&quot;&gt;React-Router browserHistory 浏览器刷新出现页面 404 解决方案&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000023327242&quot;&gt;create-react-app 一些常用的自定义配置&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[深入浅出nginx]]></title><description><![CDATA[极客时间的nignx核心，个人学习笔记]]></description><link>https://pipihua666.github.io/nginx</link><guid isPermaLink="false">https://pipihua666.github.io/nginx</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a name=&quot;a64a14c8&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-热部署：升级-nginx-到新的版本&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%E7%83%AD%E9%83%A8%E7%BD%B2%EF%BC%9A%E5%8D%87%E7%BA%A7-nginx-%E5%88%B0%E6%96%B0%E7%9A%84%E7%89%88%E6%9C%AC&quot; aria-label=&quot;1 热部署：升级 nginx 到新的版本 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 热部署：升级 nginx 到新的版本&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;也就是用新的 nginx 命令替换老的 nginx 命令即可，注意做好备份&lt;/li&gt;
-&lt;li&gt;kill -RSR2  pid(nginx 的进程号) :发送消息给老的 master 进程，让后面的接口平滑的过渡到新的 nginx 进程中&lt;/li&gt;
-&lt;li&gt;kill -WINCH pid :请优雅的关闭老的 woker 进程&lt;/li&gt;
-&lt;li&gt;老的 master 进程会保留，可以重新 reload，保证可以版本回退&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAWvG45OxH//EABYQAQEBAAAAAAAAAAAAAAAAAAQ0AP/aAAgBAQABBQIk+fUObNo//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAEDEHH/2gAIAQEABj8CjymR5TP/xAAdEAAABQUAAAAAAAAAAAAAAAAAARFRsRAhYYHw/9oACAEBAAE/IdpcgjcJssUDkzV//9oADAMBAAIAAwAAABCwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQABAwUAAAAAAAAAAAAAAAEAESGhQVGBsfH/2gAIAQEAAT8QsU9SXwS8xquE04zvabTAJ//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx1&quot;
-        title=&quot;nginx1&quot;
-        src=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg&quot;
-        srcset=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/f93b5/nginx1.jpg 300w,
-/static/9533848abd9c6a4f1c74c652c3cce59a/b4294/nginx1.jpg 600w,
-/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;fea20a4b&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-root-和-alias-的区别：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-root-%E5%92%8C-alias-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A&quot; aria-label=&quot;2 root 和 alias 的区别： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. root 和 alias 的区别：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;root 会受 location 后面的字符串所影响，访问 location 路径会将 location 的路径添加到 root 后返回结合的路径资源给用户，&lt;/li&gt;
-&lt;li&gt;而 alias 是不受字符串的影响，访问 location 就是访问的 alias 路径的资源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;d1415702&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;3-nginx-的进程间是通过信号的方式进行通信&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-nginx-%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%97%B4%E6%98%AF%E9%80%9A%E8%BF%87%E4%BF%A1%E5%8F%B7%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E9%80%9A%E4%BF%A1&quot; aria-label=&quot;3 nginx 的进程间是通过信号的方式进行通信 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Nginx 的进程间是通过信号的方式进行通信&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAWtO05GzH//EABkQAAMAAwAAAAAAAAAAAAAAAAAENAIREv/aAAgBAQABBQJXHa/A/SnKO0f/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIDcRAxkf/aAAgBAQAGPwKOjbui0R1hT//EAB0QAAEEAgMAAAAAAAAAAAAAAAEAESFhEDGBsfD/2gAIAQEAAT8hf5J5WtFGRF4dL0Xl/wD/2gAMAwEAAgADAAAAEJgP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EABsQAQEAAgMBAAAAAAAAAAAAAAERAKEQITGx/9oACAEBAAE/ECFYPog9ZQDdwAYAbbYM3n1xoGf/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx2&quot;
-        title=&quot;nginx2&quot;
-        src=&quot;/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg&quot;
-        srcset=&quot;/static/246a2bbf354ead9127689634cf59c462/f93b5/nginx2.jpg 300w,
-/static/246a2bbf354ead9127689634cf59c462/b4294/nginx2.jpg 600w,
-/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;910b6c3b&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;4指令合并规则&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4%E6%8C%87%E4%BB%A4%E5%90%88%E5%B9%B6%E8%A7%84%E5%88%99&quot; aria-label=&quot;4指令合并规则 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4.指令合并规则&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAb6U0GWFh//EABwQAAEDBQAAAAAAAAAAAAAAAAQAATQCAxEkM//aAAgBAQABBQIRtWnLo+SHFtovt//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EAB0QAAICAQUAAAAAAAAAAAAAAAABAhFxAzFRcoH/2gAIAQEABj8C08DuT3HXBDA+zPD/xAAeEAEAAQMFAQAAAAAAAAAAAAABABExYSFBUXHwsf/aAAgBAQABPyGqgo8O5mgNohdCUW6nuzLPTWfBP//aAAwDAQACAAMAAAAQiw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAdEAACAgEFAAAAAAAAAAAAAAABEQAhMRBBUaGx/9oACAEBAAE/EFWog0u3IiWDHQwBraH4FJJiOy9a8d//2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx3&quot;
-        title=&quot;nginx3&quot;
-        src=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg&quot;
-        srcset=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/f93b5/nginx3.jpg 300w,
-/static/f4f04e57b8c51921875c3c40d8f432c4/b4294/nginx3.jpg 600w,
-/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;b64cd4bf&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;5nginx-11-个阶段：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5nginx-11-%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%9A&quot; aria-label=&quot;5nginx 11 个阶段： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5.Nginx 11 个阶段：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;除了 http 过滤模块和提供变量的模块外，其余模块必须经过这 11 个阶段&lt;/li&gt;
-&lt;li&gt;一个阶段如果不把请求向下传递，下面的阶段是不会执行的&lt;/li&gt;
-&lt;li&gt;前一个阶段的模块可以传递给他下下个阶段模块进行处理，那么下个阶段模块也就没法执行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;post_read:在读取了 http 头部后，在加工头部前&lt;/li&gt;
-&lt;li&gt;server_rewrite:&lt;/li&gt;
-&lt;li&gt;find_config:进行 location 的匹配&lt;/li&gt;
-&lt;li&gt;post_rewrite:在 rewrite 之后&lt;/li&gt;
-&lt;li&gt;pre_access:在访问到请求之前做连接或者请求数量的限制&lt;/li&gt;
-&lt;li&gt;access:在访问时，比如说身份验证&lt;/li&gt;
-&lt;li&gt;post_access:&lt;/li&gt;
-&lt;li&gt;pre_content:发送响应之前执行的操作,比如让一个请求产生多个子请求&lt;/li&gt;
-&lt;li&gt;content:响应阶段，比如反向代理&lt;/li&gt;
-&lt;li&gt;log:日志记录阶段&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAFIdm6nFjhf/8QAHBAAAQMFAAAAAAAAAAAAAAAAAQIDBAASIzM0/9oACAEBAAEFAmlYVOu3ySSuHy1L3f/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABYRAAMAAAAAAAAAAAAAAAAAAAEQIf/aAAgBAgEBPwERf//EAB8QAAIBAgcAAAAAAAAAAAAAAAABAgMQERIhMTJxgf/aAAgBAQAGPwKOr4jwlITe+VFPq3h//8QAHBAAAwABBQAAAAAAAAAAAAAAAAERgRAhYbHw/9oACAEBAAE/IYLnNkyLoSVGO1qPB7OdOof/2gAMAwEAAgADAAAAENTP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EDV//8QAFxEBAAMAAAAAAAAAAAAAAAAAARAhMf/aAAgBAgEBPxC5dj//xAAeEAABBAEFAAAAAAAAAAAAAAABABEhMXEQUWGhsf/aAAgBAQABPxAsWQg9r4J5fEDOEQgZEsncu49aWq//2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx4&quot;
-        title=&quot;nginx4&quot;
-        src=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg&quot;
-        srcset=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/f93b5/nginx4.jpg 300w,
-/static/d6ff5f16b0b18f1efabb4b1775b60e00/b4294/nginx4.jpg 600w,
-/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQDBQb/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFqwUfMkRh//8QAGRABAAIDAAAAAAAAAAAAAAAABDM0ADFB/9oACAEBAAEFAjVt4+yODq5v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgEFAAAAAAAAAAAAAAAAAHEBAgMQIYH/2gAIAQEABj8Cto0SihY4f//EAB8QAQACAAYDAAAAAAAAAAAAAAEAESExQWFxscHh8P/aAAgBAQABPyFFFX7RwGqIWESmXE+/eeE6E//aAAwDAQACAAMAAAAQuM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYRAxobH/2gAIAQEAAT8Qcs0t1tGmV2zTqIqFKrHCe/8AfN3/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx5&quot;
-        title=&quot;nginx5&quot;
-        src=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg&quot;
-        srcset=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/f93b5/nginx5.jpg 300w,
-/static/77ca5acb74ec4696397323dd0b9730ce/b4294/nginx5.jpg 600w,
-/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;0cd0d167&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;6-error_page-和-rewrite-阶段的-return-指令的区别：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#6-error_page-%E5%92%8C-rewrite-%E9%98%B6%E6%AE%B5%E7%9A%84-return-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A&quot; aria-label=&quot;6 error_page 和 rewrite 阶段的 return 指令的区别： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6. error_page 和 rewrite 阶段的 return 指令的区别：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;return ：返回相应的状态码和注释&lt;/li&gt;
-&lt;li&gt;error_page：根据相应的状态码返回相应的页面&lt;/li&gt;
-&lt;li&gt;return 指令执行了 error_page 指令就不会执行&lt;br /&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 722px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdElEQVQoz4VSXUvDMBTd/xdffBFx+OKDMBH8ANEHXwRhwvYo+2B07bp17dqmbdo0aZKmHjc/Npx4uYTkJveec89NqyiY4648Px5N5g9P/Sim3jJeLKNubzAYu03TGGOajW02mR/aI8t20jRtlWWZUZYXZRRnlu0XjNOcIeIuwjDOamO0rpttU6JiQGRSyhbnvNm1DRQrRfv8sXP9fHx2f3X30uyzlhD8i5HZvqgq2e0NX/tjrNNZsD8ZyHVt8BT0wDMmlCSUC4lSSvIk8cKIoqnvlvckp1mhtbZsz7KXaF4pjSClRZIky4BAiEqqP5EBKHAvdVWpGue1TnDGRLAijhugaLBK5G6Jz2SS5JxXeAqd4VJqA+SckZS6ixUiQkgAoPT28Pao/TMUpYuCu/MQY0uzHPOPSeb50dTxgfdPMtjneWnP/LehA86D8WxieRHJFj45PDi6vOh8fBLQUEqZ32quwaEFZi4rhRUORRA/PWnfXt+8A/nvc7aMFnjSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx6&quot;
-        title=&quot;nginx6&quot;
-        src=&quot;/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png&quot;
-        srcset=&quot;/static/2b1bbf028a2078505765b4f690042eb4/5a46d/nginx6.png 300w,
-/static/2b1bbf028a2078505765b4f690042eb4/0a47e/nginx6.png 600w,
-/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png 722w&quot;
-        sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 722px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfklEQVQoz32S7U6DMBSGuXUTE2/DzOgFmOwW/LEf/jBz6KbuQ7YBBfrdUgrMF5hmajJy2pQe3p7nvDQwxmS5KKgI55uHSaiUTTNGMj55nE/DVZZzxhUXmmSsbdsDHkXYdhltd4LzwBhbUIn4WMXTcK1NmRAK/etbNJ0tn2bL1SZZvO+ewzVOYcLyNI0/t+vN3lobYBz+PUOROCleFlHdNDVGPyOqukGOMuV9fU6MdkCLI6Id2cc54NFU2zZIgaITA7s/sq4q7ypf+RrhnEepvODwgjJZIGjnC1JD40ex1oZxqXSptKVclc5rowRPnKvROQompJDSgBN2HD07qdwlgIScMSXAtLFSyaZp4aItnSsriEtXCWmsdX/FYPY9akfuqn7usAEspBZCA3jY+akMRnx2NOx785dhEFvbt0Ml0PpXB4OQ5dL4ujnnNsk5Lgk0We8cIs95SljB1Oj6bnw/DqyB+y3I25PqwxpN4j8hUlyblA7rJC3g4OXF1e3o5gs9E3NTgGmgaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx7&quot;
-        title=&quot;nginx7&quot;
-        src=&quot;/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png&quot;
-        srcset=&quot;/static/600b6b3317b75ca09bc12d8268700df0/5a46d/nginx7.png 300w,
-/static/600b6b3317b75ca09bc12d8268700df0/0a47e/nginx7.png 600w,
-/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png 722w&quot;
-        sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;E3z7U&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;7if-语句1602255750004jpg&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7if-%E8%AF%AD%E5%8F%A51602255750004jpg&quot; aria-label=&quot;7if 语句1602255750004jpg permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7.if 语句&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 59.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHXZ4ksAD//xAAZEAACAwEAAAAAAAAAAAAAAAAQMQABAhH/2gAIAQEAAQUCcro2h//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAABEAASAiMf/aAAgBAQAGPwJ6gLY//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARMSFBUf/aAAgBAQABPyFpnkWpssmjyYQO4FT/2gAMAwEAAgADAAAAEJQP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFRYXGx/9oACAEBAAE/EK0xCYMvDGtJBw0l3IXtILDy/GCAFEcqUKtfbP/Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;1602255750004.jpg&quot;
-        title=&quot;1602255750004.jpg&quot;
-        src=&quot;/static/81b5d8729748e5f3d6340c99eaac4e5f/2551b/nginx8.jpg&quot;
-        srcset=&quot;/static/81b5d8729748e5f3d6340c99eaac4e5f/f93b5/nginx8.jpg 300w,
-/static/81b5d8729748e5f3d6340c99eaac4e5f/b4294/nginx8.jpg 600w,
-/static/81b5d8729748e5f3d6340c99eaac4e5f/2551b/nginx8.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a name=&quot;OaqOp&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;8反向代理和负载均衡：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%EF%BC%9A&quot; aria-label=&quot;8反向代理和负载均衡： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;8.反向代理和负载均衡：&lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB2yRUYrC//8QAGhAAAQUBAAAAAAAAAAAAAAAAAQACEBESQf/aAAgBAQABBQI0tT1xOv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAAxASAy/9oACAEBAAY/AkZmjP/EABsQAAICAwEAAAAAAAAAAAAAAAERAFEQMZHR/9oACAEBAAE/IRA7l1AnjEKycIuz/9oADAMBAAIAAwAAABDMD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EKf/xAAdEAEAAgICAwAAAAAAAAAAAAABABEhQRAxYcHw/9oACAEBAAE/EBTuml+5QAoDHxnicD01CGExgRon/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx9&quot;
-        title=&quot;nginx9&quot;
-        src=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg&quot;
-        srcset=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/f93b5/nginx9.jpg 300w,
-/static/26df677e65cb88cdfb9ce480c797d52c/b4294/nginx9.jpg 600w,
-/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHstxJSZA//xAAbEAEAAgIDAAAAAAAAAAAAAAABAAMEERIxMv/aAAgBAQABBQI2qMCyWeMTu1ef/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECESEiMXGBkf/aAAgBAQAGPwJ3CjThmXHwlwT6N2f/xAAcEAEAAwACAwAAAAAAAAAAAAABABEhMUFRYaH/2gAIAQEAAT8hYtQ4b5lBz5Emq1H1IlsV9mGwGdM//9oADAMBAAIAAwAAABA3L//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABYRAQEBAAAAAAAAAAAAAAAAABEQIf/aAAgBAgEBPxAxn//EABsQAQADAQADAAAAAAAAAAAAAAEAESFBYXHw/9oACAEBAAE/EBsu1D3yGJJoMHmGLReJx9cSMKJoeoMiGLGsZRjKYoT/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx10&quot;
-        title=&quot;nginx10&quot;
-        src=&quot;/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg&quot;
-        srcset=&quot;/static/1098ea92b7653cf7947e088499ad2a64/f93b5/nginx10.jpg 300w,
-/static/1098ea92b7653cf7947e088499ad2a64/b4294/nginx10.jpg 600w,
-/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB6jKSjjOD/8QAGRABAQEAAwAAAAAAAAAAAAAAAQIAAyEz/9oACAEBAAEFAnurxr9eRdCp/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAIBEUEhgf/aAAgBAQAGPwLRbmjPBBTsn//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFBUTH/2gAIAQEAAT8hvjS3uRU3Uvsum9wRygmnYyU++z//2gAMAwEAAgADAAAAEBfv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAIAQIBAT8QV//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExQXHB0fH/2gAIAQEAAT8QRgAlDE9WY8zSBFUz7l6lZUqz7FBCu3qXsMm8DyRBlx2OCf/Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx11&quot;
-        title=&quot;nginx11&quot;
-        src=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg&quot;
-        srcset=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/f93b5/nginx11.jpg 300w,
-/static/17aacf7ac0c4be8ffd0ce1f8a423f445/b4294/nginx11.jpg 600w,
-/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHYiwChIf/EABkQAQEAAwEAAAAAAAAAAAAAAAIBEBITIf/aAAgBAQABBQJeSNcxdjhqxf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAESABECEDFR/9oACAEBAAY/AiUuMhvyWcV32f/EABsQAQACAgMAAAAAAAAAAAAAAAEAERAhMVFh/9oACAEBAAE/IXTNHBrctaY83HuC6cpQQT//2gAMAwEAAgADAAAAEIsv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EABsQAAMAAwEBAAAAAAAAAAAAAAERIQBBcRCx/9oACAEBAAE/ENHllXq/cLIcEzLq4InwkTfZ6IUEgODP/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;nginx12&quot;
-        title=&quot;nginx12&quot;
-        src=&quot;/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg&quot;
-        srcset=&quot;/static/c9a1b88c27176e8a441210635568fdf7/f93b5/nginx12.jpg 300w,
-/static/c9a1b88c27176e8a441210635568fdf7/b4294/nginx12.jpg 600w,
-/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react性能优化之代码分割]]></title><description><![CDATA[react性能优化之代码分割动态导入]]></description><link>https://pipihua666.github.io/code-spliting</link><guid isPermaLink="false">https://pipihua666.github.io/code-spliting</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;引言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%BC%95%E8%A8%80&quot; aria-label=&quot;引言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;引言&lt;/h2&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[react性能优化之代码分割]]></title><description><![CDATA[react性能优化之代码分割动态导入]]></description><link>https://pipihua666.github.io/code-spliting</link><guid isPermaLink="false">https://pipihua666.github.io/code-spliting</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;引言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%BC%95%E8%A8%80&quot; aria-label=&quot;引言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;衡量网站的性能的指标有很多，其中有项重要的指标就是网站的首屏时间，而代码分割却是优化首屏时间最通用的方法&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3859,4 +3399,464 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;&lt;a href=&quot;https://juejin.im/post/6844903763359039501&quot;&gt;一个很全面的实现前端文件下载的博客&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://juejin.im/post/6844904069958467592&quot;&gt;前端下载文件的 5 中方法对比&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/jszip&quot;&gt;前端 zip 压缩文件/文件夹并下载到本地&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[nginx 部署 react 项目]]></title><description><![CDATA[nginx部署react单页面应用并实现静态文件下载]]></description><link>https://pipihua666.github.io/nginx-deployment</link><guid isPermaLink="false">https://pipihua666.github.io/nginx-deployment</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我用的是 create-react-app 在 nginx 上部署的前端项目，并使用 nginx 实现了下载文件的功能&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;nginx-的根目录是usrshare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nginx-%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%98%AFusrshare&quot; aria-label=&quot;nginx 的根目录是usrshare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nginx 的根目录是/usr/share&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;pkg&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;f &lt;span class=&quot;token variable&quot;&gt;$request_filename&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;404&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;文件不存在&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 可以看到，下载升级包的页面路径是/upgrade&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;upgrade &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;upgrade&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a name=&quot;k0wDy&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;项目部署上线结果白屏问题&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF%E7%BB%93%E6%9E%9C%E7%99%BD%E5%B1%8F%E9%97%AE%E9%A2%98&quot; aria-label=&quot;项目部署上线结果白屏问题 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;项目部署上线结果白屏问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;react 项目配置页面路由的 basename(前端路由的/等于 nginx 的根目录/use/share)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Router&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;basename&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Switch&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Main&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;exact&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/404&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotFoundPage&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotFoundPage&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Route&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Switch&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Router&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;pakage.json 中配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;homepage&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果是 webpack 而不是脚手架 create-react-app,则配置 publicPath,目的是让 html 中引用的 js,css 文件的路径是以/upgrade 开头的，那么路由就可以找到他们了，homepage 只会影响项目中引用的静态资源的路径&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade/static/js/2.c8c300b5.chunk.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/upgrade/static/js/main.529d8b95.chunk.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a name=&quot;ztjd1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;需求：前端实现下载文件，如果文件不存在则使用-react-router-跳转到-404-页面&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%9C%80%E6%B1%82%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%96%87%E4%BB%B6%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%88%99%E4%BD%BF%E7%94%A8-react-router-%E8%B7%B3%E8%BD%AC%E5%88%B0-404-%E9%A1%B5%E9%9D%A2&quot; aria-label=&quot;需求：前端实现下载文件，如果文件不存在则使用 react router 跳转到 404 页面 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;需求：前端实现下载文件，如果文件不存在则使用 react-router 跳转到 404 页面&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// head请求文件是否存在，如果存在才创建a标签触发浏览器的下载行为&lt;/span&gt;
+axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;validateStatus&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; status &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;href &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;display &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;none&quot;&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;noopener noreferrer&quot;&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;_blank&quot;&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;download &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;key&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;.pkg&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;application/octet-stream&quot;&lt;/span&gt;
+      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;history&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/404&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a name=&quot;YM84e&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;为什么使用-head-先请求一次？&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-head-%E5%85%88%E8%AF%B7%E6%B1%82%E4%B8%80%E6%AC%A1%EF%BC%9F&quot; aria-label=&quot;为什么使用 head 先请求一次？ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么使用 head 先请求一次？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;HTTP &lt;code class=&quot;language-text&quot;&gt;HEAD&lt;/code&gt; 方法&lt;/strong&gt; 请求资源的头部信息, 并且这些头部与 HTTP &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;&lt;/a&gt; 方法请求时返回的一致. 该请求方法的一个使用场景是在下载一个大文件前先获取其大小再决定是否要下载, 以此可以节约带宽资源.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;hzhvb&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/jingtian678/article/details/90239919&quot;&gt;HashRouter 和 BrowserRouter 的区别&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html&quot;&gt;React-Router browserHistory 浏览器刷新出现页面 404 解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000023327242&quot;&gt;create-react-app 一些常用的自定义配置&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[深入浅出nginx]]></title><description><![CDATA[极客时间的nignx核心，个人学习笔记]]></description><link>https://pipihua666.github.io/nginx</link><guid isPermaLink="false">https://pipihua666.github.io/nginx</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a name=&quot;a64a14c8&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-热部署：升级-nginx-到新的版本&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%E7%83%AD%E9%83%A8%E7%BD%B2%EF%BC%9A%E5%8D%87%E7%BA%A7-nginx-%E5%88%B0%E6%96%B0%E7%9A%84%E7%89%88%E6%9C%AC&quot; aria-label=&quot;1 热部署：升级 nginx 到新的版本 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 热部署：升级 nginx 到新的版本&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;也就是用新的 nginx 命令替换老的 nginx 命令即可，注意做好备份&lt;/li&gt;
+&lt;li&gt;kill -RSR2  pid(nginx 的进程号) :发送消息给老的 master 进程，让后面的接口平滑的过渡到新的 nginx 进程中&lt;/li&gt;
+&lt;li&gt;kill -WINCH pid :请优雅的关闭老的 woker 进程&lt;/li&gt;
+&lt;li&gt;老的 master 进程会保留，可以重新 reload，保证可以版本回退&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAWvG45OxH//EABYQAQEBAAAAAAAAAAAAAAAAAAQ0AP/aAAgBAQABBQIk+fUObNo//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAEDEHH/2gAIAQEABj8CjymR5TP/xAAdEAAABQUAAAAAAAAAAAAAAAAAARFRsRAhYYHw/9oACAEBAAE/IdpcgjcJssUDkzV//9oADAMBAAIAAwAAABCwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQABAwUAAAAAAAAAAAAAAAEAESGhQVGBsfH/2gAIAQEAAT8QsU9SXwS8xquE04zvabTAJ//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx1&quot;
+        title=&quot;nginx1&quot;
+        src=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg&quot;
+        srcset=&quot;/static/9533848abd9c6a4f1c74c652c3cce59a/f93b5/nginx1.jpg 300w,
+/static/9533848abd9c6a4f1c74c652c3cce59a/b4294/nginx1.jpg 600w,
+/static/9533848abd9c6a4f1c74c652c3cce59a/2551b/nginx1.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;fea20a4b&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-root-和-alias-的区别：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-root-%E5%92%8C-alias-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A&quot; aria-label=&quot;2 root 和 alias 的区别： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. root 和 alias 的区别：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;root 会受 location 后面的字符串所影响，访问 location 路径会将 location 的路径添加到 root 后返回结合的路径资源给用户，&lt;/li&gt;
+&lt;li&gt;而 alias 是不受字符串的影响，访问 location 就是访问的 alias 路径的资源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;d1415702&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-nginx-的进程间是通过信号的方式进行通信&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-nginx-%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%97%B4%E6%98%AF%E9%80%9A%E8%BF%87%E4%BF%A1%E5%8F%B7%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E9%80%9A%E4%BF%A1&quot; aria-label=&quot;3 nginx 的进程间是通过信号的方式进行通信 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Nginx 的进程间是通过信号的方式进行通信&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAWtO05GzH//EABkQAAMAAwAAAAAAAAAAAAAAAAAENAIREv/aAAgBAQABBQJXHa/A/SnKO0f/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIDcRAxkf/aAAgBAQAGPwKOjbui0R1hT//EAB0QAAEEAgMAAAAAAAAAAAAAAAEAESFhEDGBsfD/2gAIAQEAAT8hf5J5WtFGRF4dL0Xl/wD/2gAMAwEAAgADAAAAEJgP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EABsQAQEAAgMBAAAAAAAAAAAAAAERAKEQITGx/9oACAEBAAE/ECFYPog9ZQDdwAYAbbYM3n1xoGf/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx2&quot;
+        title=&quot;nginx2&quot;
+        src=&quot;/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg&quot;
+        srcset=&quot;/static/246a2bbf354ead9127689634cf59c462/f93b5/nginx2.jpg 300w,
+/static/246a2bbf354ead9127689634cf59c462/b4294/nginx2.jpg 600w,
+/static/246a2bbf354ead9127689634cf59c462/2551b/nginx2.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;910b6c3b&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;4指令合并规则&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4%E6%8C%87%E4%BB%A4%E5%90%88%E5%B9%B6%E8%A7%84%E5%88%99&quot; aria-label=&quot;4指令合并规则 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4.指令合并规则&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAb6U0GWFh//EABwQAAEDBQAAAAAAAAAAAAAAAAQAATQCAxEkM//aAAgBAQABBQIRtWnLo+SHFtovt//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EAB0QAAICAQUAAAAAAAAAAAAAAAABAhFxAzFRcoH/2gAIAQEABj8C08DuT3HXBDA+zPD/xAAeEAEAAQMFAQAAAAAAAAAAAAABABExYSFBUXHwsf/aAAgBAQABPyGqgo8O5mgNohdCUW6nuzLPTWfBP//aAAwDAQACAAMAAAAQiw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAdEAACAgEFAAAAAAAAAAAAAAABEQAhMRBBUaGx/9oACAEBAAE/EFWog0u3IiWDHQwBraH4FJJiOy9a8d//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx3&quot;
+        title=&quot;nginx3&quot;
+        src=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg&quot;
+        srcset=&quot;/static/f4f04e57b8c51921875c3c40d8f432c4/f93b5/nginx3.jpg 300w,
+/static/f4f04e57b8c51921875c3c40d8f432c4/b4294/nginx3.jpg 600w,
+/static/f4f04e57b8c51921875c3c40d8f432c4/2551b/nginx3.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;b64cd4bf&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;5nginx-11-个阶段：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5nginx-11-%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%9A&quot; aria-label=&quot;5nginx 11 个阶段： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5.Nginx 11 个阶段：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;除了 http 过滤模块和提供变量的模块外，其余模块必须经过这 11 个阶段&lt;/li&gt;
+&lt;li&gt;一个阶段如果不把请求向下传递，下面的阶段是不会执行的&lt;/li&gt;
+&lt;li&gt;前一个阶段的模块可以传递给他下下个阶段模块进行处理，那么下个阶段模块也就没法执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;post_read:在读取了 http 头部后，在加工头部前&lt;/li&gt;
+&lt;li&gt;server_rewrite:&lt;/li&gt;
+&lt;li&gt;find_config:进行 location 的匹配&lt;/li&gt;
+&lt;li&gt;post_rewrite:在 rewrite 之后&lt;/li&gt;
+&lt;li&gt;pre_access:在访问到请求之前做连接或者请求数量的限制&lt;/li&gt;
+&lt;li&gt;access:在访问时，比如说身份验证&lt;/li&gt;
+&lt;li&gt;post_access:&lt;/li&gt;
+&lt;li&gt;pre_content:发送响应之前执行的操作,比如让一个请求产生多个子请求&lt;/li&gt;
+&lt;li&gt;content:响应阶段，比如反向代理&lt;/li&gt;
+&lt;li&gt;log:日志记录阶段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwQFBv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAFIdm6nFjhf/8QAHBAAAQMFAAAAAAAAAAAAAAAAAQIDBAASIzM0/9oACAEBAAEFAmlYVOu3ySSuHy1L3f/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABYRAAMAAAAAAAAAAAAAAAAAAAEQIf/aAAgBAgEBPwERf//EAB8QAAIBAgcAAAAAAAAAAAAAAAABAgMQERIhMTJxgf/aAAgBAQAGPwKOr4jwlITe+VFPq3h//8QAHBAAAwABBQAAAAAAAAAAAAAAAAERgRAhYbHw/9oACAEBAAE/IYLnNkyLoSVGO1qPB7OdOof/2gAMAwEAAgADAAAAENTP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EDV//8QAFxEBAAMAAAAAAAAAAAAAAAAAARAhMf/aAAgBAgEBPxC5dj//xAAeEAABBAEFAAAAAAAAAAAAAAABABEhMXEQUWGhsf/aAAgBAQABPxAsWQg9r4J5fEDOEQgZEsncu49aWq//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx4&quot;
+        title=&quot;nginx4&quot;
+        src=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg&quot;
+        srcset=&quot;/static/d6ff5f16b0b18f1efabb4b1775b60e00/f93b5/nginx4.jpg 300w,
+/static/d6ff5f16b0b18f1efabb4b1775b60e00/b4294/nginx4.jpg 600w,
+/static/d6ff5f16b0b18f1efabb4b1775b60e00/2551b/nginx4.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQDBQb/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFqwUfMkRh//8QAGRABAAIDAAAAAAAAAAAAAAAABDM0ADFB/9oACAEBAAEFAjVt4+yODq5v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgEFAAAAAAAAAAAAAAAAAHEBAgMQIYH/2gAIAQEABj8Cto0SihY4f//EAB8QAQACAAYDAAAAAAAAAAAAAAEAESExQWFxscHh8P/aAAgBAQABPyFFFX7RwGqIWESmXE+/eeE6E//aAAwDAQACAAMAAAAQuM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYRAxobH/2gAIAQEAAT8Qcs0t1tGmV2zTqIqFKrHCe/8AfN3/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx5&quot;
+        title=&quot;nginx5&quot;
+        src=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg&quot;
+        srcset=&quot;/static/77ca5acb74ec4696397323dd0b9730ce/f93b5/nginx5.jpg 300w,
+/static/77ca5acb74ec4696397323dd0b9730ce/b4294/nginx5.jpg 600w,
+/static/77ca5acb74ec4696397323dd0b9730ce/2551b/nginx5.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;0cd0d167&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;6-error_page-和-rewrite-阶段的-return-指令的区别：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#6-error_page-%E5%92%8C-rewrite-%E9%98%B6%E6%AE%B5%E7%9A%84-return-%E6%8C%87%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A&quot; aria-label=&quot;6 error_page 和 rewrite 阶段的 return 指令的区别： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;6. error_page 和 rewrite 阶段的 return 指令的区别：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;return ：返回相应的状态码和注释&lt;/li&gt;
+&lt;li&gt;error_page：根据相应的状态码返回相应的页面&lt;/li&gt;
+&lt;li&gt;return 指令执行了 error_page 指令就不会执行&lt;br /&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 722px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdElEQVQoz4VSXUvDMBTd/xdffBFx+OKDMBH8ANEHXwRhwvYo+2B07bp17dqmbdo0aZKmHjc/Npx4uYTkJveec89NqyiY4648Px5N5g9P/Sim3jJeLKNubzAYu03TGGOajW02mR/aI8t20jRtlWWZUZYXZRRnlu0XjNOcIeIuwjDOamO0rpttU6JiQGRSyhbnvNm1DRQrRfv8sXP9fHx2f3X30uyzlhD8i5HZvqgq2e0NX/tjrNNZsD8ZyHVt8BT0wDMmlCSUC4lSSvIk8cKIoqnvlvckp1mhtbZsz7KXaF4pjSClRZIky4BAiEqqP5EBKHAvdVWpGue1TnDGRLAijhugaLBK5G6Jz2SS5JxXeAqd4VJqA+SckZS6ixUiQkgAoPT28Pao/TMUpYuCu/MQY0uzHPOPSeb50dTxgfdPMtjneWnP/LehA86D8WxieRHJFj45PDi6vOh8fBLQUEqZ32quwaEFZi4rhRUORRA/PWnfXt+8A/nvc7aMFnjSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx6&quot;
+        title=&quot;nginx6&quot;
+        src=&quot;/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png&quot;
+        srcset=&quot;/static/2b1bbf028a2078505765b4f690042eb4/5a46d/nginx6.png 300w,
+/static/2b1bbf028a2078505765b4f690042eb4/0a47e/nginx6.png 600w,
+/static/2b1bbf028a2078505765b4f690042eb4/d44c9/nginx6.png 722w&quot;
+        sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 722px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfklEQVQoz32S7U6DMBSGuXUTE2/DzOgFmOwW/LEf/jBz6KbuQ7YBBfrdUgrMF5hmajJy2pQe3p7nvDQwxmS5KKgI55uHSaiUTTNGMj55nE/DVZZzxhUXmmSsbdsDHkXYdhltd4LzwBhbUIn4WMXTcK1NmRAK/etbNJ0tn2bL1SZZvO+ewzVOYcLyNI0/t+vN3lobYBz+PUOROCleFlHdNDVGPyOqukGOMuV9fU6MdkCLI6Id2cc54NFU2zZIgaITA7s/sq4q7ypf+RrhnEepvODwgjJZIGjnC1JD40ex1oZxqXSptKVclc5rowRPnKvROQompJDSgBN2HD07qdwlgIScMSXAtLFSyaZp4aItnSsriEtXCWmsdX/FYPY9akfuqn7usAEspBZCA3jY+akMRnx2NOx785dhEFvbt0Ml0PpXB4OQ5dL4ujnnNsk5Lgk0We8cIs95SljB1Oj6bnw/DqyB+y3I25PqwxpN4j8hUlyblA7rJC3g4OXF1e3o5gs9E3NTgGmgaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx7&quot;
+        title=&quot;nginx7&quot;
+        src=&quot;/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png&quot;
+        srcset=&quot;/static/600b6b3317b75ca09bc12d8268700df0/5a46d/nginx7.png 300w,
+/static/600b6b3317b75ca09bc12d8268700df0/0a47e/nginx7.png 600w,
+/static/600b6b3317b75ca09bc12d8268700df0/d44c9/nginx7.png 722w&quot;
+        sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;E3z7U&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;7if-语句1602255750004jpg&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#7if-%E8%AF%AD%E5%8F%A51602255750004jpg&quot; aria-label=&quot;7if 语句1602255750004jpg permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;7.if 语句&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHXZ4ksAD//xAAZEAACAwEAAAAAAAAAAAAAAAAQMQABAhH/2gAIAQEAAQUCcro2h//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAABEAASAiMf/aAAgBAQAGPwJ6gLY//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARMSFBUf/aAAgBAQABPyFpnkWpssmjyYQO4FT/2gAMAwEAAgADAAAAEJQP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFRYXGx/9oACAEBAAE/EK0xCYMvDGtJBw0l3IXtILDy/GCAFEcqUKtfbP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;1602255750004.jpg&quot;
+        title=&quot;1602255750004.jpg&quot;
+        src=&quot;/static/81b5d8729748e5f3d6340c99eaac4e5f/2551b/nginx8.jpg&quot;
+        srcset=&quot;/static/81b5d8729748e5f3d6340c99eaac4e5f/f93b5/nginx8.jpg 300w,
+/static/81b5d8729748e5f3d6340c99eaac4e5f/b4294/nginx8.jpg 600w,
+/static/81b5d8729748e5f3d6340c99eaac4e5f/2551b/nginx8.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a name=&quot;OaqOp&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;8反向代理和负载均衡：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%EF%BC%9A&quot; aria-label=&quot;8反向代理和负载均衡： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;8.反向代理和负载均衡：&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB2yRUYrC//8QAGhAAAQUBAAAAAAAAAAAAAAAAAQACEBESQf/aAAgBAQABBQI0tT1xOv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAAxASAy/9oACAEBAAY/AkZmjP/EABsQAAICAwEAAAAAAAAAAAAAAAERAFEQMZHR/9oACAEBAAE/IRA7l1AnjEKycIuz/9oADAMBAAIAAwAAABDMD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EKf/xAAdEAEAAgICAwAAAAAAAAAAAAABABEhQRAxYcHw/9oACAEBAAE/EBTuml+5QAoDHxnicD01CGExgRon/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx9&quot;
+        title=&quot;nginx9&quot;
+        src=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg&quot;
+        srcset=&quot;/static/26df677e65cb88cdfb9ce480c797d52c/f93b5/nginx9.jpg 300w,
+/static/26df677e65cb88cdfb9ce480c797d52c/b4294/nginx9.jpg 600w,
+/static/26df677e65cb88cdfb9ce480c797d52c/2551b/nginx9.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHstxJSZA//xAAbEAEAAgIDAAAAAAAAAAAAAAABAAMEERIxMv/aAAgBAQABBQI2qMCyWeMTu1ef/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECESEiMXGBkf/aAAgBAQAGPwJ3CjThmXHwlwT6N2f/xAAcEAEAAwACAwAAAAAAAAAAAAABABEhMUFRYaH/2gAIAQEAAT8hYtQ4b5lBz5Emq1H1IlsV9mGwGdM//9oADAMBAAIAAwAAABA3L//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABYRAQEBAAAAAAAAAAAAAAAAABEQIf/aAAgBAgEBPxAxn//EABsQAQADAQADAAAAAAAAAAAAAAEAESFBYXHw/9oACAEBAAE/EBsu1D3yGJJoMHmGLReJx9cSMKJoeoMiGLGsZRjKYoT/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx10&quot;
+        title=&quot;nginx10&quot;
+        src=&quot;/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg&quot;
+        srcset=&quot;/static/1098ea92b7653cf7947e088499ad2a64/f93b5/nginx10.jpg 300w,
+/static/1098ea92b7653cf7947e088499ad2a64/b4294/nginx10.jpg 600w,
+/static/1098ea92b7653cf7947e088499ad2a64/2551b/nginx10.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB6jKSjjOD/8QAGRABAQEAAwAAAAAAAAAAAAAAAQIAAyEz/9oACAEBAAEFAnurxr9eRdCp/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAIBEUEhgf/aAAgBAQAGPwLRbmjPBBTsn//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFBUTH/2gAIAQEAAT8hvjS3uRU3Uvsum9wRygmnYyU++z//2gAMAwEAAgADAAAAEBfv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAIAQIBAT8QV//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExQXHB0fH/2gAIAQEAAT8QRgAlDE9WY8zSBFUz7l6lZUqz7FBCu3qXsMm8DyRBlx2OCf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx11&quot;
+        title=&quot;nginx11&quot;
+        src=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg&quot;
+        srcset=&quot;/static/17aacf7ac0c4be8ffd0ce1f8a423f445/f93b5/nginx11.jpg 300w,
+/static/17aacf7ac0c4be8ffd0ce1f8a423f445/b4294/nginx11.jpg 600w,
+/static/17aacf7ac0c4be8ffd0ce1f8a423f445/2551b/nginx11.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHYiwChIf/EABkQAQEAAwEAAAAAAAAAAAAAAAIBEBITIf/aAAgBAQABBQJeSNcxdjhqxf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAESABECEDFR/9oACAEBAAY/AiUuMhvyWcV32f/EABsQAQACAgMAAAAAAAAAAAAAAAEAERAhMVFh/9oACAEBAAE/IXTNHBrctaY83HuC6cpQQT//2gAMAwEAAgADAAAAEIsv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EABsQAAMAAwEBAAAAAAAAAAAAAAERIQBBcRCx/9oACAEBAAE/ENHllXq/cLIcEzLq4InwkTfZ6IUEgODP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nginx12&quot;
+        title=&quot;nginx12&quot;
+        src=&quot;/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg&quot;
+        srcset=&quot;/static/c9a1b88c27176e8a441210635568fdf7/f93b5/nginx12.jpg 300w,
+/static/c9a1b88c27176e8a441210635568fdf7/b4294/nginx12.jpg 600w,
+/static/c9a1b88c27176e8a441210635568fdf7/2551b/nginx12.jpg 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
