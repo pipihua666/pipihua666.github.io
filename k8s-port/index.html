@@ -189,9 +189,16 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
 <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
 <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
-    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
-    <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">1000</span></code></pre></div>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+  <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+  <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">1000</span></code></pre></div>
+<h2 id="注意" style="position:relative;"><a href="#%E6%B3%A8%E6%84%8F" aria-label="注意 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>注意</h2>
+<blockquote>
+<p>修改完 Service 的配置别忘了要重启下才能生效</p>
+</blockquote>
+<ul>
+<li>比如我的：kubectl replace --force -f service.yml</li>
+</ul>
 <h2 id="总结" style="position:relative;"><a href="#%E6%80%BB%E7%BB%93" aria-label="总结 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>总结</h2>
 <blockquote>
 <p>总结了 Service,因为 Service 的端口服务会覆盖 Deployment 的端口映射，对外端口服务推荐使用 Service</p>
