@@ -214,7 +214,7 @@ xxx <span class="token operator">&amp;></span> a.txt</code></pre></div>
 <ul>
 <li>shell 中不区分变量类型</li>
 <li>变量赋值等号两边不允许有空格</li>
-<li>将命令的值赋值给变量，使用 $() 和 <code class="language-text"></code></li>
+<li>将命令的值赋值给变量，使用 $() 和 ``</li>
 </ul>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> -l /etc<span class="token variable">)</span></span></code></pre></div>
 <p><a name="Yfx5Z"></a></p>
@@ -319,7 +319,7 @@ $$</li>
 <p><a name="FMSpu"></a></p>
 <h2 id="特殊符号大全" style="position:relative;"><a href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E5%A4%A7%E5%85%A8" aria-label="特殊符号大全 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>特殊符号大全</h2>
 <ul>
-<li>$()和反引号<code class="language-text"></code>的作用一样，里面包含需要执行的命令</li>
+<li>$()和反引号``的作用一样，里面包含需要执行的命令</li>
 <li>()会创建一个新的 shell</li>
 <li>[]是 test 命令的简写</li>
 </ul>
@@ -505,12 +505,12 @@ atq （显示一次性任务的列表）</code></pre></div>
 <ul>
 <li>/var/log/cron 任务的日志</li>
 <li>/var/spool/cron 用户的计划任务</li>
-<li>配置方式crontabl -e</li>
-<li>查看现有的计划任务crontab -l</li>
+<li>配置方式 crontabl -e</li>
+<li>查看现有的计划任务 crontab -l</li>
 <li>
 <p>配置方式: 分钟 小时 日期 月份 星期 执行的命令</p>
 <ul>
-<li>比如1 1 1 1 1-5 echo crontab （1 月 1 日 1 时 1 分 如果是周一到周五，就输出 crontab）</li>
+<li>比如 1 1 1 1 1-5 echo crontab （1 月 1 日 1 时 1 分 如果是周一到周五，就输出 crontab）</li>
 </ul>
 </li>
 </ul>
