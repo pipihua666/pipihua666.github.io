@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 19 May 2021 16:23:56 GMT</lastBuildDate><item><title><![CDATA[聊一聊https吧]]></title><description><![CDATA[聊一聊https吧]]></description><link>https://pipihua666.github.io/net-https</link><guid isPermaLink="false">https://pipihua666.github.io/net-https</guid><pubDate>Wed, 19 May 2021 16:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;明文的-http-很危险！&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%98%8E%E6%96%87%E7%9A%84-http-%E5%BE%88%E5%8D%B1%E9%99%A9%EF%BC%81&quot; aria-label=&quot;明文的 http 很危险！ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;明文的 http 很危险！&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 28 May 2021 02:18:41 GMT</lastBuildDate><item><title><![CDATA[聊一聊https吧]]></title><description><![CDATA[目标互联网中较为安全的通信方式，图文结合，易于理解。]]></description><link>https://pipihua666.github.io/net-https</link><guid isPermaLink="false">https://pipihua666.github.io/net-https</guid><pubDate>Wed, 19 May 2021 16:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;明文的-http-很危险！&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%98%8E%E6%96%87%E7%9A%84-http-%E5%BE%88%E5%8D%B1%E9%99%A9%EF%BC%81&quot; aria-label=&quot;明文的 http 很危险！ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;明文的 http 很危险！&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 467px; &quot;
@@ -31,28 +31,117 @@
 &lt;p&gt;http 明文传输会带来数据被监听的风险，所以&lt;code class=&quot;language-text&quot;&gt;对称加密&lt;/code&gt;对数据的加密传输脱颖而出。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;加个密吧！&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8A%A0%E4%B8%AA%E5%AF%86%E5%90%A7%EF%BC%81&quot; aria-label=&quot;加个密吧！ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;加个密吧！&lt;/h2&gt;
+&lt;p&gt;最简单的加密方式就是对称加密
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 482px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4bfcb07fc048a4c59885ca610e0c4dbd/05b37/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQAF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3RSmP//EABkQAAEFAAAAAAAAAAAAAAAAABAAARExQf/aAAgBAQABBQKVQ1h//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxABAAMAAAAAAAAAAAAAAAAAEBEhMf/aAAgBAQAGPwKLdf/EABsQAAICAwEAAAAAAAAAAAAAAAERACEQMXGR/9oACAEBAAE/IbEp1Gjs8gLDiNvE0x//2gAMAwEAAgADAAAAEEMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAMAAQUAAAAAAAAAAAAAAQARIVEQQWFxkf/aAAgBAQABPxBwl6Z9iHp49Mq6JfZKYXrE5BkV65en/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;对称加密&quot;
+        title=&quot;对称加密&quot;
+        src=&quot;/static/4bfcb07fc048a4c59885ca610e0c4dbd/05b37/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg&quot;
+        srcset=&quot;/static/4bfcb07fc048a4c59885ca610e0c4dbd/f93b5/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg 300w,
+/static/4bfcb07fc048a4c59885ca610e0c4dbd/05b37/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg 482w&quot;
+        sizes=&quot;(max-width: 482px) 100vw, 482px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;对称加密在双方都拿到正确的密钥时确实能防止窃听风险，那怎样才能防止密钥在传输过程中被中间人窃取呢？&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;保证对称加密的密钥的正确传输非对称加密&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BF%9D%E8%AF%81%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%9A%84%E5%AF%86%E9%92%A5%E7%9A%84%E6%AD%A3%E7%A1%AE%E4%BC%A0%E8%BE%93%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86&quot; aria-label=&quot;保证对称加密的密钥的正确传输非对称加密 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;保证对称加密的密钥的正确传输——&lt;code class=&quot;language-text&quot;&gt;非对称加密&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;非对称加密！&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%EF%BC%81&quot; aria-label=&quot;非对称加密！ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;非对称加密！&lt;/h2&gt;
+&lt;p&gt;那非对称加密算法就很合适了，公钥可以随意给，但是只有私钥才能进行解密。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 638px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/97c4b24145ffc56c1b2c3bca6385c2e6/8608d/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3YFB/8QAFhAAAwAAAAAAAAAAAAAAAAAAAAEQ/9oACAEBAAEFAoj/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAYEAEBAQEBAAAAAAAAAAAAAAABABEhMf/aAAgBAQABPyHU9txSanb/2gAMAwEAAgADAAAAEHPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGBABAQEBAQAAAAAAAAAAAAAAAREAYXH/2gAIAQEAAT8QXMksI4AA33U4B43f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;非对称加密&quot;
+        title=&quot;非对称加密&quot;
+        src=&quot;/static/97c4b24145ffc56c1b2c3bca6385c2e6/8608d/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg&quot;
+        srcset=&quot;/static/97c4b24145ffc56c1b2c3bca6385c2e6/f93b5/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg 300w,
+/static/97c4b24145ffc56c1b2c3bca6385c2e6/b4294/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg 600w,
+/static/97c4b24145ffc56c1b2c3bca6385c2e6/8608d/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.jpg 638w&quot;
+        sizes=&quot;(max-width: 638px) 100vw, 638px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;那非对称加密算法就很合适了，公钥可以随意给，但是只有私钥才能进行解密。所以客户端在请求服务端后，服务端返回公钥给客户端，客户端将自己选择好的对称加密算法的密钥用服务端的公钥进行加密再传给服务端，这样就实现了保证对称加密密钥的正确传输。&lt;/p&gt;
+&lt;p&gt;客户端在请求服务端后，服务端返回公钥给客户端，客户端将自己选择好的对称加密算法的密钥用服务端的公钥进行加密再传给服务端，这样就实现了保证对称加密密钥的正确传输。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;注意：由于非对称加密比较耗时，在正确交换了对称加密密钥后，客户端和服务端一直会用对称加密的密钥进行加密通信。&lt;/p&gt;
 &lt;h2 id=&quot;你以为这样就安全了？&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BD%A0%E4%BB%A5%E4%B8%BA%E8%BF%99%E6%A0%B7%E5%B0%B1%E5%AE%89%E5%85%A8%E4%BA%86%EF%BC%9F&quot; aria-label=&quot;你以为这样就安全了？ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;你以为这样就安全了？&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果中间人把服务端的公钥换成自己的公钥，客户端傻傻的就把自己想用的对称加密的密钥给了中间人，中间人再用原来的正确公钥包装给服务端。这样客户端一直在和中间人通信，信息安全还是得不到保证。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;所以这时候需要有一个第三方的人来证明传输过来的公钥是正确的。&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%89%80%E4%BB%A5%E8%BF%99%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81%E6%9C%89%E4%B8%80%E4%B8%AA%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9A%84%E4%BA%BA%E6%9D%A5%E8%AF%81%E6%98%8E%E4%BC%A0%E8%BE%93%E8%BF%87%E6%9D%A5%E7%9A%84%E5%85%AC%E9%92%A5%E6%98%AF%E6%AD%A3%E7%A1%AE%E7%9A%84%E3%80%82&quot; aria-label=&quot;所以这时候需要有一个第三方的人来证明传输过来的公钥是正确的。 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;所以这时候需要有一个第三方的人来证明传输过来的公钥是正确的。&lt;/h2&gt;
+&lt;h2 id=&quot;第三方证明人。&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%AC%AC%E4%B8%89%E6%96%B9%E8%AF%81%E6%98%8E%E4%BA%BA%E3%80%82&quot; aria-label=&quot;第三方证明人。 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;第三方证明人。&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;CA 机构 就是这样值得信任的中间人&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;CA 机构 就是这样的权威并且值得信任的第三方&lt;br/&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 625px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c66498a7e45bf8f166f8cf0cdd946d09/dfe3c/ca.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3SFB/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAEQMf/aAAgBAQABBQKLHEf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAVEAEBAAAAAAAAAAAAAAAAAAAgMf/aAAgBAQAGPwKr/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERITFBgf/aAAgBAQABPyFNN40PR7VpwTLND//aAAwDAQACAAMAAAAQc8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhUWEQMUH/2gAIAQEAAT8QV+jRO8YDIeeMEgO4TCOx9yLQvj//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ca&quot;
+        title=&quot;ca&quot;
+        src=&quot;/static/c66498a7e45bf8f166f8cf0cdd946d09/dfe3c/ca.jpg&quot;
+        srcset=&quot;/static/c66498a7e45bf8f166f8cf0cdd946d09/f93b5/ca.jpg 300w,
+/static/c66498a7e45bf8f166f8cf0cdd946d09/b4294/ca.jpg 600w,
+/static/c66498a7e45bf8f166f8cf0cdd946d09/dfe3c/ca.jpg 625w&quot;
+        sizes=&quot;(max-width: 625px) 100vw, 625px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端会用自己的 CSR 文件和公钥到 CA 机构申请数字证书，CA 用一种加密方法来对网站信息进行加密(比如 md5)生成&lt;code class=&quot;language-text&quot;&gt;加密的网站信息&lt;/code&gt;&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;然后用自己的私钥把&lt;code class=&quot;language-text&quot;&gt;加密的网站信息&lt;/code&gt;再次进行加密生成&lt;code class=&quot;language-text&quot;&gt;数字签名&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;最后把这份有着&lt;code class=&quot;language-text&quot;&gt;加密网站信息&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;数字签名&lt;/code&gt;的证书给到服务端。这是世界上具有唯一性的证书。&lt;/li&gt;
 &lt;li&gt;客户端会预置一些知名 CA 机构的公钥信息，所以拿到服务端的证书之后，客户端就会解密证书上的&lt;code class=&quot;language-text&quot;&gt;加密网站信息&lt;/code&gt;得到&lt;code class=&quot;language-text&quot;&gt;网站信息&lt;/code&gt;，和用 CA 机构公钥解密&lt;code class=&quot;language-text&quot;&gt;数字签名&lt;/code&gt;得到的网站信息，经过对比确认是否是可信任的服务端。&lt;/li&gt;
 &lt;li&gt;如果是可信任的服务端，客户端就取出证书中的公钥，对自己想用的对称密钥进行加密，然后传输给服务端。&lt;/li&gt;
+&lt;li&gt;最后就可以一直使用对称密钥进行加密传输数据啦！&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[nginx配置https及nginx安全配置]]></title><description><![CDATA[nginx配置https及nginx安全配置]]></description><link>https://pipihua666.github.io/nginx-https</link><guid isPermaLink="false">https://pipihua666.github.io/nginx-https</guid><pubDate>Wed, 28 Apr 2021 13:48:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;nginx-的主要配置&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nginx-%E7%9A%84%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE&quot; aria-label=&quot;nginx 的主要配置 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nginx 的主要配置&lt;/h2&gt;
 &lt;h3 id=&quot;转发-http-为-https&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%BD%AC%E5%8F%91-http-%E4%B8%BA-https&quot; aria-label=&quot;转发 http 为 https permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;转发 http 为 https&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
