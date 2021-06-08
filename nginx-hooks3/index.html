@@ -180,7 +180,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
   <span class="token comment">// 每次创建新函数的方式会让接收事件处理函数的组件重新渲染</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Children</span></span> <span class="token attr-name">handler</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleChirden<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>所以 <code class="language-text">useClassback</code> 可以通过定义依赖项：只有当<code class="language-text">deps</code>发生变化时，才需要重新定义一个回调函数</p>
+<p>所以 <code class="language-text">useCallback</code> 可以通过定义依赖项：只有当<code class="language-text">deps</code>发生变化时，才需要重新定义一个回调函数</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useCallback <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span>
 
 <span class="token keyword">function</span> <span class="token function">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
