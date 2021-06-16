@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 10 Jun 2021 15:29:25 GMT</lastBuildDate><item><title><![CDATA[Hooks核心05]]></title><description><![CDATA[hooks的最佳实践]]></description><link>https://pipihua666.github.io/nginx-hooks5</link><guid isPermaLink="false">https://pipihua666.github.io/nginx-hooks5</guid><pubDate>Thu, 10 Jun 2021 14:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;创建自定义-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89-hooks&quot; aria-label=&quot;创建自定义 hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;创建自定义 hooks&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 16 Jun 2021 15:19:22 GMT</lastBuildDate><item><title><![CDATA[快速排序的js实现]]></title><description><![CDATA[快速排序的js实现及其应用，再说说js的sort方法吧]]></description><link>https://pipihua666.github.io/quick-sort</link><guid isPermaLink="false">https://pipihua666.github.io/quick-sort</guid><pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;分而治之-dc&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B-dc&quot; aria-label=&quot;分而治之 dc permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;分而治之 D&amp;#x26;C&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;并非可用于解决问题的算法，而是一种解决问题的思路&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;找出简单的基线条件；&lt;/li&gt;
+&lt;li&gt;确定如何缩小问题的规模，使其符合基线条件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;快速排序&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F&quot; aria-label=&quot;快速排序 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;快速排序&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;思想是：在长度&gt;=2 的数组中随机取出一个数组项 A，把 A 大的项放在右边，比 A 小的项放在左边，依次类推。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;代码实现：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;quickSort&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; arr &lt;span class=&quot;token comment&quot;&gt;// 基线条件，为空或者长度为1的数组是有序的，不用再排序&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lessArr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 比基线值小的项&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; moreArr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 比基线值大的项&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pivot &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 选择基准值(随机)&lt;/span&gt;
+  arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; pivot&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      moreArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      lessArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;quickSort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;lessArr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pivot&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;quickSort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;moreArr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;js-的-sort-方法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#js-%E7%9A%84-sort-%E6%96%B9%E6%B3%95&quot; aria-label=&quot;js 的 sort 方法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JS 的 sort 方法&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;V8 引擎 sort 函数只给出了两种排序 InsertionSort 和 QuickSort，数组长度小于等于 22 的用插入排序 InsertionSort，比 22 大的数组则使用快速排序 QuickSort。源码中这样写道：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Quicksort is used for arrays which length &gt; 22&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// Arrays which length &gt; 1000 guarantee GetThirdIndex is executed&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/v8/v8/blob/dc712da548c7fb433caed56af9a021d964952728/test/mjsunit/array-sort.js&quot;&gt;源码链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;小结&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B0%8F%E7%BB%93&quot; aria-label=&quot;小结 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;小结&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 D&amp;#x26;C 处理列表的时候，基线条件很可能是空数组或只包含一个元素的数组&lt;/li&gt;
+&lt;li&gt;实现快速排序时，请随机选择用作基准值的元素。快速排序的平均运行事件 &lt;code class=&quot;language-text&quot;&gt;O(nlogn)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;大 O 表示法中的常量有时候事关重大，这就是快排比归并排序快的原因所在&lt;/li&gt;
+&lt;li&gt;比较简单查找和二分查找时，常量几乎无关紧要，因为列表很长时，&lt;code class=&quot;language-text&quot;&gt;O(logn)&lt;/code&gt;要比&lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;快得多&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Hooks核心05]]></title><description><![CDATA[hooks的最佳实践]]></description><link>https://pipihua666.github.io/nginx-hooks5</link><guid isPermaLink="false">https://pipihua666.github.io/nginx-hooks5</guid><pubDate>Thu, 10 Jun 2021 14:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;创建自定义-hooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89-hooks&quot; aria-label=&quot;创建自定义 hooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;创建自定义 hooks&lt;/h2&gt;
 &lt;p&gt;&lt;b&gt;声明名字以 use 开头的函数&lt;/b&gt;，比如 useCounter，这个函数在形式上和普通的 js 函数没有任何区别，你可以传递任意参数给这个 hook，也可以返回任何值。但是要注意，hooks 和普通函数的区别是自定义 hooks 一定要用到其他的 hooks。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;名字一定是以 use 开头的函数，这样 react 才能够知道这个函数是一个 hooks&lt;/li&gt;
@@ -3787,7 +3829,353 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;p&gt;&lt;br /&gt;推荐：&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/benjamingr/RegExp.escape&quot;&gt;正则转义相关地址&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[深入浅出HTTP]]></title><description><![CDATA[http 重要知识点.]]></description><link>https://pipihua666.github.io/http</link><guid isPermaLink="false">https://pipihua666.github.io/http</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;首先让我们来了解一下-http-的请求报文和响应报文&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%A6%96%E5%85%88%E8%AE%A9%E6%88%91%E4%BB%AC%E6%9D%A5%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B-http-%E7%9A%84%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87%E5%92%8C%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87&quot; aria-label=&quot;首先让我们来了解一下 http 的请求报文和响应报文 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;首先让我们来了解一下 http 的请求报文和响应报文&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[react使用websocket通信]]></title><description><![CDATA[react使用websocket通信]]></description><link>https://pipihua666.github.io/websocket</link><guid isPermaLink="false">https://pipihua666.github.io/websocket</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;浏览器自带的-api&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%B8%A6%E7%9A%84-api&quot; aria-label=&quot;浏览器自带的 api permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;浏览器自带的 api&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果是 https 则采用 wss&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 这里的转发标识为/ws&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; wsPath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ws://&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;host&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/ws/system&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; socket &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;WebSocket&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsPath&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;open&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// send可以传递字符串或者二进制&lt;/span&gt;
+  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; page&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handleMessage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handleMessage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a name=&quot;0BRMq&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;开发环境配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;开发环境配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;开发环境配置：&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;devServer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      proxy&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 普通http请求&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;/api&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            target&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://localhost:8099/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            changeOrigin&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            secure&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// websocket请求配置&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;/ws&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          target&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;ws://localhost:8099/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// 可以写http或者ws开头&lt;/span&gt;
+          ws&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 代理使用websokcet协议&lt;/span&gt;
+          secure&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          changeOrigin&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;p&gt;&lt;a name=&quot;UDtcL&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;生产环境配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;生产环境配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;生产环境配置：&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 这里是websocket相关的配置
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.233&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.238&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8090&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_next_upstream&lt;/span&gt; error &lt;span class=&quot;token keyword&quot;&gt;timeout&lt;/span&gt; invalid_header http_500 http_502 http_503&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Host &lt;span class=&quot;token variable&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_http_version&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Real&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;IP &lt;span class=&quot;token variable&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Forwarded&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;For &lt;span class=&quot;token variable&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Forwarded&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Proto &lt;span class=&quot;token keyword&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Upgrade &lt;span class=&quot;token variable&quot;&gt;$http_upgrade&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Connection &lt;span class=&quot;token string&quot;&gt;&quot;upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Origin &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;proxy_redirect&lt;/span&gt; off&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;h2 id=&quot;我的-nginx-配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%88%91%E7%9A%84-nginx-%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;我的 nginx 配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;我的 nginx 配置：&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;rewrite&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;v1&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;$&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ginapp&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;service&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8686&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;proxy_http_version&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Upgrade &lt;span class=&quot;token variable&quot;&gt;$http_upgrade&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Connection &lt;span class=&quot;token string&quot;&gt;&quot;upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;nodejs 后端非常好用的 websocket 通信包：&lt;a href=&quot;https://socket.io/&quot;&gt;https://socket.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;基于 socket.io 衍生出的前端 websocket 通信工具：&lt;a href=&quot;https://socket.io/docs/client-api/&quot;&gt;https://socket.io/docs/client-api/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;注意：socket.io.client 必须与 socker.io 配合使用&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[计算机网络-子网划分]]></title><description><![CDATA[子网划分的原理和知识点，来源慕课网]]></description><link>https://pipihua666.github.io/subnet</link><guid isPermaLink="false">https://pipihua666.github.io/subnet</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;网络部分：划分子网&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BD%91%E7%BB%9C%E9%83%A8%E5%88%86%EF%BC%9A%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91&quot; aria-label=&quot;网络部分：划分子网 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;网络部分：划分子网&lt;/h2&gt;
+&lt;p&gt;&lt;a name=&quot;Nh8DI&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;主机部分：可以分配给-pc-的-ip-地址&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BB%E6%9C%BA%E9%83%A8%E5%88%86%EF%BC%9A%E5%8F%AF%E4%BB%A5%E5%88%86%E9%85%8D%E7%BB%99-pc-%E7%9A%84-ip-%E5%9C%B0%E5%9D%80&quot; aria-label=&quot;主机部分：可以分配给 pc 的 ip 地址 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;主机部分：可以分配给 pc 的 ip 地址&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACI0lEQVQoz41T227TQBDNxyI+hE9AAoknnnmJeKmohIpI47QpIaU0pY3jxIlvqRO7ie+XtXcPY+fWhhdGOt6xvHM8c2amIY9GCJdLqG0JU+kC6vdzTM6+YdruQLvqQev+gNqS6jPwPIRRhCRJkKYZ4jhBGIYv0DAMA5WxMEK+WoMFAZjvEwIUcYzc2/iMLu/MpQQsiqt+cGwNXdNqR+D/LExy9NUlrmcuRk6CmS+g+SVYyWuWhq7r9UVelhCcQwixARd7f//DosDHpoS3n/v4+QScDFe4WQG/XI6s4NsMt4TPbUeys5L0ytceRBRipDu4MFM0bx7x+v0phqTE3UocCCsNheDQplOYho40juoPSZqDkeiMiFgQglN2NTmhM/Nxcq3hXHbRm2fo2/mB0CTCkO7e2SFu5z4Uj+G3FeHNhy/o9eWNHLuSSZKMGCXFwdlAR+t+jo7i4nLiIi/FllDX4FFEc+Cg+1hgQI27WpT4+meBIM5w3DGxBd+iIK0LftC6YVGZ1CS8endKuswxjoFbIjXSg56MsT1Kal6WZeTnyPP8H+0bc9OAHXF8koZoXspoyw5aqod7dxOg6waUkYLxeAJ5KEOdqBgrY5imVfvV6dE87sjrDNeMyiSh+0aAnu6jS766LuqMHu4f6sA4iuHTgPs06DENfLUt1VltR5qkdeYvxqYkHfhzjehREVqWhTVtkE/b4ywd2LaNJW3Kwl7U78cl/wXXmY1J9kutRAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png&quot;
+        srcset=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/5a46d/net1.png 300w,
+/static/215ccbbc8fb7c5b1779799a7ec27f210/0a47e/net1.png 600w,
+/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;lNg98&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;掩码的作用主要是划分子网：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8E%A9%E7%A0%81%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%BB%E8%A6%81%E6%98%AF%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%EF%BC%9A&quot; aria-label=&quot;掩码的作用主要是划分子网： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;掩码的作用主要是划分子网：&lt;/h2&gt;
+&lt;p&gt;&lt;a name=&quot;E3IS8&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;例如：192.168.1.1 的子网掩码是：255.255.255.0
+
+子网缺省表示：192.168.1.1/24(24 表示有 24 位网络位，如果划分了子网，该 c 类地址的网络位不为 24)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/ElEQVQ4y41TiW7aUBDk//+nUqVKrao2PYBADC0x+MQX2MjG2H42Pqe7D0KlKG3ypGHN4je7M7uMYs+HO7mHP3tAoCxhfPgI7d172F++ocgLiFJAiAuKongVo6FtUaUnQoqaElWcoDocICh2XSfRX+NbzqgrS1i2jfvZHLphwAsC7KIImq5DfVShKAtoGw2e6+F8PqOqKjRN8yLZMAwYNVkOyzAxI0K+uFbXWEiSDQwqsFlvsFws4ZM1yoOCyXiC1Wol5bWsjgpkWXZTQB1W+LVcYjqZyo6YbE7k459j3H29kwVUVYWzdeC6LhzHkbBMC0mSwPM82QgXkIT8IQqB4/F4qxbH8Q0H8pOlvuVIyUwSkWcpDeV0OiHwA4n9bo8wDBHuQyl3a29hmqaM7KelG7DJKtdxYVs2dsHu0iGvg+/7iMJISuALDJbIRByfwDL5MpNYugmbsL3mb4Q2TdikSjpNNacB8e6lxxQl2dDUDfJTJvMVeX0m5FmBkiwQuUByiJHQuwmtGNt28/D56foew3N/rrEmT+NPn1FsXeSajuP3H2hF+ddDubTkY0dVu3Mtn3t+pm46evGSo+91jZ7WpKcdbOiPwCS8ci0pGK4rIwlbWuycDBbkS2E7yNQNMs1A9vsR6XQOQbmCvBKujyo8/HfC/5T82mq8hKff/gD2ztt/biv08AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png&quot;
+        srcset=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/5a46d/net2.png 300w,
+/static/3f856c9a2c6ca3004d17aba275333e21/0a47e/net2.png 600w,
+/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;FN3Xs&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;单播：点对点通信，一个发送者，一个接收者。
+
+&amp;lt;a name=&amp;quot;Qr4R3&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+
+广播：路由器隔绝广播的传播。接收到的包的 mac 地址全是 f,ip 地址全是 1 的为广播通信。全网广播
+
+&amp;lt;a name=&amp;quot;aE4RA&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
+
+组播：一个组播源，多个组播接受者，组播的包只会发送到组播接受者去。充分利用了带宽。iptv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVQ4y51T32+TUBjlX/fBxFcT3/TBqA8mLnN7WVysRru17lcnKe3KbEthTu4tAaSDwuVy6RHawIDuQb3JlxDO9517ON9B0r7LUNvHUL+0cX3cgXrUgdZXMLcsEEJAKf2nkmLHxVI34PQHcAdXcJUhlibB/x4p8n1oug7RAFar1YP10Kni0tJ2cDWZIgiCNZim6QZsNObvC5zzBKkQCFmMGXVrpFL4ywRtfQb3gxLI2Qo1TWUv9zrYOTxHyiOMtFs8ftOqKZVExMAzz9Ik2VJVJfv0bYTL/hgs5oi4KAkCz8WqSvg3RoeOg/3WOWT5Go45x+IuRBKG8Lw79CakrhC5iswXY/4bUeajv/BB7QVYsESUDdmWCzrTy6G3B2d4/+EUzKJQRxM82+sWbPcKozjBo1ct3Iw1GGMdL959BdF0TNQpnjw/wK1hrmdEvpBEZLVZUJ5V+eKiXGhJyDnHUBmAZ5vLbyLTWamIZcPWzU8wx22GBTzzM45jCCHqhHkUPG+xbpoRB0932puGIipZ4+vdI3RPFAibYvfjGQ570+JL79ORB7sZVjfzsDccl7krcPmHCcO0188nl0N0e8pWrEqF239CpalCWqi1KMGcmGCM1S7Nzx/lFOPCF8LACAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png&quot;
+        srcset=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/5a46d/net3.png 300w,
+/static/c056dbc19313c4ac6aa0a5300e25b6fa/0a47e/net3.png 600w,
+/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;M3wO9&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ip-地址的类型：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ip-%E5%9C%B0%E5%9D%80%E7%9A%84%E7%B1%BB%E5%9E%8B%EF%BC%9A&quot; aria-label=&quot;ip 地址的类型： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IP 地址的类型：&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEElEQVQ4y6VTi27aQBDk/z+pUdUicABTGmwKIdjYGPw6P84GAsYYe7J3IW1plEpVTxr2nuOZ3aXF0xTOtxGMdgfL7j2WSg9Zlv0VeZ5/eNYCjWr/jIMX4BgyFFGE/xmtpqqQxwmy/R4xqQ2JMCL4no/F0wK6pkPXdUynU2y3W7k2DEOeGQsDs+kM7saVZE3TvCo8lyVSIjscDjgej1L6+XxGXde4XC4SYi4eVLQv90hIdYU4uyHc7XZQugrW6zUsy8agr4LznC7XKMszoZKxrpsPrQoyaVn8MMqdOlAxouJY5hOS2EfEPNjWguzYci5iwkLw/gAZWc3HGnbaBBW5koRXlZJQ2J3oE8znTzDNHjZuD56vSvj+EJ6nYuV06UNrMGcD13GwZRHq4vROpSTkKZfJFgm2LQdhECHwGRUmJDC5djcB8ozSwBhKcnTmGQrbRuF5Mpac/1Lo+z7aX9tke4gg0JAk30nNA2EsI0812lcRRyus+kMYyj0iw8SS3piUglWni5I65SehqCyjLwuEoUtFiqlFYmQ8pCaOsJPzAEVxuLF4IYsXivWflj3Xw92nOygdhSzPaD0n1QuMRm3qtwdSZ8JaamBRAJ/uuFRA5/MXZMMR5bF4XxTRsKZpYmU7RPQDSTolzMCzR6R8RkV7JOVjusewf37t05ze1NdWaX6LrbfF2zidqn/4ozU3ZGK8AA8+1pmpYnvmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png&quot;
+        srcset=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/5a46d/net4.png 300w,
+/static/ad1493ce9aa03715447a9fcd663601e7/0a47e/net4.png 600w,
+/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;4O3qn&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;如何进行划分子网：向主机位借位&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%EF%BC%9A%E5%90%91%E4%B8%BB%E6%9C%BA%E4%BD%8D%E5%80%9F%E4%BD%8D&quot; aria-label=&quot;如何进行划分子网：向主机位借位 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;如何进行划分子网：向主机位借位&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVQoz52SDW+aUBSG/f+/ZkuWZUmna+PatSoitlWr8ilYKehAQBDQZ9fbbEu6Jt12kif3HMh9733vOQ3zoo1+1sK6vMJTNZE3Mb9eEQUBuzwny7J/olGlGWWSUKUpdV5Q7XbUu5z/jcbLD6UQ3scxpThNxvH4i+Nf0Die9gjqLCWZTHA+fMR5955ls0V9OHAQ/37yMl4V7Og+HT3EsCfMjRmak6DZ3xkYa4bulttlimpHqM4WP0rJxc3ruqYsy1cPaJx9/kL7/AJDH2OZCo6lMhldShb2AMtQuNNa6NYd/fspg77KeDSm2+nieZ4U3u/3EvmGivmEakXYj3foXlfcxGC4mD/j6gzsGbfunNHTkuVmS5ps2aw3hGFIFEWsw7WsT0jBGzvm2kywVzpW6KOuQHELuosCzT8y9E91SU+wijKKfCetVVUl1z+63Gydc9luY1lTQQ93MUBTmyi9T3iuhm0p3A+FZefZsiYsT0Tzbq5vmD5MpXAhxi0XM3t620Z3vkTRA6zlLXO3I+wLq85MWBY4U1RzLJr0wP3KxVvHJGKkTvZ835eW4ygmDEJZF0Uhuty3+TZ4xDD7zIwRSgTqWrB5Xrt9j940pifyqDi8PdhBlBPEe7bphjiNCLKaMCt/E+eESSHzoqrfHPAfFjOHxWbtQX0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png&quot;
+        srcset=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/5a46d/net5.png 300w,
+/static/34bb128a794908b4110562fbdbf8b9d2/0a47e/net5.png 600w,
+/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 485px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxUlEQVQ4y52TbU/iQBSF+f8/Qr9pyC6igrUYEUSaAglCqwlgtesq4mLbbF/se6fHmTESFd3ATnLbSef2zJNzZgqu58GcPuCmdYbrxin0loRxRYDWPMXv/jlupQ60owa0eh3XrTZ0ScbdQIVt23AcZ6kKoCM0LfyqHECvCrgVjzHZKuK+2cK8P4ChXuKh2cbVjxK0nyW+/tjrg2QZ+xV5nn+oAnv87/gstiSY0V2jKEIcx0jTlBfJCMIg5N/fer8SWgiyhvjZR56kGI1GKJfKqB2K2N/bR0fuQGpLKG4XURNrfMM3wW8JFwsk5xTGkwHTNDH/M+fGu46L6f0Us9nsg9B34zUU20VCKRlhtVLFbnkXO6UdnNOUe90elKGCxkkDSZKsJpjRxpx6xWI3DAOWZUHXdU7J5sxTz/VACFlNMPaeKWEARVEgHAi4UC/Q7XQhCiLGo/FSsv8aXJCkGfWQwHVdTuX7PqIw4l6y+fsAViN0PKSUcEi9EoXDRbr14zpURV0SXI2QHgmPXkOWsmM7vJ7YnPq6tmD416GEPgbDIT9/2pUGWZaxubGJyWTCG1kgaxESeiuCIIBF7zV7M++Yh8zLdQhfAEvVKmsELF0zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png&quot;
+        srcset=&quot;/static/7409c8b4318879dd58a2531833213ad8/5a46d/net6.png 300w,
+/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png 485w&quot;
+        sizes=&quot;(max-width: 485px) 100vw, 485px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVQ4y51Ti27aMBTl/39kWrdvmFgZlNFq2kahARqaF6E8EpOHY+d5du0CAoFUrZaOfJ3rXB+fc93azEx4/QGYt0DR1JB5TpCQQkBK+d9olZxDhgxFkqISEmrdVBU+OlrZeoOQWIZTE9HcwnZsQO4inWya5iqujUOudfxwmnyHhfqxruszHA5qQSXLEikXWP8Zwv50A2a5WLsLOLYL+8XWcC0HNsFxXLCAIY1TJFFynIui2BekUZNmmSyw/fUbO7q+WG1gjcbo9froEwZk2v3Pewzat3j41sZqsYTIJHjCNVLS/6ygoivI1fXrCvZkBns8QUJGXbkrUNWo6EZ5XugiB6hr64KnIpfkcp5lyHmGijZdGPKOvkdTVKB6iAchRJxAZkIzKIsShWKyh1rnMj/Gh7Wg/dW+1bQp6lTm+TA/f8GStLJuvuJlOEL3Rw/dThd33Tv0KFaz0vO23UHn+xumxhSCvz2CMw05MYuIoUKw8PHqL+G5HnyKfTpMzaHKU48G2wAb6l+FHdtphiXpelZQUXYcB4+PI8yeTTyNn2AYBibGBMO/Q8zNuS6WJAnJkV9od6GhcimlzWEYIiNj1BXiONYMoigCpyfJGNOx6ojT13Fa9B8V/+WonK8/GAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png&quot;
+        srcset=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/5a46d/net7.png 300w,
+/static/47984ba61d2bc1a635cae0cdf992b15d/0a47e/net7.png 600w,
+/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;p36om&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;私有-ip-地址：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%EF%BC%9A&quot; aria-label=&quot;私有 ip 地址： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;私有 IP 地址：&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUUlEQVQoz51S226CQBD1/z+rTVq8IHJZraCCEusiNLZahIXo6c4YDLbxwU4ymZ3Lnp05sx1oqQ7fyLcpjtkHjtqWn1/4r3RwPiPf7TBbhJiHIYL5AokGJTnrHOnpdGLblt9+E+s0iW2yxViM8TaeYBlF8H0fnuvBHtl4fnrGyBoh8AN0jS4c24HwBIQQnJ8FM+z3+0uHDWAiE1hDC8arAc/zEK9iBiTg6dTnSwTkOA4Wegq5kZjox6kmCAJkWXYLWJYlpJScSPXISqmH+eOR23yQjcII63iN/JBjs97wmEQFdUPnRuW7hCoU6qq+cn3tsHGKooBru7AtWwMvsYpWEK6A2TdhvBgcp7w5MJnDNElvmrlsueXQ2ER+v9tnoHipeXQ89ntGD0PTYtBBb8DLoBpVqvuAZCtVMX9VVaGua7bkt5Vqmjh9qT+A9/7VI8to5AdLx/hFIWLurwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png&quot;
+        srcset=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/5a46d/net8.png 300w,
+/static/2bb98d87e8c495d1dc60ad4be131cbf5/0a47e/net8.png 600w,
+/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png 748w&quot;
+        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br /&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 485px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxUlEQVQ4y52TbU/iQBSF+f8/Qr9pyC6igrUYEUSaAglCqwlgtesq4mLbbF/se6fHmTESFd3ATnLbSef2zJNzZgqu58GcPuCmdYbrxin0loRxRYDWPMXv/jlupQ60owa0eh3XrTZ0ScbdQIVt23AcZ6kKoCM0LfyqHECvCrgVjzHZKuK+2cK8P4ChXuKh2cbVjxK0nyW+/tjrg2QZ+xV5nn+oAnv87/gstiSY0V2jKEIcx0jTlBfJCMIg5N/fer8SWgiyhvjZR56kGI1GKJfKqB2K2N/bR0fuQGpLKG4XURNrfMM3wW8JFwsk5xTGkwHTNDH/M+fGu46L6f0Us9nsg9B34zUU20VCKRlhtVLFbnkXO6UdnNOUe90elKGCxkkDSZKsJpjRxpx6xWI3DAOWZUHXdU7J5sxTz/VACFlNMPaeKWEARVEgHAi4UC/Q7XQhCiLGo/FSsv8aXJCkGfWQwHVdTuX7PqIw4l6y+fsAViN0PKSUcEi9EoXDRbr14zpURV0SXI2QHgmPXkOWsmM7vJ7YnPq6tmD416GEPgbDIT9/2pUGWZaxubGJyWTCG1kgaxESeiuCIIBF7zV7M++Yh8zLdQhfAEvVKmsELF0zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image.png&quot;
+        title=&quot;image.png&quot;
+        src=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png&quot;
+        srcset=&quot;/static/7409c8b4318879dd58a2531833213ad8/5a46d/net9.png 300w,
+/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png 485w&quot;
+        sizes=&quot;(max-width: 485px) 100vw, 485px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[深入浅出HTTP]]></title><description><![CDATA[http 重要知识点.]]></description><link>https://pipihua666.github.io/http</link><guid isPermaLink="false">https://pipihua666.github.io/http</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;首先让我们来了解一下-http-的请求报文和响应报文&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%A6%96%E5%85%88%E8%AE%A9%E6%88%91%E4%BB%AC%E6%9D%A5%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B-http-%E7%9A%84%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87%E5%92%8C%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87&quot; aria-label=&quot;首先让我们来了解一下 http 的请求报文和响应报文 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;首先让我们来了解一下 http 的请求报文和响应报文&lt;/h2&gt;
 &lt;p&gt;&lt;br /&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -4144,350 +4532,4 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;此文章参考链接：&lt;a href=&quot;https://baijiahao.baidu.com/s?id=1593714120815701015&amp;#x26;wfr=spider&amp;#x26;for=pc&quot;&gt;TCP 的三次握手和四次分手&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;2MSL 解释：&lt;a href=&quot;https://blog.csdn.net/zxx2096/article/details/80286577&quot;&gt;2MSL 是什么？&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[计算机网络-子网划分]]></title><description><![CDATA[子网划分的原理和知识点，来源慕课网]]></description><link>https://pipihua666.github.io/subnet</link><guid isPermaLink="false">https://pipihua666.github.io/subnet</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;网络部分：划分子网&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BD%91%E7%BB%9C%E9%83%A8%E5%88%86%EF%BC%9A%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91&quot; aria-label=&quot;网络部分：划分子网 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;网络部分：划分子网&lt;/h2&gt;
-&lt;p&gt;&lt;a name=&quot;Nh8DI&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;主机部分：可以分配给-pc-的-ip-地址&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BB%E6%9C%BA%E9%83%A8%E5%88%86%EF%BC%9A%E5%8F%AF%E4%BB%A5%E5%88%86%E9%85%8D%E7%BB%99-pc-%E7%9A%84-ip-%E5%9C%B0%E5%9D%80&quot; aria-label=&quot;主机部分：可以分配给 pc 的 ip 地址 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;主机部分：可以分配给 pc 的 ip 地址&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 60.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACI0lEQVQoz41T227TQBDNxyI+hE9AAoknnnmJeKmohIpI47QpIaU0pY3jxIlvqRO7ie+XtXcPY+fWhhdGOt6xvHM8c2amIY9GCJdLqG0JU+kC6vdzTM6+YdruQLvqQev+gNqS6jPwPIRRhCRJkKYZ4jhBGIYv0DAMA5WxMEK+WoMFAZjvEwIUcYzc2/iMLu/MpQQsiqt+cGwNXdNqR+D/LExy9NUlrmcuRk6CmS+g+SVYyWuWhq7r9UVelhCcQwixARd7f//DosDHpoS3n/v4+QScDFe4WQG/XI6s4NsMt4TPbUeys5L0ytceRBRipDu4MFM0bx7x+v0phqTE3UocCCsNheDQplOYho40juoPSZqDkeiMiFgQglN2NTmhM/Nxcq3hXHbRm2fo2/mB0CTCkO7e2SFu5z4Uj+G3FeHNhy/o9eWNHLuSSZKMGCXFwdlAR+t+jo7i4nLiIi/FllDX4FFEc+Cg+1hgQI27WpT4+meBIM5w3DGxBd+iIK0LftC6YVGZ1CS8endKuswxjoFbIjXSg56MsT1Kal6WZeTnyPP8H+0bc9OAHXF8koZoXspoyw5aqod7dxOg6waUkYLxeAJ5KEOdqBgrY5imVfvV6dE87sjrDNeMyiSh+0aAnu6jS766LuqMHu4f6sA4iuHTgPs06DENfLUt1VltR5qkdeYvxqYkHfhzjehREVqWhTVtkE/b4ywd2LaNJW3Kwl7U78cl/wXXmY1J9kutRAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png&quot;
-        srcset=&quot;/static/215ccbbc8fb7c5b1779799a7ec27f210/5a46d/net1.png 300w,
-/static/215ccbbc8fb7c5b1779799a7ec27f210/0a47e/net1.png 600w,
-/static/215ccbbc8fb7c5b1779799a7ec27f210/f8915/net1.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;lNg98&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;掩码的作用主要是划分子网：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8E%A9%E7%A0%81%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%BB%E8%A6%81%E6%98%AF%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%EF%BC%9A&quot; aria-label=&quot;掩码的作用主要是划分子网： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;掩码的作用主要是划分子网：&lt;/h2&gt;
-&lt;p&gt;&lt;a name=&quot;E3IS8&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;例如：192.168.1.1 的子网掩码是：255.255.255.0
-
-子网缺省表示：192.168.1.1/24(24 表示有 24 位网络位，如果划分了子网，该 c 类地址的网络位不为 24)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br /&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 65.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/ElEQVQ4y41TiW7aUBDk//+nUqVKrao2PYBADC0x+MQX2MjG2H42Pqe7D0KlKG3ypGHN4je7M7uMYs+HO7mHP3tAoCxhfPgI7d172F++ocgLiFJAiAuKongVo6FtUaUnQoqaElWcoDocICh2XSfRX+NbzqgrS1i2jfvZHLphwAsC7KIImq5DfVShKAtoGw2e6+F8PqOqKjRN8yLZMAwYNVkOyzAxI0K+uFbXWEiSDQwqsFlvsFws4ZM1yoOCyXiC1Wol5bWsjgpkWXZTQB1W+LVcYjqZyo6YbE7k459j3H29kwVUVYWzdeC6LhzHkbBMC0mSwPM82QgXkIT8IQqB4/F4qxbH8Q0H8pOlvuVIyUwSkWcpDeV0OiHwA4n9bo8wDBHuQyl3a29hmqaM7KelG7DJKtdxYVs2dsHu0iGvg+/7iMJISuALDJbIRByfwDL5MpNYugmbsL3mb4Q2TdikSjpNNacB8e6lxxQl2dDUDfJTJvMVeX0m5FmBkiwQuUByiJHQuwmtGNt28/D56foew3N/rrEmT+NPn1FsXeSajuP3H2hF+ddDubTkY0dVu3Mtn3t+pm46evGSo+91jZ7WpKcdbOiPwCS8ci0pGK4rIwlbWuycDBbkS2E7yNQNMs1A9vsR6XQOQbmCvBKujyo8/HfC/5T82mq8hKff/gD2ztt/biv08AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png&quot;
-        srcset=&quot;/static/3f856c9a2c6ca3004d17aba275333e21/5a46d/net2.png 300w,
-/static/3f856c9a2c6ca3004d17aba275333e21/0a47e/net2.png 600w,
-/static/3f856c9a2c6ca3004d17aba275333e21/f8915/net2.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;FN3Xs&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;单播：点对点通信，一个发送者，一个接收者。
-
-&amp;lt;a name=&amp;quot;Qr4R3&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
-
-广播：路由器隔绝广播的传播。接收到的包的 mac 地址全是 f,ip 地址全是 1 的为广播通信。全网广播
-
-&amp;lt;a name=&amp;quot;aE4RA&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;
-
-组播：一个组播源，多个组播接受者，组播的包只会发送到组播接受者去。充分利用了带宽。iptv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVQ4y51T32+TUBjlX/fBxFcT3/TBqA8mLnN7WVysRru17lcnKe3KbEthTu4tAaSDwuVy6RHawIDuQb3JlxDO9517ON9B0r7LUNvHUL+0cX3cgXrUgdZXMLcsEEJAKf2nkmLHxVI34PQHcAdXcJUhlibB/x4p8n1oug7RAFar1YP10Kni0tJ2cDWZIgiCNZim6QZsNObvC5zzBKkQCFmMGXVrpFL4ywRtfQb3gxLI2Qo1TWUv9zrYOTxHyiOMtFs8ftOqKZVExMAzz9Ik2VJVJfv0bYTL/hgs5oi4KAkCz8WqSvg3RoeOg/3WOWT5Go45x+IuRBKG8Lw79CakrhC5iswXY/4bUeajv/BB7QVYsESUDdmWCzrTy6G3B2d4/+EUzKJQRxM82+sWbPcKozjBo1ct3Iw1GGMdL959BdF0TNQpnjw/wK1hrmdEvpBEZLVZUJ5V+eKiXGhJyDnHUBmAZ5vLbyLTWamIZcPWzU8wx22GBTzzM45jCCHqhHkUPG+xbpoRB0932puGIipZ4+vdI3RPFAibYvfjGQ570+JL79ORB7sZVjfzsDccl7krcPmHCcO0188nl0N0e8pWrEqF239CpalCWqi1KMGcmGCM1S7Nzx/lFOPCF8LACAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png&quot;
-        srcset=&quot;/static/c056dbc19313c4ac6aa0a5300e25b6fa/5a46d/net3.png 300w,
-/static/c056dbc19313c4ac6aa0a5300e25b6fa/0a47e/net3.png 600w,
-/static/c056dbc19313c4ac6aa0a5300e25b6fa/f8915/net3.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;M3wO9&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;ip-地址的类型：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ip-%E5%9C%B0%E5%9D%80%E7%9A%84%E7%B1%BB%E5%9E%8B%EF%BC%9A&quot; aria-label=&quot;ip 地址的类型： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IP 地址的类型：&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 64.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEElEQVQ4y6VTi27aQBDk/z+pUdUicABTGmwKIdjYGPw6P84GAsYYe7J3IW1plEpVTxr2nuOZ3aXF0xTOtxGMdgfL7j2WSg9Zlv0VeZ5/eNYCjWr/jIMX4BgyFFGE/xmtpqqQxwmy/R4xqQ2JMCL4no/F0wK6pkPXdUynU2y3W7k2DEOeGQsDs+kM7saVZE3TvCo8lyVSIjscDjgej1L6+XxGXde4XC4SYi4eVLQv90hIdYU4uyHc7XZQugrW6zUsy8agr4LznC7XKMszoZKxrpsPrQoyaVn8MMqdOlAxouJY5hOS2EfEPNjWguzYci5iwkLw/gAZWc3HGnbaBBW5koRXlZJQ2J3oE8znTzDNHjZuD56vSvj+EJ6nYuV06UNrMGcD13GwZRHq4vROpSTkKZfJFgm2LQdhECHwGRUmJDC5djcB8ozSwBhKcnTmGQrbRuF5Mpac/1Lo+z7aX9tke4gg0JAk30nNA2EsI0812lcRRyus+kMYyj0iw8SS3piUglWni5I65SehqCyjLwuEoUtFiqlFYmQ8pCaOsJPzAEVxuLF4IYsXivWflj3Xw92nOygdhSzPaD0n1QuMRm3qtwdSZ8JaamBRAJ/uuFRA5/MXZMMR5bF4XxTRsKZpYmU7RPQDSTolzMCzR6R8RkV7JOVjusewf37t05ze1NdWaX6LrbfF2zidqn/4ozU3ZGK8AA8+1pmpYnvmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png&quot;
-        srcset=&quot;/static/ad1493ce9aa03715447a9fcd663601e7/5a46d/net4.png 300w,
-/static/ad1493ce9aa03715447a9fcd663601e7/0a47e/net4.png 600w,
-/static/ad1493ce9aa03715447a9fcd663601e7/f8915/net4.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;4O3qn&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;如何进行划分子网：向主机位借位&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%EF%BC%9A%E5%90%91%E4%B8%BB%E6%9C%BA%E4%BD%8D%E5%80%9F%E4%BD%8D&quot; aria-label=&quot;如何进行划分子网：向主机位借位 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;如何进行划分子网：向主机位借位&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVQoz52SDW+aUBSG/f+/ZkuWZUmna+PatSoitlWr8ilYKehAQBDQZ9fbbEu6Jt12kif3HMh9733vOQ3zoo1+1sK6vMJTNZE3Mb9eEQUBuzwny7J/olGlGWWSUKUpdV5Q7XbUu5z/jcbLD6UQ3scxpThNxvH4i+Nf0Die9gjqLCWZTHA+fMR5955ls0V9OHAQ/37yMl4V7Og+HT3EsCfMjRmak6DZ3xkYa4bulttlimpHqM4WP0rJxc3ruqYsy1cPaJx9/kL7/AJDH2OZCo6lMhldShb2AMtQuNNa6NYd/fspg77KeDSm2+nieZ4U3u/3EvmGivmEakXYj3foXlfcxGC4mD/j6gzsGbfunNHTkuVmS5ps2aw3hGFIFEWsw7WsT0jBGzvm2kywVzpW6KOuQHELuosCzT8y9E91SU+wijKKfCetVVUl1z+63Gydc9luY1lTQQ93MUBTmyi9T3iuhm0p3A+FZefZsiYsT0Tzbq5vmD5MpXAhxi0XM3t620Z3vkTRA6zlLXO3I+wLq85MWBY4U1RzLJr0wP3KxVvHJGKkTvZ835eW4ygmDEJZF0Uhuty3+TZ4xDD7zIwRSgTqWrB5Xrt9j940pifyqDi8PdhBlBPEe7bphjiNCLKaMCt/E+eESSHzoqrfHPAfFjOHxWbtQX0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png&quot;
-        srcset=&quot;/static/34bb128a794908b4110562fbdbf8b9d2/5a46d/net5.png 300w,
-/static/34bb128a794908b4110562fbdbf8b9d2/0a47e/net5.png 600w,
-/static/34bb128a794908b4110562fbdbf8b9d2/f8915/net5.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 485px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 71.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxUlEQVQ4y52TbU/iQBSF+f8/Qr9pyC6igrUYEUSaAglCqwlgtesq4mLbbF/se6fHmTESFd3ATnLbSef2zJNzZgqu58GcPuCmdYbrxin0loRxRYDWPMXv/jlupQ60owa0eh3XrTZ0ScbdQIVt23AcZ6kKoCM0LfyqHECvCrgVjzHZKuK+2cK8P4ChXuKh2cbVjxK0nyW+/tjrg2QZ+xV5nn+oAnv87/gstiSY0V2jKEIcx0jTlBfJCMIg5N/fer8SWgiyhvjZR56kGI1GKJfKqB2K2N/bR0fuQGpLKG4XURNrfMM3wW8JFwsk5xTGkwHTNDH/M+fGu46L6f0Us9nsg9B34zUU20VCKRlhtVLFbnkXO6UdnNOUe90elKGCxkkDSZKsJpjRxpx6xWI3DAOWZUHXdU7J5sxTz/VACFlNMPaeKWEARVEgHAi4UC/Q7XQhCiLGo/FSsv8aXJCkGfWQwHVdTuX7PqIw4l6y+fsAViN0PKSUcEi9EoXDRbr14zpURV0SXI2QHgmPXkOWsmM7vJ7YnPq6tmD416GEPgbDIT9/2pUGWZaxubGJyWTCG1kgaxESeiuCIIBF7zV7M++Yh8zLdQhfAEvVKmsELF0zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png&quot;
-        srcset=&quot;/static/7409c8b4318879dd58a2531833213ad8/5a46d/net6.png 300w,
-/static/7409c8b4318879dd58a2531833213ad8/44c61/net6.png 485w&quot;
-        sizes=&quot;(max-width: 485px) 100vw, 485px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVQ4y51Ti27aMBTl/39kWrdvmFgZlNFq2kahARqaF6E8EpOHY+d5du0CAoFUrZaOfJ3rXB+fc93azEx4/QGYt0DR1JB5TpCQQkBK+d9olZxDhgxFkqISEmrdVBU+OlrZeoOQWIZTE9HcwnZsQO4inWya5iqujUOudfxwmnyHhfqxruszHA5qQSXLEikXWP8Zwv50A2a5WLsLOLYL+8XWcC0HNsFxXLCAIY1TJFFynIui2BekUZNmmSyw/fUbO7q+WG1gjcbo9froEwZk2v3Pewzat3j41sZqsYTIJHjCNVLS/6ygoivI1fXrCvZkBns8QUJGXbkrUNWo6EZ5XugiB6hr64KnIpfkcp5lyHmGijZdGPKOvkdTVKB6iAchRJxAZkIzKIsShWKyh1rnMj/Gh7Wg/dW+1bQp6lTm+TA/f8GStLJuvuJlOEL3Rw/dThd33Tv0KFaz0vO23UHn+xumxhSCvz2CMw05MYuIoUKw8PHqL+G5HnyKfTpMzaHKU48G2wAb6l+FHdtphiXpelZQUXYcB4+PI8yeTTyNn2AYBibGBMO/Q8zNuS6WJAnJkV9od6GhcimlzWEYIiNj1BXiONYMoigCpyfJGNOx6ojT13Fa9B8V/+WonK8/GAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png&quot;
-        srcset=&quot;/static/47984ba61d2bc1a635cae0cdf992b15d/5a46d/net7.png 300w,
-/static/47984ba61d2bc1a635cae0cdf992b15d/0a47e/net7.png 600w,
-/static/47984ba61d2bc1a635cae0cdf992b15d/f8915/net7.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;p36om&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;私有-ip-地址：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%A7%81%E6%9C%89-ip-%E5%9C%B0%E5%9D%80%EF%BC%9A&quot; aria-label=&quot;私有 ip 地址： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;私有 IP 地址：&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 748px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 52%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUUlEQVQoz51S226CQBD1/z+rTVq8IHJZraCCEusiNLZahIXo6c4YDLbxwU4ymZ3Lnp05sx1oqQ7fyLcpjtkHjtqWn1/4r3RwPiPf7TBbhJiHIYL5AokGJTnrHOnpdGLblt9+E+s0iW2yxViM8TaeYBlF8H0fnuvBHtl4fnrGyBoh8AN0jS4c24HwBIQQnJ8FM+z3+0uHDWAiE1hDC8arAc/zEK9iBiTg6dTnSwTkOA4Wegq5kZjox6kmCAJkWXYLWJYlpJScSPXISqmH+eOR23yQjcII63iN/JBjs97wmEQFdUPnRuW7hCoU6qq+cn3tsHGKooBru7AtWwMvsYpWEK6A2TdhvBgcp7w5MJnDNElvmrlsueXQ2ER+v9tnoHipeXQ89ntGD0PTYtBBb8DLoBpVqvuAZCtVMX9VVaGua7bkt5Vqmjh9qT+A9/7VI8to5AdLx/hFIWLurwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png&quot;
-        srcset=&quot;/static/2bb98d87e8c495d1dc60ad4be131cbf5/5a46d/net8.png 300w,
-/static/2bb98d87e8c495d1dc60ad4be131cbf5/0a47e/net8.png 600w,
-/static/2bb98d87e8c495d1dc60ad4be131cbf5/f8915/net8.png 748w&quot;
-        sizes=&quot;(max-width: 748px) 100vw, 748px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;br /&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 485px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 71.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxUlEQVQ4y52TbU/iQBSF+f8/Qr9pyC6igrUYEUSaAglCqwlgtesq4mLbbF/se6fHmTESFd3ATnLbSef2zJNzZgqu58GcPuCmdYbrxin0loRxRYDWPMXv/jlupQ60owa0eh3XrTZ0ScbdQIVt23AcZ6kKoCM0LfyqHECvCrgVjzHZKuK+2cK8P4ChXuKh2cbVjxK0nyW+/tjrg2QZ+xV5nn+oAnv87/gstiSY0V2jKEIcx0jTlBfJCMIg5N/fer8SWgiyhvjZR56kGI1GKJfKqB2K2N/bR0fuQGpLKG4XURNrfMM3wW8JFwsk5xTGkwHTNDH/M+fGu46L6f0Us9nsg9B34zUU20VCKRlhtVLFbnkXO6UdnNOUe90elKGCxkkDSZKsJpjRxpx6xWI3DAOWZUHXdU7J5sxTz/VACFlNMPaeKWEARVEgHAi4UC/Q7XQhCiLGo/FSsv8aXJCkGfWQwHVdTuX7PqIw4l6y+fsAViN0PKSUcEi9EoXDRbr14zpURV0SXI2QHgmPXkOWsmM7vJ7YnPq6tmD416GEPgbDIT9/2pUGWZaxubGJyWTCG1kgaxESeiuCIIBF7zV7M++Yh8zLdQhfAEvVKmsELF0zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;image.png&quot;
-        title=&quot;image.png&quot;
-        src=&quot;/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png&quot;
-        srcset=&quot;/static/7409c8b4318879dd58a2531833213ad8/5a46d/net9.png 300w,
-/static/7409c8b4318879dd58a2531833213ad8/44c61/net9.png 485w&quot;
-        sizes=&quot;(max-width: 485px) 100vw, 485px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react使用websocket通信]]></title><description><![CDATA[react使用websocket通信]]></description><link>https://pipihua666.github.io/websocket</link><guid isPermaLink="false">https://pipihua666.github.io/websocket</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;浏览器自带的-api&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%B8%A6%E7%9A%84-api&quot; aria-label=&quot;浏览器自带的 api permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;浏览器自带的 api&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果是 https 则采用 wss&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 这里的转发标识为/ws&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; wsPath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ws://&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;host&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/ws/system&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; socket &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;WebSocket&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wsPath&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;open&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token comment&quot;&gt;// send可以传递字符串或者二进制&lt;/span&gt;
-  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; page&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handleMessage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handleMessage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a name=&quot;0BRMq&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;开发环境配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;开发环境配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;开发环境配置：&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;devServer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      proxy&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token comment&quot;&gt;// 普通http请求&lt;/span&gt;
-        &lt;span class=&quot;token string&quot;&gt;&apos;/api&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            target&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://localhost:8099/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            changeOrigin&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-            secure&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;token comment&quot;&gt;// websocket请求配置&lt;/span&gt;
-        &lt;span class=&quot;token string&quot;&gt;&apos;/ws&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          target&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;ws://localhost:8099/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// 可以写http或者ws开头&lt;/span&gt;
-          ws&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 代理使用websokcet协议&lt;/span&gt;
-          secure&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-          changeOrigin&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br /&gt;
-&lt;p&gt;&lt;a name=&quot;UDtcL&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;生产环境配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;生产环境配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;生产环境配置：&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 这里是websocket相关的配置
-&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.233&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.238&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8090&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_next_upstream&lt;/span&gt; error &lt;span class=&quot;token keyword&quot;&gt;timeout&lt;/span&gt; invalid_header http_500 http_502 http_503&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Host &lt;span class=&quot;token variable&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_http_version&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Real&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;IP &lt;span class=&quot;token variable&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Forwarded&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;For &lt;span class=&quot;token variable&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; X&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Forwarded&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Proto &lt;span class=&quot;token keyword&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Upgrade &lt;span class=&quot;token variable&quot;&gt;$http_upgrade&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Connection &lt;span class=&quot;token string&quot;&gt;&quot;upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Origin &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;proxy_redirect&lt;/span&gt; off&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br /&gt;
-&lt;h2 id=&quot;我的-nginx-配置：&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%88%91%E7%9A%84-nginx-%E9%85%8D%E7%BD%AE%EF%BC%9A&quot; aria-label=&quot;我的 nginx 配置： permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;我的 nginx 配置：&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;rewrite&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ws&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;v1&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;$&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;ginapp&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;service&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8686&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;proxy_http_version&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Upgrade &lt;span class=&quot;token variable&quot;&gt;$http_upgrade&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;proxy_set_header&lt;/span&gt; Connection &lt;span class=&quot;token string&quot;&gt;&quot;upgrade&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;nodejs 后端非常好用的 websocket 通信包：&lt;a href=&quot;https://socket.io/&quot;&gt;https://socket.io/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;基于 socket.io 衍生出的前端 websocket 通信工具：&lt;a href=&quot;https://socket.io/docs/client-api/&quot;&gt;https://socket.io/docs/client-api/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;注意：socket.io.client 必须与 socker.io 配合使用&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;/blockquote&gt;</content:encoded></item></channel></rss>
