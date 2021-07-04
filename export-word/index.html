@@ -214,7 +214,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <li><a href="https://docx.js.org/#/usage/images" target="_blank">Image Run</a>：用于创建图片，支持浮动和内联的定位；</li>
 <li><a href="https://docx.js.org/#/usage/tables" target="_blank">Tables</a>：用于创建表格，支持设置表格每一行和每个表格单元的内容。</li>
 </ul>
-<h2 id="react-通过-echarts-的-「getdataurl」-实现" style="position:relative;"><a href="#react-%E9%80%9A%E8%BF%87-echarts-%E7%9A%84-%E3%80%8Cgetdataurl%E3%80%8D-%E5%AE%9E%E7%8E%B0" aria-label="react 通过 echarts 的 「getdataurl」 实现 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React 通过 echarts 的 「getDataURL」 实现</h2>
+<h2 id="react-通过-echarts-的-getdataurl-实现" style="position:relative;"><a href="#react-%E9%80%9A%E8%BF%87-echarts-%E7%9A%84-getdataurl-%E5%AE%9E%E7%8E%B0" aria-label="react 通过 echarts 的 getdataurl 实现 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React 通过 echarts 的 getDataURL 实现</h2>
 <p>Docx 不能插入「图表」，值得庆幸的是图片还是可以插入的。 Image Run 可以通过 Data URL 和 buffer 插入图片，于是我联想到了 echarts 的「getDataURL」能够获取到图表的 Data Url。按照下面的方法就能实现「图表」图片的 Data URL 生成了。</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">/**
  * @description:通过echarts的实例api生成图表Data URL
@@ -333,7 +333,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <li>为什么要用 Go 呢？因为我们项目后端就用的 Go，Node.js 同样也能这样实现导出和插入图表。还有一个原因是：Go 是真的快啊！</li>
 <li>每次插入「图表」感觉都是插入的图片，这样导出的 word 意义在哪儿？图表只能看，不能修改和交互（→_→）。好了，我看到了你鄙视的小眼神，接下来的模板渲染方法帮你解决这些所有的疑问。</li>
 </ul>
-<h3 id="先让我们来了解下「docx」的特性" style="position:relative;"><a href="#%E5%85%88%E8%AE%A9%E6%88%91%E4%BB%AC%E6%9D%A5%E4%BA%86%E8%A7%A3%E4%B8%8B%E3%80%8Cdocx%E3%80%8D%E7%9A%84%E7%89%B9%E6%80%A7" aria-label="先让我们来了解下「docx」的特性 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>先让我们来了解下「.docx」的特性</h3>
+<h3 id="「docx」的特性" style="position:relative;"><a href="#%E3%80%8Cdocx%E3%80%8D%E7%9A%84%E7%89%B9%E6%80%A7" aria-label="「docx」的特性 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>「.docx」的特性</h3>
 <p>.docx 的 word 文档其实就是一个 zip 压缩包(xml 文件的集合)，我们通过把<code class="language-text">example.docx</code>重命名为<code class="language-text">example.zip</code>，然后解压出来，你就可以看到如下文件：
 <span
       class="gatsby-resp-image-wrapper"
@@ -404,15 +404,143 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <li><code class="language-text">charts</code>是图表集合</li>
 <li><code class="language-text">document.xml</code>是整个文档的 xml 显示</li>
 </ul>
-<h3 id="模板渲染的思路" style="position:relative;"><a href="#%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93%E7%9A%84%E6%80%9D%E8%B7%AF" aria-label="模板渲染的思路 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>模板渲染的思路</h3>
+<h3 id="模板渲染实现-word-导出" style="position:relative;"><a href="#%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0-word-%E5%AF%BC%E5%87%BA" aria-label="模板渲染实现 word 导出 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>模板渲染实现 word 导出</h3>
+<p>我们以下面的 word 文档为例
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3585595c8fbfd869dfc6cfbddd5ebcc6/c0b59/6.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 81.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB3GSJbQKP/8QAFhABAQEAAAAAAAAAAAAAAAAAEQEQ/9oACAEBAAEFAtq1z//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPwGn/8QAGBAAAgMAAAAAAAAAAAAAAAAAABAhUYH/2gAIAQEABj8CcUav/8QAHRABAAEEAwEAAAAAAAAAAAAAAREAECFBMVFhcf/aAAgBAQABPyEIXHLqs+2hblp9oNeoRb//2gAMAwEAAgADAAAAELTP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARBh/9oACAEDAQE/EBS//8QAFhEAAwAAAAAAAAAAAAAAAAAAARBh/9oACAECAQE/EDC//8QAHBAAAgMBAAMAAAAAAAAAAAAAAREAIUExEHGB/9oACAEBAAE/ECmjRRQEsT3BzfsETJwJotEU7KHKfj//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="6"
+        title="6"
+        src="/static/3585595c8fbfd869dfc6cfbddd5ebcc6/e5166/6.jpg"
+        srcset="/static/3585595c8fbfd869dfc6cfbddd5ebcc6/f93b5/6.jpg 300w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/b4294/6.jpg 600w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/e5166/6.jpg 1200w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/c0b59/6.jpg 1438w"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <ol>
-<li>一个请求创建一个<code class="language-text">模板文件夹</code></li>
-<li>把需要插入数据的地方修改为相应的<code class="language-text">模板语法</code>，在 Go 中就是这样的模板语法<code class="language-text">{{.Title}}</code>，通过把模板文件结合数据渲染出最终的文件替换<code class="language-text">模板文件夹</code>中的同名文件。</li>
-<li>最后把<code class="language-text">模板文件夹</code>的集合压缩为 zip 包，然后重命名为.docx 就是一个根据数据生成的 word 文档啦！</li>
+<li>一个请求创建一个<code class="language-text">结果模板文件夹</code>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/952574047e011022cb2845f14188dc50/a66e6/3.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABwwTB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxAAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAQABPyEig9P/2gAMAwEAAgADAAAAEPff/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAx/9oACAEDAQE/EDSdv//EABYRAAMAAAAAAAAAAAAAAAAAAAEQMf/aAAgBAgEBPxAxf//EABcQAQEBAQAAAAAAAAAAAAAAAAEhABH/2gAIAQEAAT8QaPbcoIYcjf/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="3"
+        title="3"
+        src="/static/952574047e011022cb2845f14188dc50/e5166/3.jpg"
+        srcset="/static/952574047e011022cb2845f14188dc50/f93b5/3.jpg 300w,
+/static/952574047e011022cb2845f14188dc50/b4294/3.jpg 600w,
+/static/952574047e011022cb2845f14188dc50/e5166/3.jpg 1200w,
+/static/952574047e011022cb2845f14188dc50/a66e6/3.jpg 1356w"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></li>
+<li>把<code class="language-text">源模板文件夹</code>中需要插入数据的地方修改为相应的<code class="language-text">模板语法</code>，在 Go 中就是这样的模板语法<code class="language-text">{{.Title}}</code>，通过把<code class="language-text">源模板文件夹</code>结合数据<b>渲染</b>出最终的文件替换<code class="language-text">结果模板文件夹</code>中的同名文件。比如这里的<code class="language-text">/word/charts/chart1.xml</code>文件（其他 xml 文件同理）
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeTAyCwAP//EABUQAQEAAAAAAAAAAAAAAAAAACAR/9oACAEBAAEFAhD/AP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAEQADFhESH/2gAIAQEAAT8hGw8Q9uHSNP8A/9oADAMBAAIAAwAAABAzzzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAcEAEAAgMAAwAAAAAAAAAAAAABEUEAEDEhcbH/2gAIAQEAAT8QZDQvFWfmieMJ94BTSgBx7v8A/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="4"
+        title="4"
+        src="/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg"
+        srcset="/static/8cf3869cab7025aa0938f343bb634164/f93b5/4.jpg 300w,
+/static/8cf3869cab7025aa0938f343bb634164/b4294/4.jpg 600w,
+/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg 1200w,
+/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg 1210w"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></li>
+<li>最后把<code class="language-text">结果模板文件夹</code>的集合压缩为 zip 包，然后重命名为.docx 这就是一个根据数据生成的 word 文档啦！可以直接返回给前端了。最终渲染的 word 文档如下
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7ae124d2765508f2b806b00b4af0b0af/52572/5.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB3LCZXkFH/8QAGhAAAQUBAAAAAAAAAAAAAAAAAQACESAhMf/aAAgBAQABBQLaQ4Ic/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BCf/EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AVn/xAAXEAADAQAAAAAAAAAAAAAAAAACECCh/9oACAEBAAY/AoPF/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITEQQbH/2gAIAQEAAT8hwbnoq+K6sCqLbYqLvs//2gAMAwEAAgADAAAAEJ/P/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERQf/aAAgBAwEBPxCzUv/EABcRAQADAAAAAAAAAAAAAAAAAAABEUH/2gAIAQIBAT8QoxD/xAAeEAEAAgEEAwAAAAAAAAAAAAABABEhMUFRoWFxgf/aAAgBAQABPxCmiIu66Nowyg+CBy3EAGjq2YhGZcu2adT0GfU//9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="5"
+        title="5"
+        src="/static/7ae124d2765508f2b806b00b4af0b0af/e5166/5.jpg"
+        srcset="/static/7ae124d2765508f2b806b00b4af0b0af/f93b5/5.jpg 300w,
+/static/7ae124d2765508f2b806b00b4af0b0af/b4294/5.jpg 600w,
+/static/7ae124d2765508f2b806b00b4af0b0af/e5166/5.jpg 1200w,
+/static/7ae124d2765508f2b806b00b4af0b0af/52572/5.jpg 1502w"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></li>
 </ol>
 <h3 id="优缺点" style="position:relative;"><a href="#%E4%BC%98%E7%BC%BA%E7%82%B9" aria-label="优缺点 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优缺点</h3>
 <ul>
-<li>优点：这里的图表就可以交互和修改了！性能也很好，没有依赖其他第三方库。</li>
+<li>
+<p>优点：</p>
+<ul>
+<li>这里的图表就可以交互和修改了！</li>
+<li>性能也很好，没有依赖其他第三方库。</li>
+<li>可以根据相应的 xml 修改 word 样式(当然 Docx 也可以)</li>
+</ul>
+</li>
 <li>缺点：每个请求都要生成一个解压后的模板文件夹，如果请求过多，文件夹占用的内存较大。</li>
 </ul>
 <blockquote>

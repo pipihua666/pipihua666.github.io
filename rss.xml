@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 04 Jul 2021 11:51:42 GMT</lastBuildDate><item><title><![CDATA[四种方式实现在导出word中添加「图表」]]></title><description><![CDATA[1. React前端通过echarts的获取图表的dataUrl实现<br/>2. Nodejs通过无头浏览器截图实现<br/>3. Nodejs结合Canvas和Echarts实现<br/>4. Golang通过模板渲染修改word元数据实现]]></description><link>https://pipihua666.github.io/export-word</link><guid isPermaLink="false">https://pipihua666.github.io/export-word</guid><pubDate>Sun, 27 Jun 2021 09:20:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 04 Jul 2021 15:36:51 GMT</lastBuildDate><item><title><![CDATA[四种方式实现在导出word中添加「图表」]]></title><description><![CDATA[1. React前端通过echarts的获取图表的dataUrl实现<br/>2. Nodejs通过无头浏览器截图实现<br/>3. Nodejs结合Canvas和Echarts实现<br/>4. Golang通过模板渲染修改word元数据实现]]></description><link>https://pipihua666.github.io/export-word</link><guid isPermaLink="false">https://pipihua666.github.io/export-word</guid><pubDate>Sun, 27 Jun 2021 09:20:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;为什么要说说如何在 word 中插入「图表」呢？因为前端熟知的第三方库&lt;a href=&quot;https://github.com/dolanmiu/docx&quot;&gt;Docx&lt;/a&gt;不支持插入「图表」！！！&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/dolanmiu/docx&quot;&gt;Docx&lt;/a&gt;这个库提供了优雅的声明式 API，让我们可以使用 JS/TS 轻松生成 &lt;b&gt;「.docx」&lt;/b&gt; 文件。此外，它还同时支持 Node.js 和浏览器。&lt;/p&gt;
@@ -51,7 +51,7 @@
 &lt;li&gt;&lt;a href=&quot;https://docx.js.org/#/usage/images&quot; target=&quot;_blank&quot;&gt;Image Run&lt;/a&gt;：用于创建图片，支持浮动和内联的定位；&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://docx.js.org/#/usage/tables&quot; target=&quot;_blank&quot;&gt;Tables&lt;/a&gt;：用于创建表格，支持设置表格每一行和每个表格单元的内容。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;react-通过-echarts-的-「getdataurl」-实现&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-%E9%80%9A%E8%BF%87-echarts-%E7%9A%84-%E3%80%8Cgetdataurl%E3%80%8D-%E5%AE%9E%E7%8E%B0&quot; aria-label=&quot;react 通过 echarts 的 「getdataurl」 实现 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React 通过 echarts 的 「getDataURL」 实现&lt;/h2&gt;
+&lt;h2 id=&quot;react-通过-echarts-的-getdataurl-实现&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-%E9%80%9A%E8%BF%87-echarts-%E7%9A%84-getdataurl-%E5%AE%9E%E7%8E%B0&quot; aria-label=&quot;react 通过 echarts 的 getdataurl 实现 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React 通过 echarts 的 getDataURL 实现&lt;/h2&gt;
 &lt;p&gt;Docx 不能插入「图表」，值得庆幸的是图片还是可以插入的。 Image Run 可以通过 Data URL 和 buffer 插入图片，于是我联想到了 echarts 的「getDataURL」能够获取到图表的 Data Url。按照下面的方法就能实现「图表」图片的 Data URL 生成了。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
  * @description:通过echarts的实例api生成图表Data URL
@@ -170,7 +170,7 @@
 &lt;li&gt;为什么要用 Go 呢？因为我们项目后端就用的 Go，Node.js 同样也能这样实现导出和插入图表。还有一个原因是：Go 是真的快啊！&lt;/li&gt;
 &lt;li&gt;每次插入「图表」感觉都是插入的图片，这样导出的 word 意义在哪儿？图表只能看，不能修改和交互（→_→）。好了，我看到了你鄙视的小眼神，接下来的模板渲染方法帮你解决这些所有的疑问。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;先让我们来了解下「docx」的特性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%88%E8%AE%A9%E6%88%91%E4%BB%AC%E6%9D%A5%E4%BA%86%E8%A7%A3%E4%B8%8B%E3%80%8Cdocx%E3%80%8D%E7%9A%84%E7%89%B9%E6%80%A7&quot; aria-label=&quot;先让我们来了解下「docx」的特性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;先让我们来了解下「.docx」的特性&lt;/h3&gt;
+&lt;h3 id=&quot;「docx」的特性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%80%8Cdocx%E3%80%8D%E7%9A%84%E7%89%B9%E6%80%A7&quot; aria-label=&quot;「docx」的特性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;「.docx」的特性&lt;/h3&gt;
 &lt;p&gt;.docx 的 word 文档其实就是一个 zip 压缩包(xml 文件的集合)，我们通过把&lt;code class=&quot;language-text&quot;&gt;example.docx&lt;/code&gt;重命名为&lt;code class=&quot;language-text&quot;&gt;example.zip&lt;/code&gt;，然后解压出来，你就可以看到如下文件：
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -241,15 +241,143 @@
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;charts&lt;/code&gt;是图表集合&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;document.xml&lt;/code&gt;是整个文档的 xml 显示&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;模板渲染的思路&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93%E7%9A%84%E6%80%9D%E8%B7%AF&quot; aria-label=&quot;模板渲染的思路 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;模板渲染的思路&lt;/h3&gt;
+&lt;h3 id=&quot;模板渲染实现-word-导出&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93%E5%AE%9E%E7%8E%B0-word-%E5%AF%BC%E5%87%BA&quot; aria-label=&quot;模板渲染实现 word 导出 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;模板渲染实现 word 导出&lt;/h3&gt;
+&lt;p&gt;我们以下面的 word 文档为例
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3585595c8fbfd869dfc6cfbddd5ebcc6/c0b59/6.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB3GSJbQKP/8QAFhABAQEAAAAAAAAAAAAAAAAAEQEQ/9oACAEBAAEFAtq1z//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPwGn/8QAGBAAAgMAAAAAAAAAAAAAAAAAABAhUYH/2gAIAQEABj8CcUav/8QAHRABAAEEAwEAAAAAAAAAAAAAAREAECFBMVFhcf/aAAgBAQABPyEIXHLqs+2hblp9oNeoRb//2gAMAwEAAgADAAAAELTP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARBh/9oACAEDAQE/EBS//8QAFhEAAwAAAAAAAAAAAAAAAAAAARBh/9oACAECAQE/EDC//8QAHBAAAgMBAAMAAAAAAAAAAAAAAREAIUExEHGB/9oACAEBAAE/ECmjRRQEsT3BzfsETJwJotEU7KHKfj//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;6&quot;
+        title=&quot;6&quot;
+        src=&quot;/static/3585595c8fbfd869dfc6cfbddd5ebcc6/e5166/6.jpg&quot;
+        srcset=&quot;/static/3585595c8fbfd869dfc6cfbddd5ebcc6/f93b5/6.jpg 300w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/b4294/6.jpg 600w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/e5166/6.jpg 1200w,
+/static/3585595c8fbfd869dfc6cfbddd5ebcc6/c0b59/6.jpg 1438w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;一个请求创建一个&lt;code class=&quot;language-text&quot;&gt;模板文件夹&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;把需要插入数据的地方修改为相应的&lt;code class=&quot;language-text&quot;&gt;模板语法&lt;/code&gt;，在 Go 中就是这样的模板语法&lt;code class=&quot;language-text&quot;&gt;{{.Title}}&lt;/code&gt;，通过把模板文件结合数据渲染出最终的文件替换&lt;code class=&quot;language-text&quot;&gt;模板文件夹&lt;/code&gt;中的同名文件。&lt;/li&gt;
-&lt;li&gt;最后把&lt;code class=&quot;language-text&quot;&gt;模板文件夹&lt;/code&gt;的集合压缩为 zip 包，然后重命名为.docx 就是一个根据数据生成的 word 文档啦！&lt;/li&gt;
+&lt;li&gt;一个请求创建一个&lt;code class=&quot;language-text&quot;&gt;结果模板文件夹&lt;/code&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/952574047e011022cb2845f14188dc50/a66e6/3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABwwTB/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxAAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAQABPyEig9P/2gAMAwEAAgADAAAAEPff/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAx/9oACAEDAQE/EDSdv//EABYRAAMAAAAAAAAAAAAAAAAAAAEQMf/aAAgBAgEBPxAxf//EABcQAQEBAQAAAAAAAAAAAAAAAAEhABH/2gAIAQEAAT8QaPbcoIYcjf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;3&quot;
+        title=&quot;3&quot;
+        src=&quot;/static/952574047e011022cb2845f14188dc50/e5166/3.jpg&quot;
+        srcset=&quot;/static/952574047e011022cb2845f14188dc50/f93b5/3.jpg 300w,
+/static/952574047e011022cb2845f14188dc50/b4294/3.jpg 600w,
+/static/952574047e011022cb2845f14188dc50/e5166/3.jpg 1200w,
+/static/952574047e011022cb2845f14188dc50/a66e6/3.jpg 1356w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;把&lt;code class=&quot;language-text&quot;&gt;源模板文件夹&lt;/code&gt;中需要插入数据的地方修改为相应的&lt;code class=&quot;language-text&quot;&gt;模板语法&lt;/code&gt;，在 Go 中就是这样的模板语法&lt;code class=&quot;language-text&quot;&gt;{{.Title}}&lt;/code&gt;，通过把&lt;code class=&quot;language-text&quot;&gt;源模板文件夹&lt;/code&gt;结合数据&lt;b&gt;渲染&lt;/b&gt;出最终的文件替换&lt;code class=&quot;language-text&quot;&gt;结果模板文件夹&lt;/code&gt;中的同名文件。比如这里的&lt;code class=&quot;language-text&quot;&gt;/word/charts/chart1.xml&lt;/code&gt;文件（其他 xml 文件同理）
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeTAyCwAP//EABUQAQEAAAAAAAAAAAAAAAAAACAR/9oACAEBAAEFAhD/AP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAEQADFhESH/2gAIAQEAAT8hGw8Q9uHSNP8A/9oADAMBAAIAAwAAABAzzzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAcEAEAAgMAAwAAAAAAAAAAAAABEUEAEDEhcbH/2gAIAQEAAT8QZDQvFWfmieMJ94BTSgBx7v8A/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;4&quot;
+        title=&quot;4&quot;
+        src=&quot;/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg&quot;
+        srcset=&quot;/static/8cf3869cab7025aa0938f343bb634164/f93b5/4.jpg 300w,
+/static/8cf3869cab7025aa0938f343bb634164/b4294/4.jpg 600w,
+/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg 1200w,
+/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg 1210w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;最后把&lt;code class=&quot;language-text&quot;&gt;结果模板文件夹&lt;/code&gt;的集合压缩为 zip 包，然后重命名为.docx 这就是一个根据数据生成的 word 文档啦！可以直接返回给前端了。最终渲染的 word 文档如下
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7ae124d2765508f2b806b00b4af0b0af/52572/5.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB3LCZXkFH/8QAGhAAAQUBAAAAAAAAAAAAAAAAAQACESAhMf/aAAgBAQABBQLaQ4Ic/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BCf/EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AVn/xAAXEAADAQAAAAAAAAAAAAAAAAACECCh/9oACAEBAAY/AoPF/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITEQQbH/2gAIAQEAAT8hwbnoq+K6sCqLbYqLvs//2gAMAwEAAgADAAAAEJ/P/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERQf/aAAgBAwEBPxCzUv/EABcRAQADAAAAAAAAAAAAAAAAAAABEUH/2gAIAQIBAT8QoxD/xAAeEAEAAgEEAwAAAAAAAAAAAAABABEhMUFRoWFxgf/aAAgBAQABPxCmiIu66Nowyg+CBy3EAGjq2YhGZcu2adT0GfU//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;5&quot;
+        title=&quot;5&quot;
+        src=&quot;/static/7ae124d2765508f2b806b00b4af0b0af/e5166/5.jpg&quot;
+        srcset=&quot;/static/7ae124d2765508f2b806b00b4af0b0af/f93b5/5.jpg 300w,
+/static/7ae124d2765508f2b806b00b4af0b0af/b4294/5.jpg 600w,
+/static/7ae124d2765508f2b806b00b4af0b0af/e5166/5.jpg 1200w,
+/static/7ae124d2765508f2b806b00b4af0b0af/52572/5.jpg 1502w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&quot;优缺点&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BC%98%E7%BC%BA%E7%82%B9&quot; aria-label=&quot;优缺点 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;优缺点&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;优点：这里的图表就可以交互和修改了！性能也很好，没有依赖其他第三方库。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这里的图表就可以交互和修改了！&lt;/li&gt;
+&lt;li&gt;性能也很好，没有依赖其他第三方库。&lt;/li&gt;
+&lt;li&gt;可以根据相应的 xml 修改 word 样式(当然 Docx 也可以)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;缺点：每个请求都要生成一个解压后的模板文件夹，如果请求过多，文件夹占用的内存较大。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
