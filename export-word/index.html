@@ -468,37 +468,39 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
       />
   </a>
     </span></li>
-<li>把<code class="language-text">源模板文件夹</code>中需要插入数据的地方修改为相应的<code class="language-text">模板语法</code>，在 Go 中就是这样的模板语法<code class="language-text">{{.Title}}</code>，通过把<code class="language-text">源模板文件夹</code>结合数据<b>渲染</b>出最终的文件替换<code class="language-text">结果模板文件夹</code>中的同名文件。比如这里的<code class="language-text">/word/charts/chart1.xml</code>文件（其他 xml 文件同理）
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeTAyCwAP//EABUQAQEAAAAAAAAAAAAAAAAAACAR/9oACAEBAAEFAhD/AP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAEQADFhESH/2gAIAQEAAT8hGw8Q9uHSNP8A/9oADAMBAAIAAwAAABAzzzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAcEAEAAgMAAwAAAAAAAAAAAAABEUEAEDEhcbH/2gAIAQEAAT8QZDQvFWfmieMJ94BTSgBx7v8A/9k='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="4"
-        title="4"
-        src="/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg"
-        srcset="/static/8cf3869cab7025aa0938f343bb634164/f93b5/4.jpg 300w,
-/static/8cf3869cab7025aa0938f343bb634164/b4294/4.jpg 600w,
-/static/8cf3869cab7025aa0938f343bb634164/e5166/4.jpg 1200w,
-/static/8cf3869cab7025aa0938f343bb634164/5ac89/4.jpg 1210w"
-        sizes="(max-width: 1200px) 100vw, 1200px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></li>
+<li>把<code class="language-text">源模板文件夹</code>中需要插入数据的地方修改为相应的<code class="language-text">模板语法</code>，在 Go 中就是这样的模板语法<code class="language-text">{{.Title}}</code>，通过把<code class="language-text">源模板文件夹</code>结合数据<b>渲染</b>出最终的文件替换<code class="language-text">结果模板文件夹</code>中的同名文件。比如这里的<code class="language-text">/word/charts/chart1.xml</code>文件（其他 xml 文件同理）</li>
+</ol>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>cat</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>strRef</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>f</span><span class="token punctuation">></span></span>Sheet1!$A$2:$A$5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>f</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>strCache</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>ptCount</span> <span class="token attr-name">val</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{.ChartData | len | print}}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            {{/* 遍历数据ChartData: []Chart{{"小明", 100}, {"小花", 88}, {"小红", 66}} */}}
+            {{range $index, $element := .ChartData}}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>pt</span> <span class="token attr-name">idx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{$index | print}}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                {{ /* name */}}
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>v</span><span class="token punctuation">></span></span>{{$element.Key}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>v</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>pt</span><span class="token punctuation">></span></span>
+            {{end}}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>strCache</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>strRef</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>cat</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>val</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>numRef</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>f</span><span class="token punctuation">></span></span>Sheet1!$B$2:$B$5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>f</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>numCache</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>formatCode</span><span class="token punctuation">></span></span>General<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>formatCode</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>ptCount</span> <span class="token attr-name">val</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{.ChartData | len | print}}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            {{range $index, $element := .ChartData}}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>pt</span> <span class="token attr-name">idx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{$index | print}}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                {{/* value */}}
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">c:</span>v</span><span class="token punctuation">></span></span>{{$element.Value}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>v</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>pt</span><span class="token punctuation">></span></span>
+            {{end}}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>numCache</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>numRef</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">c:</span>val</span><span class="token punctuation">></span></span></code></pre></div>
+<ol start="3">
 <li>最后把<code class="language-text">结果模板文件夹</code>的集合压缩为 zip 包，然后重命名为.docx 这就是一个根据数据生成的 word 文档啦！可以直接返回给前端了。最终渲染的 word 文档如下
 <span
       class="gatsby-resp-image-wrapper"
