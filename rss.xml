@@ -1,4 +1,234 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Aug 2021 07:52:07 GMT</lastBuildDate><item><title><![CDATA[JavaScript多种继承方式以及优缺点]]></title><description><![CDATA[1.new 运算符究竟都干了些什么？<br/>2.原型链继承<br/>3.构造函数继承<br/>4.组合继承<br/>5.原型式继承<br/>6.寄生式继承<br/>7.寄生组合式继承]]></description><link>https://pipihua666.github.io/js-inherit</link><guid isPermaLink="false">https://pipihua666.github.io/js-inherit</guid><pubDate>Sun, 08 Aug 2021 05:55:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;new-运算符究竟都干了些什么？&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#new-%E8%BF%90%E7%AE%97%E7%AC%A6%E7%A9%B6%E7%AB%9F%E9%83%BD%E5%B9%B2%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88%EF%BC%9F&quot; aria-label=&quot;new 运算符究竟都干了些什么？ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;new 运算符究竟都干了些什么？&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Aug 2021 10:11:49 GMT</lastBuildDate><item><title><![CDATA[V8的垃圾回收机制和内存限制]]></title><description><![CDATA[V8的垃圾回收机制，新生代Scavenge算法，老生代Mark-Sweep & Mark-Compact]]></description><link>https://pipihua666.github.io/garbage-collection</link><guid isPermaLink="false">https://pipihua666.github.io/garbage-collection</guid><pubDate>Sun, 08 Aug 2021 08:33:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;v8-的内存限制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E7%9A%84%E5%86%85%E5%AD%98%E9%99%90%E5%88%B6&quot; aria-label=&quot;v8 的内存限制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 的内存限制&lt;/h2&gt;
+&lt;p&gt;在一般的后端开发语言中都是没有内存限制的，由于基于 v8 最初是为浏览器设计的，64 位下的 1.4GB 和 32 位下的 0.7GB 的限制值用起来是绰绰有余的，导致 Nodejs 在开发的过程中只能在该限制下运行，这将会导致 Nodejs 无法直接操作大内存对象，比如无法将一个 2GB 的文件读入内存中进行字符串分析处理，即使物理内存有 32 个 G。&lt;/p&gt;
+&lt;h2 id=&quot;v8-内存限制的原因&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E5%86%85%E5%AD%98%E9%99%90%E5%88%B6%E7%9A%84%E5%8E%9F%E5%9B%A0&quot; aria-label=&quot;v8 内存限制的原因 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 内存限制的原因&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;表面原因是浏览器对 1.4GB 和 0.7GB 的使用绰绰有余&lt;/li&gt;
+&lt;li&gt;深层原因是 v8 的垃圾回收机制的限制。按照官方说法，以 1.5GB 的垃圾回收堆内存为例，v8 做一次小的垃圾回收需要 50ms 以上，做一次非增量式的垃圾回收甚至需要 1s 以上。因为 js 的执行是单线程的，在垃圾回收时会暂停 js 的执行，导致应用的性能和响应能力直线下降。（垃圾回收是在特定的时候执行的）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然，Nodejs 在启动的时候也可以通过传递参数来调整内存限制的大小，实例如下：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;node &lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;max&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;old&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;space&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;size&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1700&lt;/span&gt; test&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;js &lt;span class=&quot;token comment&quot;&gt;// 老生代内存空间大小。单位为MB&lt;/span&gt;
+node &lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;max&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;space&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;size&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt; test&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;js &lt;span class=&quot;token comment&quot;&gt;// 新生代内存空间大小。单位为MB&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;v8-的垃圾回收机制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6&quot; aria-label=&quot;v8 的垃圾回收机制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 的垃圾回收机制&lt;/h2&gt;
+&lt;h3 id=&quot;v8-的内存分代&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E4%BB%A3&quot; aria-label=&quot;v8 的内存分代 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 的内存分代&lt;/h3&gt;
+&lt;p&gt;在 v8 中内存分为新生代和老生代两代。新生代中的对象为存活时间较短的对象，老生代中的对象为存活时间较长或常驻内存的对象。
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f9af4b6ad825e60d24ae99e349c223b5/0c02e/1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3AUH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFhAAAwAAAAAAAAAAAAAAAAAAABBB/9oACAEBAAE/ISr/2gAMAwEAAgADAAAAEHPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAERITFBUZH/2gAIAQEAAT8QV1RDjBCjS4f/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;1.jpg&quot;
+        title=&quot;1.jpg&quot;
+        src=&quot;/static/f9af4b6ad825e60d24ae99e349c223b5/e5166/1.jpg&quot;
+        srcset=&quot;/static/f9af4b6ad825e60d24ae99e349c223b5/f93b5/1.jpg 300w,
+/static/f9af4b6ad825e60d24ae99e349c223b5/b4294/1.jpg 600w,
+/static/f9af4b6ad825e60d24ae99e349c223b5/e5166/1.jpg 1200w,
+/static/f9af4b6ad825e60d24ae99e349c223b5/0c02e/1.jpg 1206w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;scavenge（清道夫）算法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scavenge%EF%BC%88%E6%B8%85%E9%81%93%E5%A4%AB%EF%BC%89%E7%AE%97%E6%B3%95&quot; aria-label=&quot;scavenge（清道夫）算法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scavenge（清道夫）算法&lt;/h3&gt;
+&lt;p&gt;新生代中的对象主要通过 Scavenge 算法进行垃圾回收，它将堆内存一分为二，每一部分空间称为 semispace。在这两个 semispace 空间中，只有一个处于使用状态，另一个处于闲置状态。处于使用状态的 simispace 空间称为 From 空间，处于闲置状态的空间称为 To 空间。当开始从 From 空间进行垃圾回收时，会将存活对象复制到 To 空间中，非存活对象的空间将会被释放。完成复制后 From 空间和 To 空间角色互换。（相当于漏斗一样，无限过滤）&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1098px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/755d326b9602da68ef97791931a259d3/46d48/2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3KAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAABH/2gAIAQEAAT8hVX//2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIUFhgf/aAAgBAQABPxBVTXqUTRfZbhSf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;2.jpg&quot;
+        title=&quot;2.jpg&quot;
+        src=&quot;/static/755d326b9602da68ef97791931a259d3/46d48/2.jpg&quot;
+        srcset=&quot;/static/755d326b9602da68ef97791931a259d3/f93b5/2.jpg 300w,
+/static/755d326b9602da68ef97791931a259d3/b4294/2.jpg 600w,
+/static/755d326b9602da68ef97791931a259d3/46d48/2.jpg 1098w&quot;
+        sizes=&quot;(max-width: 1098px) 100vw, 1098px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Scavenge 算法的缺点是只能使用堆内存的一半，是典型的空间换时间的算法，所以无法大规模应用到所有的垃圾回收中。但可以发现，Scavenge 非常适合应用在新生代中，因为新生代中对象的生命周期较短，恰恰适合这个算法。&lt;/p&gt;
+&lt;h3 id=&quot;晋升&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%99%8B%E5%8D%87&quot; aria-label=&quot;晋升 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;晋升&lt;/h3&gt;
+&lt;p&gt;对象从新生代移动到老生代的过程称为晋升，晋升的条件主要有两个。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对象是否经历过 Scavenge 回收&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1058px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7e61cd7f0b6665e93451d0e2e239f2f4/3e9cd/3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdylQhh//8QAFhAAAwAAAAAAAAAAAAAAAAAAEBEg/9oACAEBAAEFAg4//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBEDFB/9oACAEBAAE/IZTHSdOV/9oADAMBAAIAAwAAABDgD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAAICAgMAAAAAAAAAAAAAAAERACEQMUFRkf/aAAgBAQABPxBjI1uoRHBidQvEFg8f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;3.jpg&quot;
+        title=&quot;3.jpg&quot;
+        src=&quot;/static/7e61cd7f0b6665e93451d0e2e239f2f4/3e9cd/3.jpg&quot;
+        srcset=&quot;/static/7e61cd7f0b6665e93451d0e2e239f2f4/f93b5/3.jpg 300w,
+/static/7e61cd7f0b6665e93451d0e2e239f2f4/b4294/3.jpg 600w,
+/static/7e61cd7f0b6665e93451d0e2e239f2f4/3e9cd/3.jpg 1058w&quot;
+        sizes=&quot;(max-width: 1058px) 100vw, 1058px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;2.To 空间的内存占比是否超过 25%&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设置 25%这个限制原因是当这里 Scavenge 算法完成后，这个 To 空间将变成 From 空间接下来的内存分配将在这个空间中进行。如果占比过高，会影响后续的内存分配。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1058px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f20d021621b998b9150ca3d2b5b71f89/3e9cd/4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdylQhh//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEREDH/2gAIAQEAAT8hcpSj7v8A/9oADAMBAAIAAwAAABDgD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAMAAwEBAAAAAAAAAAAAAAABESFRkUGB/9oACAEBAAE/EKX3BPlfwnTG4FlKkWkf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;4.jpg&quot;
+        title=&quot;4.jpg&quot;
+        src=&quot;/static/f20d021621b998b9150ca3d2b5b71f89/3e9cd/4.jpg&quot;
+        srcset=&quot;/static/f20d021621b998b9150ca3d2b5b71f89/f93b5/4.jpg 300w,
+/static/f20d021621b998b9150ca3d2b5b71f89/b4294/4.jpg 600w,
+/static/f20d021621b998b9150ca3d2b5b71f89/3e9cd/4.jpg 1058w&quot;
+        sizes=&quot;(max-width: 1058px) 100vw, 1058px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;mark-sweep&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mark-sweep&quot; aria-label=&quot;mark sweep permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Mark-Sweep&lt;/h2&gt;
+&lt;p&gt;对于老生代中的对象，由于存活时间较长，再采用 Scavenge 的方式会有两个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;存活对象过多，复制存活对象向的效率将会很低（筛选不掉很多非存活对象，浪费时间）&lt;/li&gt;
+&lt;li&gt;浪费一半的内存空间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Mark-Sweep 是标记清除的意思，它分为标记和清除两个阶段。在标记阶段遍历堆中所有对象，并标记存活的对象，在随后的清除过程中只清除没有标记的对象。
+可以看出，Scavenge 只复制活着的对象，Mark-Sweep 只清除死亡的对象。由于活对象在新生代中占比少，死对象在老生代中的占比少，这就是两种方式各自高效 的原因。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8a149046a4dd82710cc03d53d0311ecc/801ec/5.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.666666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3AQH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFhAAAwAAAAAAAAAAAAAAAAAAAAEQ/9oACAEBAAE/IYz/2gAMAwEAAgADAAAAEHPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxAAAgIDAQAAAAAAAAAAAAAAABEBQSExUZH/2gAIAQEAAT8Qcut8HLrwlk//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;5.jpg&quot;
+        title=&quot;5.jpg&quot;
+        src=&quot;/static/8a149046a4dd82710cc03d53d0311ecc/e5166/5.jpg&quot;
+        srcset=&quot;/static/8a149046a4dd82710cc03d53d0311ecc/f93b5/5.jpg 300w,
+/static/8a149046a4dd82710cc03d53d0311ecc/b4294/5.jpg 600w,
+/static/8a149046a4dd82710cc03d53d0311ecc/e5166/5.jpg 1200w,
+/static/8a149046a4dd82710cc03d53d0311ecc/801ec/5.jpg 1442w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;缺点&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BC%BA%E7%82%B9&quot; aria-label=&quot;缺点 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;缺点&lt;/h3&gt;
+&lt;p&gt;清除后的内存空间会出现不连续的现象，这种不连续的内存称为“内存碎片”。内存碎片会对后续的内存分配造成问题，因为有可能新生代中晋升的对象需要的内存较大，但是老生代中没有可直接分配的内存大小，对于这种需要分配一个大对象的况，这时所有的”碎片空间“都无法完成此次分配，就会提前触发垃圾回收，而这次回收是不必要的。&lt;/p&gt;
+&lt;h2 id=&quot;mark-compact&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mark-compact&quot; aria-label=&quot;mark compact permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Mark-Compact&lt;/h2&gt;
+&lt;p&gt;Mark-Compact 是标记整理的意思。它和 Mark-Sweep 的区别是，在标记对象死亡后，在整理的过程中，将或者的对象往一端移动，移动完成后直接清理掉边界外的内存。（也就是清理以下的空洞内存）&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d42a6818c60ad05b31f58c68be688d3f/07f3a/6.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAG2AD//xAAWEAADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCKv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABgQAAMBAQAAAAAAAAAAAAAAAAARYTFR/9oACAEBAAE/IXBOGw//2gAMAwEAAgADAAAAEPPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAICAwAAAAAAAAAAAAAAAQARIXExQcH/2gAIAQEAAT8QSPBz7Gwa6xHuGhP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;6.jpg&quot;
+        title=&quot;6.jpg&quot;
+        src=&quot;/static/d42a6818c60ad05b31f58c68be688d3f/07f3a/6.jpg&quot;
+        srcset=&quot;/static/d42a6818c60ad05b31f58c68be688d3f/f93b5/6.jpg 300w,
+/static/d42a6818c60ad05b31f58c68be688d3f/b4294/6.jpg 600w,
+/static/d42a6818c60ad05b31f58c68be688d3f/07f3a/6.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;v8 主要使用 Mark-Sweep,在空间不足以从新生代中晋升的对象分配时才使用 Mark-Compact&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;增量标记&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A2%9E%E9%87%8F%E6%A0%87%E8%AE%B0&quot; aria-label=&quot;增量标记 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;增量标记&lt;/h2&gt;
+&lt;p&gt;在执行三种垃圾回收算法时都需要将 js 主线程的应用逻辑停顿下来，待执行完垃圾回收之后再恢复执行应用逻辑。这种行为称为“全停顿”。对于新生代默认得较小，且其中存活的对象较少，即使全停顿也影响不大。但对于 v8 对老生代的配置较大，而且存活对象较多，“全停顿”造成的后果是非常可怕的，需要设法改善。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;增量标记就是拆分为许多小步前进，每做完一步，就让 js 的应用逻辑执行一小会儿。两者互相交替执行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;v8 后续要引进了“延迟清理“，”增量式整理“，”并行标记“，”并行清除“等,进一步地减少垃圾回收对主线程的影响，为应用提升更多的性能。&lt;/p&gt;
+&lt;h2 id=&quot;高效使用内存&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98&quot; aria-label=&quot;高效使用内存 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;高效使用内存&lt;/h2&gt;
+&lt;p&gt;在正常的 js 执行中，无法立即回收的内存有”闭包”和“全局变量”引用这两种情况。由于 v8 的内存限制，要十分小心此类变量是否无限制的添加，因为他会导致老生代中的对象增多。所以建议如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;尽可能少的使用全局变量&lt;/li&gt;
+&lt;li&gt;手动清除定时器&lt;/li&gt;
+&lt;li&gt;少用闭包&lt;/li&gt;
+&lt;li&gt;清除 DOM 引用&lt;/li&gt;
+&lt;li&gt;弱引用，如 ES6 中的&lt;code class=&quot;language-text&quot;&gt;WeakMap&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;WeakSet&lt;/code&gt;就是为了解决内存泄漏的问题而诞生的&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[JavaScript多种继承方式以及优缺点]]></title><description><![CDATA[1.new 运算符究竟都干了些什么？<br/>2.原型链继承<br/>3.构造函数继承<br/>4.组合继承<br/>5.原型式继承<br/>6.寄生式继承<br/>7.寄生组合式继承]]></description><link>https://pipihua666.github.io/js-inherit</link><guid isPermaLink="false">https://pipihua666.github.io/js-inherit</guid><pubDate>Sun, 08 Aug 2021 05:55:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;new-运算符究竟都干了些什么？&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#new-%E8%BF%90%E7%AE%97%E7%AC%A6%E7%A9%B6%E7%AB%9F%E9%83%BD%E5%B9%B2%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88%EF%BC%9F&quot; aria-label=&quot;new 运算符究竟都干了些什么？ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;new 运算符究竟都干了些什么？&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 以下继承会用到该父对象&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;defaultName&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name
