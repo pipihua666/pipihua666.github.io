@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Aug 2021 10:11:49 GMT</lastBuildDate><item><title><![CDATA[V8的垃圾回收机制和内存限制]]></title><description><![CDATA[V8的垃圾回收机制，新生代Scavenge算法，老生代Mark-Sweep & Mark-Compact]]></description><link>https://pipihua666.github.io/garbage-collection</link><guid isPermaLink="false">https://pipihua666.github.io/garbage-collection</guid><pubDate>Sun, 08 Aug 2021 08:33:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;v8-的内存限制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E7%9A%84%E5%86%85%E5%AD%98%E9%99%90%E5%88%B6&quot; aria-label=&quot;v8 的内存限制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 的内存限制&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Sep 2021 15:06:32 GMT</lastBuildDate><item><title><![CDATA[css尺寸之百分比%]]></title><description><![CDATA[css尺寸之百分比%]]></description><link>https://pipihua666.github.io/css-percent</link><guid isPermaLink="false">https://pipihua666.github.io/css-percent</guid><pubDate>Sun, 22 Aug 2021 13:12:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;css-中可以取百分比的属性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#css-%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%8F%96%E7%99%BE%E5%88%86%E6%AF%94%E7%9A%84%E5%B1%9E%E6%80%A7&quot; aria-label=&quot;css 中可以取百分比的属性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSS 中可以取百分比的属性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;定位：top, right, bottom, left&lt;/li&gt;
+&lt;li&gt;盒模型：width,height, margin,padding&lt;/li&gt;
+&lt;li&gt;背景：background-position, background-size&lt;/li&gt;
+&lt;li&gt;文本：text-indent&lt;/li&gt;
+&lt;li&gt;字体：font-size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;百分比是如何计算的&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%99%BE%E5%88%86%E6%AF%94%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%9A%84&quot; aria-label=&quot;百分比是如何计算的 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;百分比是如何计算的&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;百分比的计算是相对一个基数的，这个基数与当前元素的包含块有关。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;基于包含块的宽度来计算的属性：margin, padding, width, max-width,min-width, left, right, text-indent.&lt;/li&gt;
+&lt;li&gt;基于包含块的高度来计算的属性：top，bottom，height，max-height，min-height&lt;/li&gt;
+&lt;li&gt;基于当前字体大小来计算的属性：line-height&lt;/li&gt;
+&lt;li&gt;基于 line-height 来计算的属性：vertical-align&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基于元素本身的宽高：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;background-position：背景图像的位置，分别设置水平方向和垂直方向上的两个值，如果使用百分比，那么百分比值会同时应用于元素和图像。例如 50% 50% 会把图片的（50%, 50%）这一点与框的（50%, 50%）处对齐，相当于设置了 center center。同理 0% 0% 相当于 left top，100% 100% 相当于 right bottom&lt;/li&gt;
+&lt;li&gt;background-size:100% 100%; 但此值只能应用在块元素上，所设置百分值将使用背景图片大小根据所在元素的宽度和高度的百分比来计算&lt;/li&gt;
+&lt;li&gt;顺便说一说 background-size 的另外两个自适应属性：「cover」 会在保持背景图宽高比的状态下填满块的宽和高，「contain」 会在保持背景图的宽高比的状态下尽量填满块的宽或高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    backgroundColor&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;red&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    position&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;relative&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	  backgroundColor&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blue&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	  position&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;absolute&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+      height&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;10%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 20&lt;/span&gt;
+      width&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;10%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 10&lt;/span&gt;
+      top&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;50%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 100&lt;/span&gt;
+      left&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;50%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 50&lt;/span&gt;
+      margin&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;10%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 10&lt;/span&gt;
+      padding&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;10%&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 10,&lt;/span&gt;
+	  backgroundSize&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//10 20&lt;/span&gt;
+      transform&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;translate(-50%,-50%)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// -15,-20&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;translate 的值并不是仅仅根据 width 和 height 来进行计算的，还要取决于 border 和 padding 的值。比如这里的 transform:translate(-50%,-50%)，则是基于 padding+width+border 的 50%和高度的 (原理同上)50%进行平移。原因是需要基于元素的左上角进行平移。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[V8的垃圾回收机制和内存限制]]></title><description><![CDATA[V8的垃圾回收机制，新生代Scavenge算法，老生代Mark-Sweep & Mark-Compact]]></description><link>https://pipihua666.github.io/garbage-collection</link><guid isPermaLink="false">https://pipihua666.github.io/garbage-collection</guid><pubDate>Sun, 08 Aug 2021 08:33:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;v8-的内存限制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E7%9A%84%E5%86%85%E5%AD%98%E9%99%90%E5%88%B6&quot; aria-label=&quot;v8 的内存限制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 的内存限制&lt;/h2&gt;
 &lt;p&gt;在一般的后端开发语言中都是没有内存限制的，由于基于 v8 最初是为浏览器设计的，64 位下的 1.4GB 和 32 位下的 0.7GB 的限制值用起来是绰绰有余的，导致 Nodejs 在开发的过程中只能在该限制下运行，这将会导致 Nodejs 无法直接操作大内存对象，比如无法将一个 2GB 的文件读入内存中进行字符串分析处理，即使物理内存有 32 个 G。&lt;/p&gt;
 &lt;h2 id=&quot;v8-内存限制的原因&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#v8-%E5%86%85%E5%AD%98%E9%99%90%E5%88%B6%E7%9A%84%E5%8E%9F%E5%9B%A0&quot; aria-label=&quot;v8 内存限制的原因 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;V8 内存限制的原因&lt;/h2&gt;
 &lt;ol&gt;
@@ -4229,117 +4279,7 @@ socket&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[sass常用指令和常用函数]]></title><description><![CDATA[sass常用指令和常用函数,方便快速查找]]></description><link>https://pipihua666.github.io/sass</link><guid isPermaLink="false">https://pipihua666.github.io/sass</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a name=&quot;3e525057&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;scss-常用指令&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scss-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4&quot; aria-label=&quot;scss 常用指令 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;scss 常用指令&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：scss 与 sass 的区别&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;混合样式：&lt;code class=&quot;language-text&quot;&gt;@mixin 名字(参数1，参数2...){...}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;取用混合样式：&lt;code class=&quot;language-text&quot;&gt;@include 名字（@mixin的名字）&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;继承样式：&lt;code class=&quot;language-text&quot;&gt;@extend 需要继承的类、ID名、自定义的混合样式等的名字&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;导入 scss 样式：&lt;code class=&quot;language-text&quot;&gt;@import &amp;quot;scss文件名&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;条件控制指令：&lt;code class=&quot;language-text&quot;&gt;@if 条件{...}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;循环控制指令：&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@for $var from &amp;lt;开始值&amp;gt; through &amp;lt;结束值&amp;gt; -----------包括结束值&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@for $var from &amp;lt;开始值&amp;gt; to &amp;lt;结束值&amp;gt; ------------不包括结束值&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;循环 List 项目的控制指令：&lt;code class=&quot;language-text&quot;&gt;@each $var in $List{}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;条件判断循环：&lt;code class=&quot;language-text&quot;&gt;@while 条件{...}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;用户自定义的函数：&lt;code class=&quot;language-text&quot;&gt;@function 名称(参数1，参数2...){...}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;警告和错误的提示：&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@warn &amp;quot;...&amp;quot;------------------------在终端输出警告&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@error &amp;quot;...&amp;quot;----------------在.css文件和终端输出错误&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;b468e5e2&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;scss-常用函数&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scss-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0&quot; aria-label=&quot;scss 常用函数 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;scss 常用函数&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;数字函数 ：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$theNumber:4.5;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  percentage($theNumber)：将一个不带单位的数转换成百分比值；  //450%
-
-  round($theNumber)：将数值四舍五入，转换成一个最接近的整数；  //5
-
-  ceil($theNumber)：将大于自己的小数转换成下一位整数；   //5
-
-  floor($theNumber)：将一个数去除他的小数部分；  //4
-
-  abs($theNumber)：返回一个数的绝对值；//4.5
-
-  min($numbers…)：找出几个数值之间的最小值； //min(1,2,3) =1
-
-  max($numbers…)：找出几个数值之间的最大值； //max(1,2,3)=3
-
-  random(): 获取随机数   //随机数&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;字符串函数：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$theString:&amp;quot;Hello World&amp;quot;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;to-upper-case($theString)：输出$theString的大写                 //HELLO WORLD
-
-to-lower-case($theString)：输出$theString的小写                 //hello world
-
-str-length($theString):输出$theString的长度                     //11
-
-str-index($theString,&amp;quot;Hello&amp;quot;):输出$theString第二个参数的开始索引          //1
-
-str-insert($theString,&amp;quot;.com&amp;quot;,12):在索引为12的地方为$theString插入&amp;quot;.com&amp;quot; //&amp;quot;Hello World.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;颜色函数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整色相h的值
-
-$base-color-hsl:hsl(0,100,50%);  //	red
-$base-color:#ff0000;  //red
-
-adjust-hue($base-color-hsl,137deg);        //#00ff48
-adjust-hue($base-color,137deg);          //#00ff48&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整亮度l的值
-
-$base-color:hsl(222,100%,50%);             //#004cff
-
-$light-color:lighten($base-color,30%);        //#99b8ff（变亮）
-$dark-color:darken($base-color,20%);         //#002e99（变暗）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整饱和度s的值
-
-$base-color:hsl(221,50%,50%);            //#4068bf
-
-$saturate-color:saturate($color:$base-color,$amount:50%);          //#0051ff  (更饱和)
-$desaturate-color:desatudate($color:$base-color,$amount:30%);        //667699 (更不饱和)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整透明度a的值
-
-$base-color:hsla(222,100%,50%,0.5);  //rgba(0, 77, 255, 0.5)
-
-$fade-in-color:opacify($color: $primary-color, $amount: 0.3);  //rgba(0, 77, 255, 0.8)
-$fase-out-color:transparentize($color: $primary-color, $amount: 0.2);  //rgba(0, 77, 255, 0.3)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;列表函数（1px solid black：这样称为一个列表有三个项）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;length(5px 10px)：列表长度     //2
-length(5px 10px 0px 2px)  列表长度      //4
-
-nth(5px 10px,1)：列表第一项   //5px
-nth(5px 10px,2)：列表第二项   //10px
-
-index(1px solid red,solid)：列表solid的项目索引  //2
-
-append(5px 10px,5px)：列表中插入项目  //5px 10px 5px
-
-join(5px 10px,5px 10px):列表之间连接   //5px 10px 5px 10px
-join(5px 10px,5px 10px,参数)：列表之间条件连接  //参数为comma=5px,10px,5px,10px ---------参数为space=5px 10px 5px 10px&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;Map 函数(Map 为带有键值对的列表)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$colors:(light:#ffffff,dark:#000000);   //定义map&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;length($colors)：map的长度  //2
-
-map-get($colors,dark):取得键值为dark的值     //#000000
-
-map-keys($colors)：取得所有键      //(&amp;quot;light&amp;quot;,&amp;quot;dark&amp;quot;)
-
-map-values($colors) ：取得所有值      //(#ffffff,#000000)
-
-map-has-key($colors,light)：map是否有light键       //true
-
-map-merge($colors,(color-red:#ff0000)) ：插入键值对到map   //(light:#ffffff,dark:#000000,color-red:#ff0000)
-
-map-remove($colors,light,dark) :从map删除键值对      //(color-red:#ff0000)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[前端性能优化之回流和重绘]]></title><description><![CDATA[前端性能优化之回流和重绘]]></description><link>https://pipihua666.github.io/redraw</link><guid isPermaLink="false">https://pipihua666.github.io/redraw</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;回流和重绘优化&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98%E4%BC%98%E5%8C%96&quot; aria-label=&quot;回流和重绘优化 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;回流和重绘优化&lt;/h2&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[前端性能优化之回流和重绘]]></title><description><![CDATA[前端性能优化之回流和重绘]]></description><link>https://pipihua666.github.io/redraw</link><guid isPermaLink="false">https://pipihua666.github.io/redraw</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;回流和重绘优化&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98%E4%BC%98%E5%8C%96&quot; aria-label=&quot;回流和重绘优化 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;回流和重绘优化&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;translate 替代 top 改变&lt;/li&gt;
 &lt;li&gt;opacity 替代 visibility&lt;/li&gt;
@@ -5402,7 +5342,117 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;&lt;a href=&quot;https://juejin.im/post/6844903763359039501&quot;&gt;一个很全面的实现前端文件下载的博客&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://juejin.im/post/6844904069958467592&quot;&gt;前端下载文件的 5 中方法对比&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/jszip&quot;&gt;前端 zip 压缩文件/文件夹并下载到本地&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[前端大屏可视化]]></title><description><![CDATA[从零开始的基于echarts的可视化大屏开发.]]></description><link>https://pipihua666.github.io/visualization</link><guid isPermaLink="false">https://pipihua666.github.io/visualization</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;技术栈&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8A%80%E6%9C%AF%E6%A0%88&quot; aria-label=&quot;技术栈 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;技术栈&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[sass常用指令和常用函数]]></title><description><![CDATA[sass常用指令和常用函数,方便快速查找]]></description><link>https://pipihua666.github.io/sass</link><guid isPermaLink="false">https://pipihua666.github.io/sass</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a name=&quot;3e525057&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;scss-常用指令&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scss-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4&quot; aria-label=&quot;scss 常用指令 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;scss 常用指令&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：scss 与 sass 的区别&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;混合样式：&lt;code class=&quot;language-text&quot;&gt;@mixin 名字(参数1，参数2...){...}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;取用混合样式：&lt;code class=&quot;language-text&quot;&gt;@include 名字（@mixin的名字）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;继承样式：&lt;code class=&quot;language-text&quot;&gt;@extend 需要继承的类、ID名、自定义的混合样式等的名字&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;导入 scss 样式：&lt;code class=&quot;language-text&quot;&gt;@import &amp;quot;scss文件名&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;条件控制指令：&lt;code class=&quot;language-text&quot;&gt;@if 条件{...}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;循环控制指令：&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@for $var from &amp;lt;开始值&amp;gt; through &amp;lt;结束值&amp;gt; -----------包括结束值&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@for $var from &amp;lt;开始值&amp;gt; to &amp;lt;结束值&amp;gt; ------------不包括结束值&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;循环 List 项目的控制指令：&lt;code class=&quot;language-text&quot;&gt;@each $var in $List{}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;条件判断循环：&lt;code class=&quot;language-text&quot;&gt;@while 条件{...}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;用户自定义的函数：&lt;code class=&quot;language-text&quot;&gt;@function 名称(参数1，参数2...){...}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;警告和错误的提示：&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@warn &amp;quot;...&amp;quot;------------------------在终端输出警告&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;language-text&quot;&gt;@error &amp;quot;...&amp;quot;----------------在.css文件和终端输出错误&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;b468e5e2&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;scss-常用函数&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#scss-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0&quot; aria-label=&quot;scss 常用函数 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;scss 常用函数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;数字函数 ：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$theNumber:4.5;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  percentage($theNumber)：将一个不带单位的数转换成百分比值；  //450%
+
+  round($theNumber)：将数值四舍五入，转换成一个最接近的整数；  //5
+
+  ceil($theNumber)：将大于自己的小数转换成下一位整数；   //5
+
+  floor($theNumber)：将一个数去除他的小数部分；  //4
+
+  abs($theNumber)：返回一个数的绝对值；//4.5
+
+  min($numbers…)：找出几个数值之间的最小值； //min(1,2,3) =1
+
+  max($numbers…)：找出几个数值之间的最大值； //max(1,2,3)=3
+
+  random(): 获取随机数   //随机数&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;字符串函数：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$theString:&amp;quot;Hello World&amp;quot;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;to-upper-case($theString)：输出$theString的大写                 //HELLO WORLD
+
+to-lower-case($theString)：输出$theString的小写                 //hello world
+
+str-length($theString):输出$theString的长度                     //11
+
+str-index($theString,&amp;quot;Hello&amp;quot;):输出$theString第二个参数的开始索引          //1
+
+str-insert($theString,&amp;quot;.com&amp;quot;,12):在索引为12的地方为$theString插入&amp;quot;.com&amp;quot; //&amp;quot;Hello World.com&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;颜色函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整色相h的值
+
+$base-color-hsl:hsl(0,100,50%);  //	red
+$base-color:#ff0000;  //red
+
+adjust-hue($base-color-hsl,137deg);        //#00ff48
+adjust-hue($base-color,137deg);          //#00ff48&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整亮度l的值
+
+$base-color:hsl(222,100%,50%);             //#004cff
+
+$light-color:lighten($base-color,30%);        //#99b8ff（变亮）
+$dark-color:darken($base-color,20%);         //#002e99（变暗）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整饱和度s的值
+
+$base-color:hsl(221,50%,50%);            //#4068bf
+
+$saturate-color:saturate($color:$base-color,$amount:50%);          //#0051ff  (更饱和)
+$desaturate-color:desatudate($color:$base-color,$amount:30%);        //667699 (更不饱和)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;gt; 调整透明度a的值
+
+$base-color:hsla(222,100%,50%,0.5);  //rgba(0, 77, 255, 0.5)
+
+$fade-in-color:opacify($color: $primary-color, $amount: 0.3);  //rgba(0, 77, 255, 0.8)
+$fase-out-color:transparentize($color: $primary-color, $amount: 0.2);  //rgba(0, 77, 255, 0.3)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;列表函数（1px solid black：这样称为一个列表有三个项）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;length(5px 10px)：列表长度     //2
+length(5px 10px 0px 2px)  列表长度      //4
+
+nth(5px 10px,1)：列表第一项   //5px
+nth(5px 10px,2)：列表第二项   //10px
+
+index(1px solid red,solid)：列表solid的项目索引  //2
+
+append(5px 10px,5px)：列表中插入项目  //5px 10px 5px
+
+join(5px 10px,5px 10px):列表之间连接   //5px 10px 5px 10px
+join(5px 10px,5px 10px,参数)：列表之间条件连接  //参数为comma=5px,10px,5px,10px ---------参数为space=5px 10px 5px 10px&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Map 函数(Map 为带有键值对的列表)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$colors:(light:#ffffff,dark:#000000);   //定义map&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;length($colors)：map的长度  //2
+
+map-get($colors,dark):取得键值为dark的值     //#000000
+
+map-keys($colors)：取得所有键      //(&amp;quot;light&amp;quot;,&amp;quot;dark&amp;quot;)
+
+map-values($colors) ：取得所有值      //(#ffffff,#000000)
+
+map-has-key($colors,light)：map是否有light键       //true
+
+map-merge($colors,(color-red:#ff0000)) ：插入键值对到map   //(light:#ffffff,dark:#000000,color-red:#ff0000)
+
+map-remove($colors,light,dark) :从map删除键值对      //(color-red:#ff0000)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[前端大屏可视化]]></title><description><![CDATA[从零开始的基于echarts的可视化大屏开发.]]></description><link>https://pipihua666.github.io/visualization</link><guid isPermaLink="false">https://pipihua666.github.io/visualization</guid><pubDate>Sat, 20 Feb 2021 13:45:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;技术栈&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8A%80%E6%9C%AF%E6%A0%88&quot; aria-label=&quot;技术栈 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;技术栈&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;可视化技术栈：react，echarts，react-for-echarts，sass&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5415,14 +5465,42 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;
 &lt;p&gt;纵向自适应高度，我一开始采用的是 rem 的适应方案，可是发现有如下问题&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;rem 方案使用的是&lt;a href=&quot;https://www.njleonzhang.com/2018/08/15/flexible-pc-full-screen.html&quot;&gt;这篇文章的方案&lt;/a&gt;，大家可以看看工程运用那里，我关于 rem 的计算方案并不是采用的该文章的方法，如果你使用的是 vscode，那有款 cssrem 的插件很适合你&lt;/li&gt;
 &lt;li&gt;会修改根元素的 font-size，容易导致项目的其他页面字体大小有问题（可通过修改 document.body.fontSize 来解决）&lt;/li&gt;
-&lt;li&gt;如果放在大屏上，比如分辨率为 1920*1080 以上，屏幕下方会留白（对 rem 方案的不熟练）&lt;/li&gt;
+&lt;li&gt;如果放在大屏上，比如分辨率为 1920*1080 以上，屏幕下方会留白，这是由于 rem 是按照屏幕的比例来进行展示的&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;于是，我采用的是 vh 的方案，查看&lt;a href=&quot;https://caniuse.com/?search=vh&quot;&gt;caniuse&lt;/a&gt;，发现兼容性还不错&lt;/li&gt;
+&lt;li&gt;于是，我采用的是 vh 的方案，查看&lt;a href=&quot;https://caniuse.com/?search=vh&quot;&gt;caniuse&lt;/a&gt;，发现兼容性还不错，而且适合在各种比例的屏幕上进行显示&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;a name=&quot;IF4ph&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;rem-布局方案&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#rem-%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88&quot; aria-label=&quot;rem 布局方案 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;rem 布局方案&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rem 可以简单的理解为屏幕宽度的百分比&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;引入&lt;a href=&quot;https://github.com/amfe/lib-flexible/blob/2.0/index.js&quot;&gt;阿里的 flexible&lt;/a&gt;来进行屏幕划分，这里默认是将屏幕宽度划分成十等分，如果设计稿为 1920*1080，则 html 根元素的 font-size 为 1920/10 = 192 px&lt;/li&gt;
+&lt;li&gt;配置 vscode 的 cssrem 插件的 Root Font Size = 192(如果想直接写 px，可采用&lt;a href=&quot;https://github.com/songsiqi/px2rem-postcss&quot;&gt;postcss-px2rem&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;举个例子：设计稿为 1920*1080，实际投屏尺寸为 5760 * 3240&lt;/p&gt;
+&lt;p&gt;设计稿:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.dom&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 200px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;代码:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.dom&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1.0416666667rem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;实际：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;// 根html的font-size: 576
+.dom&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  // 1.0416666667 * 576
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 600px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;让 Echarts 图表根据屏幕宽度的大小变化而自适应，如果使用的是 react-for-echarts 就不用再添加了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;resize&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  echartsInstance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;可视化组件的背景图片&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6%E7%9A%84%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87&quot; aria-label=&quot;可视化组件的背景图片 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;可视化组件的背景图片&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;svg-作为背景图片带来的坑&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#svg-%E4%BD%9C%E4%B8%BA%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%9D%91&quot; aria-label=&quot;svg 作为背景图片带来的坑 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;svg 作为背景图片带来的坑&lt;/h3&gt;
@@ -5541,6 +5619,7 @@ axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
   &lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@include&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;screenMedia&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;20px&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;最后&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%9C%80%E5%90%8E&quot; aria-label=&quot;最后 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;最后&lt;/h2&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://www.njleonzhang.com/2018/08/15/flexible-pc-full-screen.html&quot;&gt;大屏上的全屏页面的自适应适配方案&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;文章针对前端可视化的大屏展示，根据需求来完善文章，欢迎各位大佬评论哦。&lt;br/&gt;
 如果有需要修改文章的内容，我会改进。&lt;br/&gt;

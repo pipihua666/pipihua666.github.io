@@ -174,14 +174,42 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <li>
 <p>纵向自适应高度，我一开始采用的是 rem 的适应方案，可是发现有如下问题</p>
 <ul>
-<li>rem 方案使用的是<a href="https://www.njleonzhang.com/2018/08/15/flexible-pc-full-screen.html">这篇文章的方案</a>，大家可以看看工程运用那里，我关于 rem 的计算方案并不是采用的该文章的方法，如果你使用的是 vscode，那有款 cssrem 的插件很适合你</li>
 <li>会修改根元素的 font-size，容易导致项目的其他页面字体大小有问题（可通过修改 document.body.fontSize 来解决）</li>
-<li>如果放在大屏上，比如分辨率为 1920*1080 以上，屏幕下方会留白（对 rem 方案的不熟练）</li>
+<li>如果放在大屏上，比如分辨率为 1920*1080 以上，屏幕下方会留白，这是由于 rem 是按照屏幕的比例来进行展示的</li>
 </ul>
 </li>
-<li>于是，我采用的是 vh 的方案，查看<a href="https://caniuse.com/?search=vh">caniuse</a>，发现兼容性还不错</li>
+<li>于是，我采用的是 vh 的方案，查看<a href="https://caniuse.com/?search=vh">caniuse</a>，发现兼容性还不错，而且适合在各种比例的屏幕上进行显示</li>
 </ol>
 <p><a name="IF4ph"></a></p>
+<h2 id="rem-布局方案" style="position:relative;"><a href="#rem-%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88" aria-label="rem 布局方案 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rem 布局方案</h2>
+<blockquote>
+<p>rem 可以简单的理解为屏幕宽度的百分比</p>
+</blockquote>
+<ol>
+<li>引入<a href="https://github.com/amfe/lib-flexible/blob/2.0/index.js">阿里的 flexible</a>来进行屏幕划分，这里默认是将屏幕宽度划分成十等分，如果设计稿为 1920*1080，则 html 根元素的 font-size 为 1920/10 = 192 px</li>
+<li>配置 vscode 的 cssrem 插件的 Root Font Size = 192(如果想直接写 px，可采用<a href="https://github.com/songsiqi/px2rem-postcss">postcss-px2rem</a>)</li>
+</ol>
+<p>举个例子：设计稿为 1920*1080，实际投屏尺寸为 5760 * 3240</p>
+<p>设计稿:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.dom</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>代码:</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.dom</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 1.0416666667rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>实际：</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">// 根html的font-size: 576
+.dom</span> <span class="token punctuation">{</span>
+  // 1.0416666667 * 576
+  <span class="token property">width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="3">
+<li>让 Echarts 图表根据屏幕宽度的大小变化而自适应，如果使用的是 react-for-echarts 就不用再添加了</li>
+</ol>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"resize"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  echartsInstance<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
 <h2 id="可视化组件的背景图片" style="position:relative;"><a href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6%E7%9A%84%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87" aria-label="可视化组件的背景图片 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>可视化组件的背景图片</h2>
 <hr>
 <h3 id="svg-作为背景图片带来的坑" style="position:relative;"><a href="#svg-%E4%BD%9C%E4%B8%BA%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%9D%91" aria-label="svg 作为背景图片带来的坑 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>svg 作为背景图片带来的坑</h3>
@@ -300,6 +328,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
   <span class="token atrule"><span class="token rule">@include</span> <span class="token function">screenMedia</span><span class="token punctuation">(</span>20px<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
 <span class="token punctuation">}</span></code></pre></div>
 <h2 id="最后" style="position:relative;"><a href="#%E6%9C%80%E5%90%8E" aria-label="最后 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最后</h2>
+<p>参考：<a href="https://www.njleonzhang.com/2018/08/15/flexible-pc-full-screen.html">大屏上的全屏页面的自适应适配方案</a></p>
 <blockquote>
 <p>文章针对前端可视化的大屏展示，根据需求来完善文章，欢迎各位大佬评论哦。<br/>
 如果有需要修改文章的内容，我会改进。<br/>
