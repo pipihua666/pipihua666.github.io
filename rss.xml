@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Jul 2022 10:23:55 GMT</lastBuildDate><item><title><![CDATA[你的npm仓库也许不需要任何打包工具]]></title><description><![CDATA[为什么npm包只需编译发布就好了，如何正确编译我们的npm包，并且sideEffects和babel-plugin-import实现按需加载的原理是什么？]]></description><link>https://pipihua666.github.io/npm-build</link><guid isPermaLink="false">https://pipihua666.github.io/npm-build</guid><pubDate>Sun, 19 Jun 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;为什么你的仓库不需要打包工具&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%8D%E9%9C%80%E8%A6%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7&quot; aria-label=&quot;为什么你的仓库不需要打包工具 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么你的仓库不需要打包工具&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 26 Nov 2022 13:40:35 GMT</lastBuildDate><item><title><![CDATA[你的npm仓库也许不需要任何打包工具]]></title><description><![CDATA[为什么npm包只需编译发布就好了，如何正确编译我们的npm包，并且sideEffects和babel-plugin-import实现按需加载的原理是什么？]]></description><link>https://pipihua666.github.io/npm-build</link><guid isPermaLink="false">https://pipihua666.github.io/npm-build</guid><pubDate>Sun, 19 Jun 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;为什么你的仓库不需要打包工具&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%8D%E9%9C%80%E8%A6%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7&quot; aria-label=&quot;为什么你的仓库不需要打包工具 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么你的仓库不需要打包工具&lt;/h2&gt;
 &lt;p&gt;如果你的仓库使用的是打包工具进行编译和打包，那么&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点是仓库对业务方没有影响&lt;/li&gt;
@@ -748,7 +748,7 @@ exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;ul&gt;
 &lt;li&gt;设计理念：快速响应&lt;/li&gt;
 &lt;li&gt;制约瓶颈：计算能力和网络延迟也就是 CPU 和 IO&lt;/li&gt;
-&lt;li&gt;解决方法：异步可中断更新(不管是 cpu 还是 io)&lt;/li&gt;
+&lt;li&gt;解决方法：异步可中断更新和人机交互&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;主流浏览器的渲染是 60hz,也就是 1000ms/60hz = 16.6ms 浏览器刷新一次。在此过程中，浏览器要进行 JS 的执行 -&gt; 样式布局 -&gt; 样式绘制，如果在这一帧中这三个过程不能全部完成，就要出现掉帧的情况。&lt;/p&gt;
 &lt;h3 id=&quot;如何优化-cpu&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-cpu&quot; aria-label=&quot;如何优化 cpu permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;如何优化 CPU?&lt;/h3&gt;
@@ -796,7 +796,13 @@ exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;JS 已通过 Generator 实现了协程，为什么 React 还要自己实现一个 Fiber 纤程呢？&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Generator 具有传染性，如果一个函数变成了 generator，那么调用它的函数也会变成 generator，从而受到了影响。&lt;/li&gt;
-&lt;li&gt;最重要的一点是：Fiber 架构为了达到两个目的,1 异步可中断并且继续，2 更新具有优先级，高优先级的更新可以打断低优先级的更新。generator 可以实现第一点，但是无法实现第二点。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最重要的一点是：Fiber 架构为了达到两个目的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;异步可中断并且继续&lt;/li&gt;
+&lt;li&gt;更新具有优先级，高优先级的更新可以打断低优先级的更新。generator 可以实现第一点，但是无法实现第二点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/facebook/react/issues/7942&quot;&gt;官方 issue 解释&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;fiber-架构的原理&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#fiber-%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8E%9F%E7%90%86&quot; aria-label=&quot;fiber 架构的原理 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fiber 架构的原理&lt;/h3&gt;
@@ -854,6 +860,23 @@ React&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 &lt;li&gt;采用双缓存的工作机制
 Fiber 通过当前屏幕上显示内容对应的 Fiber 树称为 &lt;code class=&quot;language-text&quot;&gt;current Fiber&lt;/code&gt; 树和正在内存中构建的 Fiber 树称为 &lt;code class=&quot;language-text&quot;&gt;workInProgress Fiber&lt;/code&gt; 树实现双缓存。通过直接在内存中绘制&lt;code class=&quot;language-text&quot;&gt;workInProgress Fiber&lt;/code&gt; 树,绘制完毕后直接替换&lt;code class=&quot;language-text&quot;&gt;current Fiber&lt;/code&gt; 树来实现页面的 dom 的更新。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;总结&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%80%BB%E7%BB%93&quot; aria-label=&quot;总结 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;总结&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;如何做到快速响应
+异步可中断更新和 concurrent 模式&lt;/li&gt;
+&lt;li&gt;为什么异步可中断更新可以实现快速响应
+当渲染大量 dom 节点这种 CPU 密集型操作时，同步更新会导致掉帧效果，而异步可中断更新不会&lt;/li&gt;
+&lt;li&gt;为什么同步更新在 CPU 密集时会导致掉帧
+当同步的 js 计算时间过长产生长任务时，浏览器就没时间去做样式绘制和布局了&lt;/li&gt;
+&lt;li&gt;怎样实现异步可中断更新
+Reconciler 协调器 实现了 Fiber ，Fiber 可实现异步可中断的更新&lt;/li&gt;
+&lt;li&gt;为什么要有 React Fiber
+Generator 协程可实现中断后恢复，但是不能实现任务优先级调度。所以 React 内部实现的一套状态更新机制。Fiber 支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。&lt;/li&gt;
+&lt;li&gt;Fiber 是如何实现异步可中断更新
+不晓得，这可能就是代数效应吧，我们不知道实现，但是知道它可。待源码查询一下 // TODO:&lt;/li&gt;
+&lt;li&gt;为什么 react 15 不能实现异步可中断更新
+在 React15 及以前，Reconciler 采用递归的方式创建虚拟 DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://react.iamkasong.com/state/reactdom.html#%E5%88%9B%E5%BB%BAfiber&quot;&gt;React 源码解析&lt;/a&gt;&lt;/li&gt;
