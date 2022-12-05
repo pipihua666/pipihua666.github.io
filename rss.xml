@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 26 Nov 2022 13:40:35 GMT</lastBuildDate><item><title><![CDATA[你的npm仓库也许不需要任何打包工具]]></title><description><![CDATA[为什么npm包只需编译发布就好了，如何正确编译我们的npm包，并且sideEffects和babel-plugin-import实现按需加载的原理是什么？]]></description><link>https://pipihua666.github.io/npm-build</link><guid isPermaLink="false">https://pipihua666.github.io/npm-build</guid><pubDate>Sun, 19 Jun 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;为什么你的仓库不需要打包工具&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%8D%E9%9C%80%E8%A6%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7&quot; aria-label=&quot;为什么你的仓库不需要打包工具 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么你的仓库不需要打包工具&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Dec 2022 12:07:01 GMT</lastBuildDate><item><title><![CDATA[你的npm仓库也许不需要任何打包工具]]></title><description><![CDATA[为什么npm包只需编译发布就好了，如何正确编译我们的npm包，并且sideEffects和babel-plugin-import实现按需加载的原理是什么？]]></description><link>https://pipihua666.github.io/npm-build</link><guid isPermaLink="false">https://pipihua666.github.io/npm-build</guid><pubDate>Sun, 19 Jun 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;为什么你的仓库不需要打包工具&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E7%9A%84%E4%BB%93%E5%BA%93%E4%B8%8D%E9%9C%80%E8%A6%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7&quot; aria-label=&quot;为什么你的仓库不需要打包工具 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;为什么你的仓库不需要打包工具&lt;/h2&gt;
 &lt;p&gt;如果你的仓库使用的是打包工具进行编译和打包，那么&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;优点是仓库对业务方没有影响&lt;/li&gt;
@@ -73,7 +73,13 @@
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;files 里面为啥要包括 src 目录？ - 为了方便 sourcemap&lt;/li&gt;
-&lt;li&gt;antd 为什么要放在 peerDependencies 里？ - 1. 为了防止和业务方的 antd 仓库冲突；2. 为了防止 antd 仓库的多次安装&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;antd 为什么要放在 peerDependencies 里？ -&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了防止和业务方的 antd 仓库冲突；&lt;/li&gt;
+&lt;li&gt;为了防止 antd 仓库的多次安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;顺便提一嘴仓库在使用 dependencies 声明依赖库的特点，来表明仓库使用 peerDependencies 的重要性&lt;/p&gt;
 &lt;ul&gt;
@@ -145,9 +151,13 @@
 &lt;p&gt;注意：两者的区别，&lt;code class=&quot;language-text&quot;&gt;style: true&lt;/code&gt;在编译时引入源文件而&lt;code class=&quot;language-text&quot;&gt;style: “css”&lt;/code&gt;在打包前按引入源文件。在编译时引入文件能有效利用 tree-shaking 减少 bundle 体积，而在打包前不能，这是 ES module 静态 import 的特性。&lt;/p&gt;
 &lt;h4 id=&quot;q--a&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#q--a&quot; aria-label=&quot;q  a permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Q &amp;#x26; A&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;为什么不在 Button 中直接引入&lt;code class=&quot;language-text&quot;&gt;import style&lt;/code&gt;来引入 css 文件呢，这样外部就不用考虑 css 的按需加载了？&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么不在 Button 中直接引入&lt;code class=&quot;language-text&quot;&gt;import style&lt;/code&gt;来引入 css 文件呢，这样外部就不用考虑 css 的按需加载了？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果需要覆盖 less 变量或者主题定制是有必要直接使用 less 的，但也可以使用 css vars 实现&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;如果需要覆盖 less 变量或者主题定制是有必要直接使用 less 的&lt;/p&gt;
 &lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://cmdcolin.github.io/posts/2022-05-27-youmaynotneedabundler&quot;&gt;You may not need a bundler for your NPM library&lt;/a&gt;&lt;/li&gt;
