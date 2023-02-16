@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 16 Feb 2023 08:01:01 GMT</lastBuildDate><item><title><![CDATA[通过伪代码彻底理解事件循环]]></title><description><![CDATA[通过伪代码的形式讲解浏览器、Nodejs、Web Worker的事件循环机制]]></description><link>https://pipihua666.github.io/js-eventLoop</link><guid isPermaLink="false">https://pipihua666.github.io/js-eventLoop</guid><pubDate>Wed, 15 Feb 2023 06:39:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 16 Feb 2023 13:29:59 GMT</lastBuildDate><item><title><![CDATA[通过伪代码彻底理解事件循环]]></title><description><![CDATA[通过伪代码的形式讲解浏览器、Nodejs、Web Worker的事件循环机制]]></description><link>https://pipihua666.github.io/js-eventLoop</link><guid isPermaLink="false">https://pipihua666.github.io/js-eventLoop</guid><pubDate>Wed, 15 Feb 2023 06:39:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;学习了本文内容后，你将更好的理解以下内容：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;宏任务和微任务有哪些&lt;/li&gt;
+&lt;li&gt;一帧中浏览器的工作流程&lt;/li&gt;
 &lt;li&gt;浏览器的事件循环机制&lt;/li&gt;
 &lt;li&gt;Nodejs 的事件循环机制&lt;/li&gt;
 &lt;li&gt;Web Worker 的事件循环机制&lt;/li&gt;
@@ -15,6 +16,19 @@
 &lt;li&gt;宏任务：script(整体代码)、setTimeout、setInterval、I/O、UI 事件交互、setImmediate(Nodejs 环境)&lt;/li&gt;
 &lt;li&gt;微任务：Promise.then、MutationObserver、process.nextTick(Nodejs 环境)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&quot;一帧中对于-fps-为-60hz-的显示器来说就是-166ms浏览器的工作流程&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%80%E5%B8%A7%E4%B8%AD%E5%AF%B9%E4%BA%8E-fps-%E4%B8%BA-60hz-%E7%9A%84%E6%98%BE%E7%A4%BA%E5%99%A8%E6%9D%A5%E8%AF%B4%E5%B0%B1%E6%98%AF-166ms%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B&quot; aria-label=&quot;一帧中对于 fps 为 60hz 的显示器来说就是 166ms浏览器的工作流程 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;一帧中(对于 FPS 为 60HZ 的显示器来说就是 16.6ms)浏览器的工作流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;输入事件（如：阻塞-touch、非阻塞-click），并将回调添加到事件循环队列&lt;/li&gt;
+&lt;li&gt;处理 JS 定时器，并将回调添加到事件循环队列&lt;/li&gt;
+&lt;li&gt;处理开始帧对应的事件(如：window.resize、scroll)&lt;/li&gt;
+&lt;li&gt;执行 rAF 回调(请求动画渲染) requestAnimationFrame&lt;/li&gt;
+&lt;li&gt;页面布局（样式计算、更新布局）&lt;/li&gt;
+&lt;li&gt;样式绘制&lt;/li&gt;
+&lt;li&gt;如果以上六个高优先级的阶段执行完则进入该阶段（空闲阶段）requestIdleCallback&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;requestIdleCallback 执行超出时间剩余时间的函数会导致浏览器卡住。而 requestAnimationFrame 会自动调节频率，如果 callback 工作太多无法在一帧内完成会自动降低为 30fps。虽然降低了，但总比掉帧好。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&quot;浏览器的事件循环机制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6&quot; aria-label=&quot;浏览器的事件循环机制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;浏览器的事件循环机制&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
  浏览器的事件循环相当于一个无限循环的旋转木马一样
@@ -51,7 +65,7 @@
 &lt;li&gt;没有讨厌的用户交互&lt;/li&gt;
 &lt;li&gt;没有动画队列的回调&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Nodejs 有三个主要阶段：&lt;/p&gt;
+&lt;p&gt;Nodejs 有三个主要阶段(从上往下顺序执行)：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;timer 计时器阶段，负责执行&lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;setInterval&lt;/code&gt;回调&lt;/li&gt;
 &lt;li&gt;poll 轮训阶段，用于执行所有 I/O 事件的回调，比如 定时回调、XHR 请求、磁盘读取、磁盘写入以及其他内容&lt;/li&gt;
@@ -61,10 +75,14 @@
 &lt;p&gt;poll 阶段比较特殊和重要：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果队列不为空，会遍历队列并同步执行，知道队列为空或达到系统限制&lt;/li&gt;
-&lt;li&gt;如果队列为空，会有三件事发生：&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果队列为空，会有三件事发生：&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;如果有 setImmediate 回调需要执行，poll 阶段会立即停止并进入 check 阶段执行回调&lt;/li&gt;
 &lt;li&gt;如果没有 setImmediate 回调需要执行，会等到回调呗加入的到队列中并立即执行，这里会有超时时间设置防止一直等待下去&lt;/li&gt;
 &lt;li&gt;如果没有 setImmediate 回调并且没有其他事件回调需要执行时，当 timer 到期了，需要回到 timer 阶段执行回调&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
