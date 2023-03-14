@@ -239,12 +239,12 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <blockquote>
 <p>poll 阶段比较特殊和重要：</p>
 <ul>
-<li>如果队列不为空，会遍历队列并同步执行，知道队列为空或达到系统限制</li>
+<li>如果队列不为空，会遍历队列并同步执行，直到队列为空或达到系统限制</li>
 <li>
 <p>如果队列为空，会有三件事发生：</p>
 <ol>
 <li>如果有 setImmediate 回调需要执行，poll 阶段会立即停止并进入 check 阶段执行回调</li>
-<li>如果没有 setImmediate 回调需要执行，会等到回调呗加入的到队列中并立即执行，这里会有超时时间设置防止一直等待下去</li>
+<li>如果没有 setImmediate 回调需要执行，会等到回调被加入的到队列中并立即执行，这里会有超时时间设置防止一直等待下去</li>
 <li>如果没有 setImmediate 回调并且没有其他事件回调需要执行时，当 timer 到期了，需要回到 timer 阶段执行回调</li>
 </ol>
 </li>
