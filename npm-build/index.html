@@ -278,10 +278,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <p>如果需要在保持开发体验的同时，减少业务方使用的成本。那就最好采用 2,3,4 方案。如果还需要按需加载 css 样式的要求，那就只能考虑 3,4 方案了。4 方案是 antd 采用的方案，但是需要业务方自己手动<b>管理依赖</b>，但是也可以通过 babel-plugin-import 插件来自动帮我们管理依赖。看了以下示例你们就懂第四种的方式了。</p>
 <p>假设我们有以下文件：</p>
 <ul>
-<li>css.js (引入 styles.css，由 index.js 生成，最后提供给业务方使用)</li>
 <li>index.js (引入 styles.less)</li>
 <li>Button.jsx</li>
 <li>styles.less</li>
+<li>css.js (引入 styles.css，由 index.js 生成，最后提供给业务方使用)</li>
+<li>styles.css (styles.less 编译生成，最后提供给业务方使用)</li>
 </ul>
 <p>css.js</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">"style.less"</span></code></pre></div>
