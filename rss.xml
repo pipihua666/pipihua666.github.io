@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 16 Feb 2023 13:29:59 GMT</lastBuildDate><item><title><![CDATA[通过伪代码彻底理解事件循环]]></title><description><![CDATA[通过伪代码的形式讲解浏览器、Nodejs、Web Worker的事件循环机制]]></description><link>https://pipihua666.github.io/js-eventLoop</link><guid isPermaLink="false">https://pipihua666.github.io/js-eventLoop</guid><pubDate>Wed, 15 Feb 2023 06:39:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed]]></title><description><![CDATA[About %TOPICS%]]></description><link>https://pipihua666.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 14 Mar 2023 03:42:39 GMT</lastBuildDate><item><title><![CDATA[通过伪代码彻底理解事件循环]]></title><description><![CDATA[通过伪代码的形式讲解浏览器、Nodejs、Web Worker的事件循环机制]]></description><link>https://pipihua666.github.io/js-eventLoop</link><guid isPermaLink="false">https://pipihua666.github.io/js-eventLoop</guid><pubDate>Wed, 15 Feb 2023 06:39:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;学习了本文内容后，你将更好的理解以下内容：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;宏任务和微任务有哪些&lt;/li&gt;
@@ -27,7 +27,7 @@
 &lt;li&gt;如果以上六个高优先级的阶段执行完则进入该阶段（空闲阶段）requestIdleCallback&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;requestIdleCallback 执行超出时间剩余时间的函数会导致浏览器卡住。而 requestAnimationFrame 会自动调节频率，如果 callback 工作太多无法在一帧内完成会自动降低为 30fps。虽然降低了，但总比掉帧好。&lt;/p&gt;
+&lt;p&gt;requestIdleCallback 执行超出时间剩余时间的函数会导致浏览器卡住。而 requestAnimationFrame 会自动调节频率，如果 callback 工作太多无法在一帧内完成会自动降低为 30fps。虽然降低了，但总比浏览器卡死好。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;浏览器的事件循环机制&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6&quot; aria-label=&quot;浏览器的事件循环机制 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;浏览器的事件循环机制&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
@@ -1056,20 +1056,34 @@ Fiber 通过当前屏幕上显示内容对应的 Fiber 树称为 &lt;code class=
 &lt;/ul&gt;
 &lt;h3 id=&quot;总结&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%80%BB%E7%BB%93&quot; aria-label=&quot;总结 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;总结&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;如何做到快速响应
-异步可中断更新和 concurrent 模式&lt;/li&gt;
-&lt;li&gt;为什么异步可中断更新可以实现快速响应
-当渲染大量 dom 节点这种 CPU 密集型操作时，同步更新会导致掉帧效果，而异步可中断更新不会&lt;/li&gt;
-&lt;li&gt;为什么同步更新在 CPU 密集时会导致掉帧
-当同步的 js 计算时间过长产生长任务时，浏览器就没时间去做样式绘制和布局了&lt;/li&gt;
-&lt;li&gt;怎样实现异步可中断更新
-Reconciler 协调器 实现了 Fiber ，Fiber 可实现异步可中断的更新&lt;/li&gt;
-&lt;li&gt;为什么要有 React Fiber
-Generator 协程可实现中断后恢复，但是不能实现任务优先级调度。所以 React 内部实现的一套状态更新机制。Fiber 支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。&lt;/li&gt;
-&lt;li&gt;Fiber 是如何实现异步可中断更新
-不晓得，这可能就是代数效应吧，我们不知道实现，但是知道它可。待源码查询一下 // TODO:&lt;/li&gt;
-&lt;li&gt;为什么 react 15 不能实现异步可中断更新
-在 React15 及以前，Reconciler 采用递归的方式创建虚拟 DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何做到快速响应&lt;/p&gt;
+&lt;p&gt;异步可中断更新和 concurrent 模式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么异步可中断更新可以实现快速响应&lt;/p&gt;
+&lt;p&gt;当渲染大量 dom 节点这种 CPU 密集型操作时，同步更新会导致掉帧效果，而异步可中断更新不会&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么同步更新在 CPU 密集时会导致掉帧&lt;/p&gt;
+&lt;p&gt;当同步的 js 计算时间过长产生长任务时，浏览器就没时间去做样式绘制和布局了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;怎样实现异步可中断更新&lt;/p&gt;
+&lt;p&gt;Reconciler 协调器 实现了 Fiber ，Fiber 可实现异步可中断的更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么要有 React Fiber&lt;/p&gt;
+&lt;p&gt;Generator 协程可实现中断后恢复，但是不能实现任务优先级调度。所以 React 内部实现的一套状态更新机制。Fiber 支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fiber 是如何实现异步可中断更新&lt;/p&gt;
+&lt;p&gt;不晓得，这可能就是代数效应吧，我们不知道实现，但是知道它可。待源码查询一下 // TODO:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为什么 react 15 不能实现异步可中断更新&lt;/p&gt;
+&lt;p&gt;在 React15 及以前，Reconciler 采用递归的方式创建虚拟 DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
