@@ -294,7 +294,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%;} body{margin:0;} main{displ
 <blockquote>
 <p>按需加载的原理是结合 ES module 和 tree-shaking 特性实现</p>
 </blockquote>
-<p>说到按需加载，就不得聊聊 package.json 中的<code class="language-text">sideEffects</code>属性和 babel 的<a href="https://www.npmjs.com/package/babel-plugin-import">babel-plugin-import 插件</a>，两者的相识点都是将类似<code class="language-text">import {array} from lodash</code> 转化为<code class="language-text">import array from lodash/array</code>，改变组件的引用路径实现按需加载，如果你的组件库有个统一的导出出口 index.js 就没必要用这些了。</p>
+<p>说到按需加载，就不得聊聊 package.json 中的<code class="language-text">sideEffects</code>属性和 babel 的<a href="https://www.npmjs.com/package/babel-plugin-import">babel-plugin-import 插件</a>。</p>
+<ul>
+<li>babel-plugin-import 插件是将类似<code class="language-text">import {array} from lodash</code> 转化为<code class="language-text">import array from lodash/array</code>，改变组件的引用路径实现按需加载，如果你的组件库有个统一的导出出口 index.js 就没必要用此插件了</li>
+<li>sideEffects 是告诉 webpack 等打包工具，哪些文件是有副作用的，没办法被安全 tree shaking</li>
+</ul>
 <h4 id="sideeffects" style="position:relative;"><a href="#sideeffects" aria-label="sideeffects permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sideEffects</h4>
 <p>说一下它常用的两个类型</p>
 <ul>
